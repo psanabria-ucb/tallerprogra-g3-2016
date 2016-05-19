@@ -46,7 +46,7 @@ public class DeleteClientForm extends JFrame {
     private void deleteService() {
 
         try {
-            clientController.delete(DeleteText.getText());
+            clientController.delete(Integer.parseInt(DeleteText.getText()));
 
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);

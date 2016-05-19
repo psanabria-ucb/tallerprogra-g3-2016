@@ -2,7 +2,6 @@ package bo.edu.ucbcba.hotel.controller;
 
 import bo.edu.ucbcba.hotel.dao.usersEntityManager;
 import bo.edu.ucbcba.hotel.model.Clients;
-import bo.edu.ucbcba.hotel.model.Services;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -57,11 +56,11 @@ public class ClientController {
     }
 
 
-    public void delete (String id) {
+    public void delete (int id) {
 
         EntityManager entityManager = usersEntityManager.createEntityManager();
         entityManager.getTransaction().begin();
-        entityManager.remove(entityManager.find(Services.class,(Integer.parseInt(id))));
+        entityManager.remove(entityManager.find(Clients.class,(id)));
         entityManager.getTransaction().commit();
         entityManager.close();
 

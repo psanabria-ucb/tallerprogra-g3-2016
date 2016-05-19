@@ -6,19 +6,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/log/log.ctrl" afterPath="$PROJECT_DIR$/HotelDB/log/log.ctrl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/log/log1.dat" afterPath="$PROJECT_DIR$/HotelDB/log/log1.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/log/logmirror.ctrl" afterPath="$PROJECT_DIR$/HotelDB/log/logmirror.ctrl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c300.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c300.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c311.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c311.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c320.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c320.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c340.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c340.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c351.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c351.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c360.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c360.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c371.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c371.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/DeleteRoomForm.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/DeleteRoomForm.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/RoomForm.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/RoomForm.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/derby.log" afterPath="$PROJECT_DIR$/derby.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/Main.java" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/NewRoomForm.form" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/NewRoomForm.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/NewRoomForm.java" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/NewRoomForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/RoomForm.form" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/RoomForm.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/RoomForm.java" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/RoomForm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/controller/ClientController.java" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/controller/ClientController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/DeleteClientForm.java" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/DeleteClientForm.java" />
     </list>
     <ignored path="group3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -103,12 +97,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ClientController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ClientController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/controller/ClientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="309">
+              <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -116,8 +112,8 @@
       <file leaf-file-name="ClientsForm.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/ClientsForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+            <state relative-caret-position="1462">
+              <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -140,8 +136,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+            <state relative-caret-position="85">
+              <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -149,8 +145,11 @@
       </file>
       <file leaf-file-name="RoomForm.form" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/RoomForm.form">
-          <provider selected="true" editor-type-id="ui-designer">
-            <state />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -164,10 +163,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HotelForm.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HotelForm.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/HotelForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
+            <state relative-caret-position="578">
               <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
               <folding />
             </state>
@@ -176,18 +175,27 @@
       </file>
       <file leaf-file-name="ClientsForm.form" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/ClientsForm.form">
-          <provider selected="true" editor-type-id="ui-designer">
-            <state />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="DeleteClientForm.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/DeleteClientForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+            <state relative-caret-position="204">
+              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#959#1110#0" expanded="false" />
+                <element signature="e#1109#1110#0" expanded="false" />
+                <element signature="e#1152#1310#0" expanded="false" />
+                <element signature="e#1309#1310#0" expanded="false" />
+                <element signature="e#5082#5083#0" expanded="false" />
+                <element signature="e#5122#5123#0" expanded="false" />
+                <marker date="1463686050821" expanded="true" signature="2213:4992" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -398,8 +406,8 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="F:/movie-example" value="2927024637728" />
         <entry key="$PROJECT_DIR$" value="2927332541087" />
+        <entry key="F:/movie-example" value="2927024637728" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -556,16 +564,16 @@
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/model/Clients.java" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/NewClientForm.form" />
-        <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/controller/ClientController.java" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/DeleteClientForm.form" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/NewClientForm.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/DeleteClientForm.java" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/ClientsForm.form" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/ClientsForm.java" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/RoomForm.form" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/RoomForm.java" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/HotelForm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/DeleteClientForm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/controller/ClientController.java" />
       </list>
     </option>
   </component>
@@ -585,8 +593,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1370" />
-    <option name="height" value="744" />
+    <option name="width" value="1382" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -613,9 +621,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -776,6 +783,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -878,133 +886,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="myFilePath" />
-      <option name="GLUE" />
-      <option name="myNameFilter" />
-      <option name="myGeneratedName" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
-      <option name="BCName" value="" />
-      <option name="IOSSimulatorSdkPath" value="" />
-      <option name="adlOptions" value="" />
-      <option name="airProgramParameters" value="" />
-      <option name="appDescriptorForEmulator" value="Android" />
-      <option name="debugTransport" value="USB" />
-      <option name="debuggerSdkRaw" value="BC SDK" />
-      <option name="emulator" value="NexusOne" />
-      <option name="emulatorAdlOptions" value="" />
-      <option name="fastPackaging" value="true" />
-      <option name="fullScreenHeight" value="0" />
-      <option name="fullScreenWidth" value="0" />
-      <option name="launchUrl" value="false" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="FlashPlayerDebugger.exe" />
-        </LauncherParameters>
-      </option>
-      <option name="mobileRunTarget" value="Emulator" />
-      <option name="moduleName" value="" />
-      <option name="overriddenMainClass" value="" />
-      <option name="overriddenOutputFileName" value="" />
-      <option name="overrideMainClass" value="false" />
-      <option name="runTrusted" value="true" />
-      <option name="screenDpi" value="0" />
-      <option name="screenHeight" value="0" />
-      <option name="screenWidth" value="0" />
-      <option name="url" value="http://" />
-      <option name="usbDebugPort" value="7936" />
-      <method />
-    </configuration>
-    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
-      <option name="BCName" value="" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="FlashPlayerDebugger.exe" />
-        </LauncherParameters>
-      </option>
-      <option name="moduleName" value="" />
-      <option name="trusted" value="true" />
-      <method />
-    </configuration>
     <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -1019,15 +900,6 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="run-app" />
-      <setting name="passParentEnv" value="true" />
-      <setting name="launchBrowser" value="true" />
-      <setting name="depsClasspath" value="false" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -1093,9 +965,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -1127,12 +996,6 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -1191,28 +1054,6 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run-script" />
-      <scripts />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
-      <method />
-    </configuration>
-    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
-      <method />
-    </configuration>
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
     </list>
@@ -1250,7 +1091,7 @@
     <option name="totallyTimeSpent" value="996000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1261,14 +1102,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30441642" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30414745" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20827179" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26440176" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20801815" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26399395" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1278,7 +1117,9 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1357,7 +1198,13 @@
         <state relative-caret-position="272">
           <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#959#1110#0" expanded="false" />
+            <element signature="e#1109#1110#0" expanded="false" />
+            <element signature="e#1152#1310#0" expanded="false" />
+            <element signature="e#1309#1310#0" expanded="false" />
+            <element signature="e#5082#5083#0" expanded="false" />
+            <element signature="e#5122#5123#0" expanded="false" />
+            <marker date="1463686050821" expanded="true" signature="2213:4992" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -1380,7 +1227,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1427,7 +1276,13 @@
         <state relative-caret-position="272">
           <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#959#1110#0" expanded="false" />
+            <element signature="e#1109#1110#0" expanded="false" />
+            <element signature="e#1152#1310#0" expanded="false" />
+            <element signature="e#1309#1310#0" expanded="false" />
+            <element signature="e#5082#5083#0" expanded="false" />
+            <element signature="e#5122#5123#0" expanded="false" />
+            <marker date="1463686050821" expanded="true" signature="2213:4992" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -1582,29 +1437,19 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/DeleteClientForm.form">
-      <provider editor-type-id="ui-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
+      </provider>
+      <provider editor-type-id="ui-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/DeleteServiceForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
           <caret line="60" column="5" selection-start-line="44" selection-start-column="3" selection-end-line="60" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/DeleteClientForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1629,20 +1474,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/ClientsForm.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="ui-designer">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/ClientsForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+        <state relative-caret-position="1462">
+          <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1650,14 +1495,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/RoomForm.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="ui-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/RoomForm.java">
@@ -1672,16 +1517,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/controller/ClientController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state relative-caret-position="85">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1689,7 +1526,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/NewRoomForm.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/HotelForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="578">
           <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
           <folding />
         </state>
@@ -1698,6 +1535,32 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/NewRoomForm.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/DeleteClientForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="e#959#1110#0" expanded="false" />
+            <element signature="e#1109#1110#0" expanded="false" />
+            <element signature="e#1152#1310#0" expanded="false" />
+            <element signature="e#1309#1310#0" expanded="false" />
+            <element signature="e#5082#5083#0" expanded="false" />
+            <element signature="e#5122#5123#0" expanded="false" />
+            <marker date="1463686050821" expanded="true" signature="2213:4992" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/controller/ClientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>
