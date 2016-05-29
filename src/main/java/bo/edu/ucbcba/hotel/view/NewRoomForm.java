@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by Gabo on 15-May-16.
  */
-public class NewRoomForm extends JFrame {
+public class NewRoomForm extends JDialog {
     private JPanel NewRoomForm;
     private JComboBox RoomType;
     private JComboBox RoomView;
@@ -38,8 +38,8 @@ public class NewRoomForm extends JFrame {
     private RoomController roomController;
     private boolean availability = true;
 
-    public NewRoomForm() {
-        super("Users");
+    public NewRoomForm(JDialog parent) {
+        super(parent, "Users", true);
         setContentPane(NewRoomForm);
         setSize(600, 400);
         setBounds(400, 150, 600, 400);
