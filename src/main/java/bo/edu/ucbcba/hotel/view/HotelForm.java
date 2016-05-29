@@ -15,7 +15,6 @@ public class HotelForm extends JFrame {
     private JButton serviciosButton;
     private JButton registrarHabitacionButton;
     private JPanel Panel;
-    private JButton salirButton;
     private JButton empleadosButton;
 
     public HotelForm() {
@@ -34,8 +33,7 @@ public class HotelForm extends JFrame {
         serviciosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ServiceForm serviceform = new ServiceForm();
-                serviceform.setVisible(true);
+                newService();
             }
         });
 
@@ -52,12 +50,6 @@ public class HotelForm extends JFrame {
                 form.setVisible(true);
             }
         });
-        salirButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cancel();
-            }
-        });
 
     }
 
@@ -66,9 +58,10 @@ public class HotelForm extends JFrame {
         roomform.setVisible(true);
     }
 
-    private void cancel() {
-        setVisible(false);
-        System.exit(0);
+
+    private void newService() {
+        ServiceForm serviceform = new ServiceForm(this);
+        serviceform.setVisible(true);
     }
 
 
@@ -88,7 +81,7 @@ public class HotelForm extends JFrame {
      */
     private void $$$setupUI$$$() {
         Panel = new JPanel();
-        Panel.setLayout(new GridLayoutManager(5, 5, new Insets(10, 10, 10, 10), -1, -1));
+        Panel.setLayout(new GridLayoutManager(5, 4, new Insets(10, 10, 10, 10), -1, -1));
         registrarClienteButton = new JButton();
         registrarClienteButton.setText("Clientes");
         Panel.add(registrarClienteButton, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -107,9 +100,6 @@ public class HotelForm extends JFrame {
         final JLabel label1 = new JLabel();
         label1.setText("                                                                 Hotel");
         Panel.add(label1, new GridConstraints(0, 0, 1, 3, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        salirButton = new JButton();
-        salirButton.setText("Salir");
-        Panel.add(salirButton, new GridConstraints(4, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         empleadosButton = new JButton();
         empleadosButton.setText("Empleados");
         Panel.add(empleadosButton, new GridConstraints(4, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));

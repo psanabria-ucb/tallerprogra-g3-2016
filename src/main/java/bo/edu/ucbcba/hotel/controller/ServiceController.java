@@ -19,7 +19,25 @@ public class ServiceController {
         Services service = new Services();
         int costo;
         if (!cost.matches("[0-9]+"))
-            throw new ValidationException("Release cost isn't a number");
+            throw new ValidationException("Release cost is invalid");
+        if (cost.length()>8) {
+            throw new ValidationException("Release cost is invalid");
+        }
+        if (name.length()>32) {
+            throw new ValidationException("Release name is invalid");
+        }
+        if (description.length()>32) {
+            throw new ValidationException("Release description is invalid");
+        }
+        if (cost.length()==0) {
+            throw new ValidationException("Release cost cant be blank");
+        }
+        if (name.length()==0) {
+            throw new ValidationException("Release name cant be blank");
+        }
+        if (description.length()==0) {
+            throw new ValidationException("Release description cant be blank");
+        }
         costo=(Integer.parseInt(cost));
 
         service.setCost(costo);
