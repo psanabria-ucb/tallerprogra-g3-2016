@@ -1,38 +1,110 @@
 package bo.edu.ucbcba.hotel.view;
 
+import bo.edu.ucbcba.hotel.controller.EmployerController;
+import bo.edu.ucbcba.hotel.exceptions.ValidationException;
+import bo.edu.ucbcba.hotel.model.Employers;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.*;
+import java.util.List;
 
 /**
  * Created by Alejandra on 18/05/2016.
  */
-public class EmployerForm extends JFrame {
+public class EmployerForm extends JDialog {
     private JPanel EmployerPanel;
     private JButton salirButton;
     private JTextField textField1;
-    private JButton buscarButton;
+    private JButton searchButton;
     private JTable employertable;
-    private JButton agregarButton;
-    private JButton actualizarButton;
+    private JButton newEmployerButton;
+    private JButton deleteEmployerButton;
+    private EmployerController e;
 
-    public EmployerForm() {
-        super("Empleados");
+    public EmployerForm(JFrame parent) {
+        super(parent, "Employers", true);
+        pack();
         setContentPane(EmployerPanel);
         setSize(600, 400);
         setBounds(400, 150, 600, 400);
-
+        e = new EmployerController();
+        populateTable();
         salirButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cancel();
             }
         });
+        newEmployerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                createEmployer();
+            }
+        });
+
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                populateTable();
+            }
+        });
+
+        deleteEmployerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deleteEmployer();
+                populateTable();
+            }
+        });
+    }
+
+    private void populateTable() {
+        List<Employers> servicesList = e.searchEmployers(textField1.getText());
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("ID");
+        model.addColumn("Name");
+        model.addColumn("Description");
+        model.addColumn("Cost");
+
+        employertable.setModel(model);
+
+
+        for (Employers s : servicesList) {
+            Object[] row = new Object[5];
+
+            row[0] = s.getCi();
+            row[1] = s.getName();
+            row[2] = s.getLastName();
+            row[3] = s.getPhone();
+
+            model.addRow(row);
+        }
+    }
+
+    private void createEmployer() {
+        NewEmployerForm em = new NewEmployerForm(this);
+        em.setVisible(true);
+        populateTable();
+    }
+
+    private void deleteEmployer() {
+        int n;
+        DefaultTableModel tm = (DefaultTableModel) employertable.getModel();
+        n = (int) tm.getValueAt(employertable.getSelectedRow(), 0);
+
+        try {
+            e.delete(Integer.toString(n));
+        } catch (ValidationException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
+        }
+        JOptionPane.showMessageDialog(this, "Service deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
 
     }
 
@@ -59,7 +131,7 @@ public class EmployerForm extends JFrame {
         EmployerPanel = new JPanel();
         EmployerPanel.setLayout(new GridLayoutManager(5, 6, new Insets(0, 0, 0, 0), -1, -1));
         salirButton = new JButton();
-        salirButton.setText("Salir");
+        salirButton.setText("Close");
         EmployerPanel.add(salirButton, new GridConstraints(3, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
         EmployerPanel.add(spacer1, new GridConstraints(3, 0, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
@@ -67,9 +139,9 @@ public class EmployerForm extends JFrame {
         EmployerPanel.add(spacer2, new GridConstraints(3, 5, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         final Spacer spacer3 = new Spacer();
         EmployerPanel.add(spacer3, new GridConstraints(4, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
-        buscarButton = new JButton();
-        buscarButton.setText("Buscar");
-        EmployerPanel.add(buscarButton, new GridConstraints(1, 5, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        searchButton = new JButton();
+        searchButton.setText("Search");
+        EmployerPanel.add(searchButton, new GridConstraints(1, 5, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         textField1 = new JTextField();
         EmployerPanel.add(textField1, new GridConstraints(1, 0, 1, 5, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         employertable = new JTable();
@@ -78,12 +150,12 @@ public class EmployerForm extends JFrame {
         EmployerPanel.add(spacer4, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         final Spacer spacer5 = new Spacer();
         EmployerPanel.add(spacer5, new GridConstraints(0, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
-        agregarButton = new JButton();
-        agregarButton.setText("Agregar");
-        EmployerPanel.add(agregarButton, new GridConstraints(3, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        actualizarButton = new JButton();
-        actualizarButton.setText("Actualizar");
-        EmployerPanel.add(actualizarButton, new GridConstraints(3, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        newEmployerButton = new JButton();
+        newEmployerButton.setText("New employer");
+        EmployerPanel.add(newEmployerButton, new GridConstraints(3, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        deleteEmployerButton = new JButton();
+        deleteEmployerButton.setText("Delete employer");
+        EmployerPanel.add(deleteEmployerButton, new GridConstraints(3, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**

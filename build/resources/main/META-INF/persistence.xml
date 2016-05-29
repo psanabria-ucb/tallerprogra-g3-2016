@@ -7,6 +7,8 @@
         <class>bo.edu.ucbcba.hotel.model.Rooms</class>
         <class>bo.edu.ucbcba.hotel.model.Services</class>
         <class>bo.edu.ucbcba.hotel.model.Clients</class>
+        <class>bo.edu.ucbcba.hotel.model.Employers</class>
+
 
 
         <properties>
