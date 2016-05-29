@@ -27,13 +27,12 @@ public class ServiceForm extends JDialog {
     private JTable serviceTable;
     private JButton salirButton1;
     private JButton eliminarServicioButton;
-    private JButton actualizarButton;
     private JButton AGregarServicioButton;
     private ServiceController serviceController;
 
 
     public ServiceForm(JFrame parent) {
-        super(parent, "Servicios", true);
+        super(parent, "Services", true);
         pack();
         setContentPane(panel);
         setSize(600, 400);
@@ -69,12 +68,6 @@ public class ServiceForm extends JDialog {
             }
         });
 
-        actualizarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                populateTable();
-            }
-        });
 
 
     }
