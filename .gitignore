@@ -1,0 +1,13 @@
+.gradle
+build/
+
+gradle-app.setting
+
+!gradle-wrapper.jar
+
+.gradletasknamecache
+.idea/
+derby.log
+/HotelDB/
+.DS_Store
+out/

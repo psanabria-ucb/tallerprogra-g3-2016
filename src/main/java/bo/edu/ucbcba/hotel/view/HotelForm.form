@@ -55,27 +55,12 @@
           <text value="                                                                 Hotel"/>
         </properties>
       </component>
-<<<<<<< HEAD
-      <component id="177a8" class="javax.swing.JButton" binding="salirButton" default-binding="true">
-        <constraints>
-          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Exit"/>
-        </properties>
-      </component>
-=======
->>>>>>> 8c135115b56af9632b223e34c1d6a70dd861c475
       <component id="e38bf" class="javax.swing.JButton" binding="empleadosButton" default-binding="true">
         <constraints>
           <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-<<<<<<< HEAD
-          <text value="Employees"/>
-=======
           <text value="Employers"/>
->>>>>>> 8c135115b56af9632b223e34c1d6a70dd861c475
         </properties>
       </component>
     </children>
