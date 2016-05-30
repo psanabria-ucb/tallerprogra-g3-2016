@@ -1,6 +1,7 @@
 package bo.edu.ucbcba.hotel.controller;
 
 import bo.edu.ucbcba.hotel.dao.usersEntityManager;
+import bo.edu.ucbcba.hotel.exceptions.ValidationException;
 import bo.edu.ucbcba.hotel.model.Employers;
 
 import javax.persistence.EntityManager;
@@ -14,6 +15,18 @@ public class EmployerController {
     public void create(String firstName,String lastName, int ci, int phone ){
 
         Employers e=new Employers();
+        if (ci>999999999 && ci<0) {
+            throw new ValidationException("Release cost is invalid");
+        }
+        if (phone>99999999 && phone <0) {
+            throw new ValidationException("Release cost is invalid");
+        }
+        if (firstName.length()>32) {
+            throw new ValidationException("Release name is invalid");
+        }
+        if (lastName.length()>32) {
+            throw new ValidationException("Release name is invalid");
+        }
         e.setCi(ci);
         e.setName(firstName);
         e.setLastName(lastName);
@@ -38,7 +51,7 @@ public class EmployerController {
         EntityManager entityManager = usersEntityManager.createEntityManager();
         if(ci!=0)
         {
-            TypedQuery<Employers> query = entityManager.createQuery("select s from Employers s where s.ClientCi= :a ", Employers.class);
+            TypedQuery<Employers> query = entityManager.createQuery("select s from Employers s where s.CI= :a ", Employers.class);
             query.setParameter("a", ci);
             List<Employers> response = query.getResultList();
             entityManager.close();

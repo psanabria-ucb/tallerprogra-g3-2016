@@ -2,52 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fec25931-1f0a-4570-a907-b624a9f0a951" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/NewEmployerForm.form" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/NewEmployerForm.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/ServiceForm$5.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/db.lck" afterPath="$PROJECT_DIR$/HotelDB/db.lck" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/log/log.ctrl" afterPath="$PROJECT_DIR$/HotelDB/log/log.ctrl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/log/log1.dat" afterPath="$PROJECT_DIR$/HotelDB/log/log1.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/log/logmirror.ctrl" afterPath="$PROJECT_DIR$/HotelDB/log/logmirror.ctrl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c101.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c101.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c111.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c111.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c121.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c121.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c130.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c130.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c141.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c141.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c20.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c20.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c31.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c31.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c320.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c320.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c340.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c340.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c351.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c351.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c41.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c41.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c51.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c51.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c60.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c60.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c71.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c71.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c81.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c81.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c90.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c90.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/ca1.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/ca1.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/cb1.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/cb1.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/cf0.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/cf0.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/ClientsForm.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/ClientsForm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/EmployerForm$1.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/EmployerForm$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c380.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c380.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HotelDB/seg0/c391.dat" afterPath="$PROJECT_DIR$/HotelDB/seg0/c391.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/controller/EmployerController.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/controller/EmployerController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/EmployerForm.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/EmployerForm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/HotelForm$4.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/HotelForm$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/HotelForm.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/HotelForm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/ServiceForm$1.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/ServiceForm$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/ServiceForm$2.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/ServiceForm$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/ServiceForm$3.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/ServiceForm$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/ServiceForm$4.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/ServiceForm$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/ServiceForm.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/hotel/view/ServiceForm.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/build/resources/main/META-INF/persistence.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/derby.log" afterPath="$PROJECT_DIR$/derby.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/ClientsForm.java" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/ClientsForm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/controller/EmployerController.java" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/controller/EmployerController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/EmployerForm.form" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/EmployerForm.form" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/EmployerForm.java" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/EmployerForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/HotelForm.form" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/HotelForm.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/HotelForm.java" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/HotelForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/ServiceForm.java" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/ServiceForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
     </list>
     <ignored path="group3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -89,21 +56,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="EmployerForm.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EmployerForm.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/EmployerForm.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="149">
               <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1233#1384#0" expanded="true" />
-                <element signature="e#1383#1384#0" expanded="true" />
-                <element signature="e#1431#1590#0" expanded="true" />
-                <element signature="e#1589#1590#0" expanded="true" />
-                <element signature="e#1633#1791#0" expanded="true" />
-                <element signature="e#1790#1791#0" expanded="true" />
-                <element signature="e#1842#2034#0" expanded="true" />
-                <element signature="e#2033#2034#0" expanded="true" />
+                <element signature="initializer##0;class#EmployerForm#0" expanded="false" />
+                <element signature="initializer##0;class#EmployerForm#0" expanded="false" />
+                <element signature="e#7096#7097#0" expanded="false" />
+                <element signature="e#7132#7133#0" expanded="false" />
+                <marker date="1464566633384" expanded="true" signature="967:2042" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -112,39 +76,21 @@
       <file leaf-file-name="ServiceController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/controller/ServiceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="65" column="85" selection-start-line="65" selection-start-column="63" selection-end-line="65" selection-end-column="85" />
+            <state relative-caret-position="0">
+              <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewEmployerForm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/NewEmployerForm.java">
+      <file leaf-file-name="EmployerController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/controller/EmployerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="57" column="98" selection-start-line="57" selection-start-column="98" selection-end-line="57" selection-end-column="98" />
+            <state relative-caret-position="191">
+              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1091#1242#0" expanded="true" />
-                <element signature="e#1241#1242#0" expanded="true" />
-                <element signature="e#1282#1431#0" expanded="true" />
-                <element signature="e#1430#1431#0" expanded="true" />
-                <element signature="initializer##0;class#NewEmployerForm#0" expanded="true" />
-                <element signature="initializer##0;class#NewEmployerForm#0" expanded="true" />
-                <element signature="e#7210#7211#0" expanded="true" />
-                <element signature="e#7247#7248#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServiceForm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/ServiceForm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="84" column="0" selection-start-line="74" selection-start-column="7" selection-end-line="84" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -523,7 +469,6 @@
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/NewServiceForm.java" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/controller/ServiceController.java" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/ServiceForm.form" />
-        <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/EmployerForm.form" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/model/Employer.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/model/Employers.java" />
@@ -532,9 +477,10 @@
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/ServiceForm.java" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/NewEmployerForm.form" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/NewEmployerForm.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/controller/EmployerController.java" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/ClientsForm.java" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/EmployerForm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/EmployerForm.form" />
+        <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/controller/EmployerController.java" />
       </list>
     </option>
   </component>
@@ -1426,12 +1372,12 @@
       <workItem from="1463599129558" duration="25000" />
       <workItem from="1464483519847" duration="81000" />
       <workItem from="1464483740904" duration="12273000" />
-      <workItem from="1464539820536" duration="10109000" />
+      <workItem from="1464539820536" duration="11017000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23459000" />
+    <option name="totallyTimeSpent" value="24367000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -1445,7 +1391,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3047404" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31715575" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1566,13 +1512,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/model/Services.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -1736,11 +1675,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/EmployerForm.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/model/Employer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1842,6 +1776,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/ClientsForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="131" column="27" selection-start-line="131" selection-start-column="27" selection-end-line="131" selection-end-column="27" />
+          <folding>
+            <element signature="initializer##0;class#ClientsForm#0" expanded="true" />
+            <element signature="e#6353#6354#0" expanded="true" />
+            <element signature="e#6388#6389#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/EmployerForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="initializer##0;class#EmployerForm#0" expanded="false" />
+            <element signature="initializer##0;class#EmployerForm#0" expanded="false" />
+            <element signature="e#7096#7097#0" expanded="false" />
+            <element signature="e#7132#7133#0" expanded="false" />
+            <marker date="1464566633384" expanded="true" signature="967:2042" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/model/Services.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/ServiceForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="84" column="0" selection-start-line="74" selection-start-column="7" selection-end-line="84" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/NewEmployerForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
@@ -1860,58 +1837,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/ServiceForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="84" column="0" selection-start-line="74" selection-start-column="7" selection-end-line="84" selection-end-column="0" />
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/EmployerForm.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/controller/ServiceController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="65" column="85" selection-start-line="65" selection-start-column="63" selection-end-line="65" selection-end-column="85" />
+        <state relative-caret-position="0">
+          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/ClientsForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="131" column="27" selection-start-line="131" selection-start-column="27" selection-end-line="131" selection-end-column="27" />
-          <folding>
-            <element signature="initializer##0;class#ClientsForm#0" expanded="true" />
-            <element signature="e#6353#6354#0" expanded="true" />
-            <element signature="e#6388#6389#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/controller/EmployerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="715">
-          <caret line="59" column="86" selection-start-line="59" selection-start-column="86" selection-end-line="59" selection-end-column="86" />
+        <state relative-caret-position="191">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/hotel/view/EmployerForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1233#1384#0" expanded="true" />
-            <element signature="e#1383#1384#0" expanded="true" />
-            <element signature="e#1431#1590#0" expanded="true" />
-            <element signature="e#1589#1590#0" expanded="true" />
-            <element signature="e#1633#1791#0" expanded="true" />
-            <element signature="e#1790#1791#0" expanded="true" />
-            <element signature="e#1842#2034#0" expanded="true" />
-            <element signature="e#2033#2034#0" expanded="true" />
           </folding>
         </state>
       </provider>
