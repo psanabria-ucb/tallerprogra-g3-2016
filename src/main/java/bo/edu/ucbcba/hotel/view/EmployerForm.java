@@ -26,6 +26,7 @@ public class EmployerForm extends JDialog {
     private JTable employertable;
     private JButton newEmployerButton;
     private JButton deleteEmployerButton;
+    private JButton editEmployerButton;
     private EmployerController e;
 
     public EmployerForm(JFrame parent) {
@@ -63,18 +64,48 @@ public class EmployerForm extends JDialog {
                 populateTable();
             }
         });
+        editEmployerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                editEmployer();
+                populateTable();
+
+            }
+        });
+    }
+
+    private void editEmployer() {
+
+        int n, p;
+        String name, lname;
+        DefaultTableModel tm = (DefaultTableModel) employertable.getModel();
+        n = (int) tm.getValueAt(employertable.getSelectedRow(), 0);
+        p = (int) tm.getValueAt(employertable.getSelectedRow(), 3);
+        name = (String) tm.getValueAt(employertable.getSelectedRow(), 1);
+        lname = (String) tm.getValueAt(employertable.getSelectedRow(), 2);
+
+
+        try {
+            e.delete(Integer.toString(n));
+            EditEmployerForm em = new EditEmployerForm(this, n, p, name, lname);
+            em.setVisible(true);
+        } catch (ValidationException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
+        }
+        JOptionPane.showMessageDialog(this, "Employer deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+
     }
 
     private void populateTable() {
         List<Employers> servicesList = e.searchEmployers(textField1.getText());
         DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("ID");
+        model.addColumn("IC");
         model.addColumn("Name");
-        model.addColumn("Description");
-        model.addColumn("Cost");
+        model.addColumn("Last Name");
+        model.addColumn("Phone");
 
         employertable.setModel(model);
-
 
         for (Employers s : servicesList) {
             Object[] row = new Object[5];
@@ -104,7 +135,7 @@ public class EmployerForm extends JDialog {
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
         }
-        JOptionPane.showMessageDialog(this, "Service deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "EMployer deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
 
     }
 
@@ -129,14 +160,12 @@ public class EmployerForm extends JDialog {
      */
     private void $$$setupUI$$$() {
         EmployerPanel = new JPanel();
-        EmployerPanel.setLayout(new GridLayoutManager(5, 8, new Insets(0, 0, 0, 0), -1, -1));
+        EmployerPanel.setLayout(new GridLayoutManager(5, 9, new Insets(0, 0, 0, 0), -1, -1));
         searchButton = new JButton();
         searchButton.setText("Search");
-        EmployerPanel.add(searchButton, new GridConstraints(1, 6, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        EmployerPanel.add(searchButton, new GridConstraints(1, 7, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         textField1 = new JTextField();
-        EmployerPanel.add(textField1, new GridConstraints(1, 1, 1, 5, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
-        employertable = new JTable();
-        EmployerPanel.add(employertable, new GridConstraints(2, 1, 1, 6, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
+        EmployerPanel.add(textField1, new GridConstraints(1, 1, 1, 6, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         newEmployerButton = new JButton();
         newEmployerButton.setText("New employer");
         EmployerPanel.add(newEmployerButton, new GridConstraints(3, 1, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -146,14 +175,23 @@ public class EmployerForm extends JDialog {
         final Spacer spacer1 = new Spacer();
         EmployerPanel.add(spacer1, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         final Spacer spacer2 = new Spacer();
-        EmployerPanel.add(spacer2, new GridConstraints(1, 7, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+        EmployerPanel.add(spacer2, new GridConstraints(1, 8, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         salirButton = new JButton();
         salirButton.setText("Close");
-        EmployerPanel.add(salirButton, new GridConstraints(3, 6, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        EmployerPanel.add(salirButton, new GridConstraints(3, 7, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer3 = new Spacer();
         EmployerPanel.add(spacer3, new GridConstraints(4, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         final Spacer spacer4 = new Spacer();
         EmployerPanel.add(spacer4, new GridConstraints(0, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+        editEmployerButton = new JButton();
+        editEmployerButton.setText("Edit Employer");
+        EmployerPanel.add(editEmployerButton, new GridConstraints(3, 6, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JScrollPane scrollPane1 = new JScrollPane();
+        EmployerPanel.add(scrollPane1, new GridConstraints(2, 1, 1, 6, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        employertable = new JTable();
+        scrollPane1.setViewportView(employertable);
+        final Spacer spacer5 = new Spacer();
+        EmployerPanel.add(spacer5, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
     }
 
     /**

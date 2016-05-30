@@ -28,6 +28,7 @@ public class ServiceForm extends JDialog {
     private JButton salirButton1;
     private JButton eliminarServicioButton;
     private JButton AGregarServicioButton;
+    private JButton editServiceButton;
     private ServiceController serviceController;
 
 
@@ -68,6 +69,34 @@ public class ServiceForm extends JDialog {
             }
         });
 
+        editServiceButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                editService();
+                populateTable();
+
+            }
+        });
+    }
+
+    private void editService() {
+        int number, cost;
+        String name, description;
+        DefaultTableModel tm = (DefaultTableModel) serviceTable.getModel();
+        number = (int) tm.getValueAt(serviceTable.getSelectedRow(), 0);
+        cost = (int) tm.getValueAt(serviceTable.getSelectedRow(), 3);
+        name = (String) tm.getValueAt(serviceTable.getSelectedRow(), 1);
+        description = (String) tm.getValueAt(serviceTable.getSelectedRow(), 2);
+
+
+        try {
+            serviceController.delete(Integer.toString(number));
+            EditServiceForm ser = new EditServiceForm(this, cost, name, description);
+            ser.setVisible(true);
+        } catch (ValidationException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
+        }
+        JOptionPane.showMessageDialog(this, "Employer deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
 
     }
 
@@ -137,18 +166,16 @@ public class ServiceForm extends JDialog {
         ServiceForm = new JPanel();
         ServiceForm.setLayout(new GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel = new JPanel();
-        panel.setLayout(new GridLayoutManager(3, 10, new Insets(0, 0, 0, 0), -1, -1));
+        panel.setLayout(new GridLayoutManager(4, 10, new Insets(0, 0, 0, 0), -1, -1));
         ServiceForm.add(panel, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         searchField = new JTextField();
-        panel.add(searchField, new GridConstraints(0, 1, 1, 6, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        panel.add(searchField, new GridConstraints(0, 2, 1, 5, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         searchButton = new JButton();
         searchButton.setText("Search");
         panel.add(searchButton, new GridConstraints(0, 7, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        serviceTable = new JTable();
-        panel.add(serviceTable, new GridConstraints(1, 2, 1, 6, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
         AGregarServicioButton = new JButton();
         AGregarServicioButton.setText("New service");
-        panel.add(AGregarServicioButton, new GridConstraints(2, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        panel.add(AGregarServicioButton, new GridConstraints(3, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
         panel.add(spacer1, new GridConstraints(1, 9, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         final Spacer spacer2 = new Spacer();
@@ -159,10 +186,17 @@ public class ServiceForm extends JDialog {
         panel.add(spacer4, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         eliminarServicioButton = new JButton();
         eliminarServicioButton.setText("Delete service");
-        panel.add(eliminarServicioButton, new GridConstraints(2, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        panel.add(eliminarServicioButton, new GridConstraints(3, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        editServiceButton = new JButton();
+        editServiceButton.setText("Edit service");
+        panel.add(editServiceButton, new GridConstraints(3, 5, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JScrollPane scrollPane1 = new JScrollPane();
+        panel.add(scrollPane1, new GridConstraints(1, 2, 2, 6, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        serviceTable = new JTable();
+        scrollPane1.setViewportView(serviceTable);
         salirButton1 = new JButton();
         salirButton1.setText("Close");
-        panel.add(salirButton1, new GridConstraints(2, 6, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        panel.add(salirButton1, new GridConstraints(3, 7, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer5 = new Spacer();
         ServiceForm.add(spacer5, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
     }

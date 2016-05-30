@@ -39,33 +39,17 @@ public class EmployerController {
         entityManager.close();
     }
 
-    public static List<Employers> searchEmployers(String CI) {
-        int ci=0;
-        if(CI.matches("[0-9]+")){
-            if(CI.isEmpty()) {
-                ci=0;
-            } else {
-                ci=Integer.parseInt(CI);
-            }
-        }
+    public static List<Employers> searchEmployers(String name) {
+
         EntityManager entityManager = usersEntityManager.createEntityManager();
-        if(ci!=0)
-        {
-            TypedQuery<Employers> query = entityManager.createQuery("select s from Employers s where s.CI= :a ", Employers.class);
-            query.setParameter("a", ci);
-            List<Employers> response = query.getResultList();
-            entityManager.close();
-            return response;
-        }
-        if (ci == 0) {
-            TypedQuery<Employers> query = entityManager.createQuery("select s from Employers s ", Employers.class);
-            //query.setParameter("a", a);
-            List<Employers> response = query.getResultList();
-            entityManager.close();
-            return response;
-        }
-        return null;
+        TypedQuery<Employers> query = entityManager.createQuery("select s from Employers s WHERE lower(s.Name) like :name", Employers.class);
+        query.setParameter("name", "%" + name.toLowerCase() + "%");
+        List<Employers> response = query.getResultList();
+        entityManager.close();
+        return response;
     }
+
+
     public void delete (String id) {
 
         EntityManager entityManager = usersEntityManager.createEntityManager();
