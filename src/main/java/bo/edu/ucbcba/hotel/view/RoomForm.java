@@ -8,10 +8,7 @@ import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 
 import javax.swing.*;
-import javax.swing.event.AncestorEvent;
-import javax.swing.event.AncestorListener;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,7 +26,7 @@ public class RoomForm extends JDialog {
     private JButton verInventarioButton;
     private JButton eliminarHabitacionButton;
     private JButton salirButton;
-    private JButton editarButton;
+    private JButton editButton;
     private RoomController roomController;
 
     RoomForm(JFrame parent) {
@@ -39,7 +36,6 @@ public class RoomForm extends JDialog {
         setSize(650, 400);
         setBounds(400, 150, 650, 400);
         roomController = new RoomController();
-
         populateTable();
         eliminarHabitacionButton.addActionListener(new ActionListener() {
             @Override
@@ -54,8 +50,12 @@ public class RoomForm extends JDialog {
                 launchregistrer();
             }
         });
-
-
+        verInventarioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                viewInventory();
+            }
+        });
         salirButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -68,24 +68,44 @@ public class RoomForm extends JDialog {
                 populateTable();
             }
         });
-
+        editButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                editRoom();
+            }
+        });
         populateTable();
 
     }
 
+    private void editRoom() {
+        int n;
+        if (RoomsTable.getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(this, "Please select one room to edit", "Error", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            DefaultTableModel tm = (DefaultTableModel) RoomsTable.getModel();
+            n = (int) tm.getValueAt(RoomsTable.getSelectedRow(), 0);
+            EditRoomForm editRoomForm = new EditRoomForm(this, n);
+            editRoomForm.setVisible(true);
+            populateTable();
+        }
+    }
 
     private void deleteRoom() {
         int n;
-        DefaultTableModel tm = (DefaultTableModel) RoomsTable.getModel();
-        n = (int) tm.getValueAt(RoomsTable.getSelectedRow(), 0);
+        if (RoomsTable.getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(this, "Please select one room to delete", "Error", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            DefaultTableModel tm = (DefaultTableModel) RoomsTable.getModel();
+            n = (int) tm.getValueAt(RoomsTable.getSelectedRow(), 0);
 
-        try {
-            roomController.DeleteRoom(Integer.toString(n));
-        } catch (ValidationException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
+            try {
+                roomController.DeleteRoom(Integer.toString(n));
+            } catch (ValidationException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
+            }
+            JOptionPane.showMessageDialog(this, "Room deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
         }
-        JOptionPane.showMessageDialog(this, "Room deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-
     }
 
     private void launchregistrer() {
@@ -95,15 +115,26 @@ public class RoomForm extends JDialog {
 
     }
 
+    private void viewInventory() {
+        int n;
+        if (RoomsTable.getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(this, "Please select one room to view inventory", "Error", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            DefaultTableModel tm = (DefaultTableModel) RoomsTable.getModel();
+            n = (int) tm.getValueAt(RoomsTable.getSelectedRow(), 0);
+            InventoryForm inventoryForm = new InventoryForm(this, n);
+            inventoryForm.setVisible(true);
+        }
+    }
 
     private void populateTable() {
 
         List<Rooms> roomsList = RoomController.searchRoom(SearchField.getText());
         DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("N° Habitacion");
-        model.addColumn("Tipo");
-        model.addColumn("Vista");
-        model.addColumn("Disponibilidad");
+        model.addColumn("Room Number");
+        model.addColumn("Type");
+        model.addColumn("Room View");
+        model.addColumn("Availability");
 
         RoomsTable.setModel(model);
 
@@ -114,9 +145,9 @@ public class RoomForm extends JDialog {
             row[1] = s.getType();
             row[2] = s.getRoomView();
             if (!s.isAvailability())
-                row[3] = "Disponible";
+                row[3] = "Available";
             else
-                row[3] = "No Disponible";
+                row[3] = "Not available";
 
 
             model.addRow(row);
@@ -140,29 +171,29 @@ public class RoomForm extends JDialog {
      */
     private void $$$setupUI$$$() {
         roomForm = new JPanel();
-        roomForm.setLayout(new GridLayoutManager(3, 6, new Insets(10, 10, 10, 10), -1, -1));
+        roomForm.setLayout(new GridLayoutManager(3, 5, new Insets(10, 10, 10, 10), -1, -1));
         SearchField = new JTextField();
-        roomForm.add(SearchField, new GridConstraints(0, 0, 1, 5, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        roomForm.add(SearchField, new GridConstraints(0, 0, 1, 4, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         SearchButton = new JButton();
-        SearchButton.setText("Buscar");
-        roomForm.add(SearchButton, new GridConstraints(0, 5, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 1, false));
+        SearchButton.setText("Search");
+        roomForm.add(SearchButton, new GridConstraints(0, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 1, false));
         agregarHabitacionButton = new JButton();
-        agregarHabitacionButton.setText("Agregar Habitación");
+        agregarHabitacionButton.setText("Add New Room");
         roomForm.add(agregarHabitacionButton, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         verInventarioButton = new JButton();
-        verInventarioButton.setText("Ver Inventario");
+        verInventarioButton.setText("View Inventory");
         roomForm.add(verInventarioButton, new GridConstraints(2, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         eliminarHabitacionButton = new JButton();
-        eliminarHabitacionButton.setText("Eliminar Habitación");
+        eliminarHabitacionButton.setText("Delete Room");
         roomForm.add(eliminarHabitacionButton, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         salirButton = new JButton();
-        salirButton.setText("Salir");
-        roomForm.add(salirButton, new GridConstraints(2, 5, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        editarButton = new JButton();
-        editarButton.setText("Editar");
-        roomForm.add(editarButton, new GridConstraints(2, 3, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        salirButton.setText("Exit");
+        roomForm.add(salirButton, new GridConstraints(2, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        editButton = new JButton();
+        editButton.setText("Edit");
+        roomForm.add(editButton, new GridConstraints(2, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JScrollPane scrollPane1 = new JScrollPane();
-        roomForm.add(scrollPane1, new GridConstraints(1, 0, 1, 6, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        roomForm.add(scrollPane1, new GridConstraints(1, 0, 1, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         RoomsTable = new JTable();
         scrollPane1.setViewportView(RoomsTable);
     }

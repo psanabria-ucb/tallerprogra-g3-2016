@@ -1,48 +1,52 @@
 package bo.edu.ucbcba.hotel.view;
 
-import  bo.edu.ucbcba.hotel.exceptions.ValidationException;
 import bo.edu.ucbcba.hotel.controller.RoomController;
+import bo.edu.ucbcba.hotel.exceptions.ValidationException;
+import bo.edu.ucbcba.hotel.model.Rooms;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 
 import javax.swing.*;
-import javax.swing.event.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.*;
+import java.util.List;
 
 /**
- * Created by Gabo on 15-May-16.
+ * Created by Gabo on 29-May-16.
  */
-public class NewRoomForm extends JDialog {
+public class EditRoomForm extends JDialog {
+
+    private JPanel EditRoomPanel;
     private JPanel NewRoomForm;
     private JComboBox RoomType;
     private JComboBox RoomView;
-
-    private JButton guardarButton;
-    private JButton cancelarButton;
-
     private JLabel telefonoLabel;
     private JLabel juegoDeLivingLabel;
-    private JLabel accesorisoDeCocinaLabel;
-    private JLabel adornosLabel;
     private JLabel miniBarLabel;
-    private JLabel escritorioLabel;
-    private JCheckBox TelfcheckBox;
-    private JCheckBox LivingcheckBox;
-    private JCheckBox KitchencheckBox;
+    private JLabel adornosLabel;
     private JCheckBox AdornoscheckBox;
     private JCheckBox MiniBarcheckBox;
+    private JCheckBox LivingcheckBox;
+    private JButton saveButton;
+    private JButton exitButton;
+    private JCheckBox TelfcheckBox;
+    private JCheckBox KitchencheckBox;
+    private JLabel accesorisoDeCocinaLabel;
+    private JLabel escritorioLabel;
     private JCheckBox DeskcheckBox;
-    private RoomController roomController;
     private boolean availability = true;
+    RoomController roomControllerl;
+    private int roomNumber;
 
-    public NewRoomForm(JDialog parent) {
-        super(parent, "New Room", true);
-        setContentPane(NewRoomForm);
-        setSize(600, 400);
-        setBounds(480, 150, 500, 400);
+    EditRoomForm(JDialog parent, int n) {
+        super(parent, "Edit room", true);
+        setContentPane(EditRoomPanel);
+        roomControllerl = new RoomController();
+        setBounds(400, 150, 510, 250);
+        roomNumber = n;
         RoomType.addItem("Simple");
         RoomType.addItem("Double");
         RoomType.addItem("Presidential");
@@ -52,39 +56,66 @@ public class NewRoomForm extends JDialog {
         RoomView.addItem("City");
         RoomView.addItem("Gardens");
         RoomView.addItem("Fields");
-        roomController = new RoomController();
-        cancelarButton.addActionListener(new ActionListener() {
+        getRoomInfo(n);
+        exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cancel();
+                dispose();
             }
         });
-        guardarButton.addActionListener(new ActionListener() {
+        saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                saveRoom();
+                saveRoom(roomNumber);
             }
         });
-
     }
 
-    private void saveRoom() {
-
+    private void saveRoom(int n) {
         try {
-            roomController.create(RoomType.getSelectedItem().toString(), RoomView.getSelectedItem().toString(),
+            roomControllerl.update(RoomType.getSelectedItem().toString(), RoomView.getSelectedItem().toString(),
                     availability, TelfcheckBox.isSelected(), LivingcheckBox.isSelected(), KitchencheckBox.isSelected(),
-                    MiniBarcheckBox.isSelected(), DeskcheckBox.isSelected(), AdornoscheckBox.isSelected());
+                    MiniBarcheckBox.isSelected(), DeskcheckBox.isSelected(), AdornoscheckBox.isSelected(), n);
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
         }
 
-        JOptionPane.showMessageDialog(this, "Room created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-        cancel();
+        JOptionPane.showMessageDialog(this, "Room modificated successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+        dispose();
     }
 
-    private void cancel() {
-        setVisible(false);
-        dispose();
+    private void getRoomInfo(int n) {
+        List<Rooms> roomsList = RoomController.getRoom(n);
+        for (Rooms s : roomsList) {
+            if (s.isPhone())
+                TelfcheckBox.setSelected(true);
+            if (s.isKitchenAccesories())
+                KitchencheckBox.setSelected(true);
+            if (s.isLiving())
+                LivingcheckBox.setSelected(true);
+            if (s.isDesk())
+                DeskcheckBox.setSelected(true);
+            if (s.isOrnaments())
+                AdornoscheckBox.setSelected(true);
+            if (s.isMinibar())
+                MiniBarcheckBox.setSelected(true);
+            if (s.getType().equals("Simple"))
+                RoomType.setSelectedIndex(0);
+            if (s.getType().equals("Double"))
+                RoomType.setSelectedIndex(1);
+            if (s.getType().equals("Presidential"))
+                RoomType.setSelectedIndex(2);
+            if (s.getType().equals("Deluxe"))
+                RoomType.setSelectedIndex(3);
+            if (s.getRoomView().equals("Beach"))
+                RoomView.setSelectedIndex(0);
+            if (s.getRoomView().equals("City"))
+                RoomView.setSelectedIndex(1);
+            if (s.getRoomView().equals("Gardens"))
+                RoomView.setSelectedIndex(2);
+            if (s.getRoomView().equals("Fields"))
+                RoomView.setSelectedIndex(3);
+        }
     }
 
     {
@@ -102,8 +133,11 @@ public class NewRoomForm extends JDialog {
      * @noinspection ALL
      */
     private void $$$setupUI$$$() {
+        EditRoomPanel = new JPanel();
+        EditRoomPanel.setLayout(new GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
         NewRoomForm = new JPanel();
         NewRoomForm.setLayout(new GridLayoutManager(7, 5, new Insets(10, 10, 10, 10), -1, -1));
+        EditRoomPanel.add(NewRoomForm, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         final JLabel label1 = new JLabel();
         label1.setText("Room Type");
         NewRoomForm.add(label1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -140,12 +174,12 @@ public class NewRoomForm extends JDialog {
         LivingcheckBox = new JCheckBox();
         LivingcheckBox.setText("");
         NewRoomForm.add(LivingcheckBox, new GridConstraints(4, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        guardarButton = new JButton();
-        guardarButton.setText("Save");
-        NewRoomForm.add(guardarButton, new GridConstraints(6, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        cancelarButton = new JButton();
-        cancelarButton.setText("Exit");
-        NewRoomForm.add(cancelarButton, new GridConstraints(6, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        saveButton = new JButton();
+        saveButton.setText("Save");
+        NewRoomForm.add(saveButton, new GridConstraints(6, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        exitButton = new JButton();
+        exitButton.setText("Exit");
+        NewRoomForm.add(exitButton, new GridConstraints(6, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         TelfcheckBox = new JCheckBox();
         TelfcheckBox.setText("");
         NewRoomForm.add(TelfcheckBox, new GridConstraints(3, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -161,12 +195,14 @@ public class NewRoomForm extends JDialog {
         DeskcheckBox = new JCheckBox();
         DeskcheckBox.setText("");
         NewRoomForm.add(DeskcheckBox, new GridConstraints(5, 4, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final Spacer spacer2 = new Spacer();
+        EditRoomPanel.add(spacer2, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
     }
 
     /**
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {
-        return NewRoomForm;
+        return EditRoomPanel;
     }
 }
