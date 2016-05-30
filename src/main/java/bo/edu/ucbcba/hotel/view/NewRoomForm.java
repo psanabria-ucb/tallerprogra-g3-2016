@@ -42,16 +42,16 @@ public class NewRoomForm extends JDialog {
         super(parent, "Users", true);
         setContentPane(NewRoomForm);
         setSize(600, 400);
-        setBounds(400, 150, 600, 400);
+        setBounds(480, 150, 500, 400);
         RoomType.addItem("Simple");
-        RoomType.addItem("Doble");
-        RoomType.addItem("Presidencial");
+        RoomType.addItem("Double");
+        RoomType.addItem("Presidential");
         RoomType.addItem("Deluxe");
-
-        RoomView.addItem("Playa");
-        RoomView.addItem("Ciudad");
-        RoomView.addItem("Jardines");
-        RoomView.addItem("Canchas");
+        //RoomType.setSelectedIndex(2);
+        RoomView.addItem("Beach");
+        RoomView.addItem("City");
+        RoomView.addItem("Gardens");
+        RoomView.addItem("Fields");
         roomController = new RoomController();
         cancelarButton.addActionListener(new ActionListener() {
             @Override
@@ -65,6 +65,7 @@ public class NewRoomForm extends JDialog {
                 saveRoom();
             }
         });
+
     }
 
     private void saveRoom() {
@@ -102,64 +103,64 @@ public class NewRoomForm extends JDialog {
      */
     private void $$$setupUI$$$() {
         NewRoomForm = new JPanel();
-        NewRoomForm.setLayout(new GridLayoutManager(7, 7, new Insets(10, 10, 10, 10), -1, -1));
+        NewRoomForm.setLayout(new GridLayoutManager(7, 5, new Insets(10, 10, 10, 10), -1, -1));
         final JLabel label1 = new JLabel();
-        label1.setText("Tipo De Habitacion");
+        label1.setText("Room Type");
         NewRoomForm.add(label1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label2 = new JLabel();
-        label2.setText("Vista");
+        label2.setText("Room View");
         NewRoomForm.add(label2, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label3 = new JLabel();
-        label3.setText("Inventario");
+        label3.setText("Inventory:");
         NewRoomForm.add(label3, new GridConstraints(3, 0, 3, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
-        NewRoomForm.add(spacer1, new GridConstraints(1, 1, 1, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+        NewRoomForm.add(spacer1, new GridConstraints(1, 1, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         RoomType = new JComboBox();
-        NewRoomForm.add(RoomType, new GridConstraints(0, 1, 1, 5, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        NewRoomForm.add(RoomType, new GridConstraints(0, 1, 1, 3, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         RoomView = new JComboBox();
-        NewRoomForm.add(RoomView, new GridConstraints(2, 1, 1, 5, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        NewRoomForm.add(RoomView, new GridConstraints(2, 1, 1, 3, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         telefonoLabel = new JLabel();
-        telefonoLabel.setText("Telefono");
-        NewRoomForm.add(telefonoLabel, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(107, 16), null, 0, false));
+        telefonoLabel.setText("Telephone");
+        NewRoomForm.add(telefonoLabel, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(134, 16), null, 0, false));
         juegoDeLivingLabel = new JLabel();
-        juegoDeLivingLabel.setText("Juego de Living");
-        NewRoomForm.add(juegoDeLivingLabel, new GridConstraints(4, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(107, 16), null, 0, false));
-        accesorisoDeCocinaLabel = new JLabel();
-        accesorisoDeCocinaLabel.setText("Accesoriso de Cocina");
-        NewRoomForm.add(accesorisoDeCocinaLabel, new GridConstraints(5, 1, 1, 3, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(107, 16), null, 0, false));
+        juegoDeLivingLabel.setText(" Living Room Set");
+        NewRoomForm.add(juegoDeLivingLabel, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(134, 16), null, 0, false));
         miniBarLabel = new JLabel();
         miniBarLabel.setText("Mini Bar");
-        NewRoomForm.add(miniBarLabel, new GridConstraints(4, 5, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        escritorioLabel = new JLabel();
-        escritorioLabel.setText("Escritorio");
-        NewRoomForm.add(escritorioLabel, new GridConstraints(5, 5, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        NewRoomForm.add(miniBarLabel, new GridConstraints(4, 3, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         adornosLabel = new JLabel();
-        adornosLabel.setText("Adornos");
-        NewRoomForm.add(adornosLabel, new GridConstraints(3, 5, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        adornosLabel.setText("Decoration");
+        NewRoomForm.add(adornosLabel, new GridConstraints(3, 3, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         AdornoscheckBox = new JCheckBox();
-        AdornoscheckBox.setText("CheckBox");
-        NewRoomForm.add(AdornoscheckBox, new GridConstraints(3, 6, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        AdornoscheckBox.setText("");
+        NewRoomForm.add(AdornoscheckBox, new GridConstraints(3, 4, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         MiniBarcheckBox = new JCheckBox();
-        MiniBarcheckBox.setText("CheckBox");
-        NewRoomForm.add(MiniBarcheckBox, new GridConstraints(4, 6, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        DeskcheckBox = new JCheckBox();
-        DeskcheckBox.setText("CheckBox");
-        NewRoomForm.add(DeskcheckBox, new GridConstraints(5, 6, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        TelfcheckBox = new JCheckBox();
-        TelfcheckBox.setText("CheckBox");
-        NewRoomForm.add(TelfcheckBox, new GridConstraints(3, 2, 1, 3, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        MiniBarcheckBox.setText("");
+        NewRoomForm.add(MiniBarcheckBox, new GridConstraints(4, 4, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         LivingcheckBox = new JCheckBox();
-        LivingcheckBox.setText("CheckBox");
-        NewRoomForm.add(LivingcheckBox, new GridConstraints(4, 3, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        KitchencheckBox = new JCheckBox();
-        KitchencheckBox.setText("CheckBox");
-        NewRoomForm.add(KitchencheckBox, new GridConstraints(5, 4, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(89, 24), null, 0, false));
+        LivingcheckBox.setText("");
+        NewRoomForm.add(LivingcheckBox, new GridConstraints(4, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         guardarButton = new JButton();
-        guardarButton.setText("Guardar");
-        NewRoomForm.add(guardarButton, new GridConstraints(6, 5, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        guardarButton.setText("Save");
+        NewRoomForm.add(guardarButton, new GridConstraints(6, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         cancelarButton = new JButton();
-        cancelarButton.setText("Cancelar");
-        NewRoomForm.add(cancelarButton, new GridConstraints(6, 6, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        cancelarButton.setText("Exit");
+        NewRoomForm.add(cancelarButton, new GridConstraints(6, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        TelfcheckBox = new JCheckBox();
+        TelfcheckBox.setText("");
+        NewRoomForm.add(TelfcheckBox, new GridConstraints(3, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        KitchencheckBox = new JCheckBox();
+        KitchencheckBox.setText("");
+        NewRoomForm.add(KitchencheckBox, new GridConstraints(5, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(89, 24), null, 0, false));
+        accesorisoDeCocinaLabel = new JLabel();
+        accesorisoDeCocinaLabel.setText("Kitchen Accessories");
+        NewRoomForm.add(accesorisoDeCocinaLabel, new GridConstraints(5, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(107, 16), null, 0, false));
+        escritorioLabel = new JLabel();
+        escritorioLabel.setText("Desktop");
+        NewRoomForm.add(escritorioLabel, new GridConstraints(5, 3, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        DeskcheckBox = new JCheckBox();
+        DeskcheckBox.setText("");
+        NewRoomForm.add(DeskcheckBox, new GridConstraints(5, 4, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**

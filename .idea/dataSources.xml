@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2500020418">
+    <data-source source="LOCAL" name="Derby (Embedded) - HotelDB" uuid="bd7dc892-9985-4ecc-bdf1-b48ef169561d">
+      <driver-ref>derby.embedded</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.apache.derby.jdbc.EmbeddedDriver</jdbc-driver>
+      <jdbc-url>jdbc:derby:$PROJECT_DIR$/HotelDB</jdbc-url>
+    </data-source>
+  </component>
+</project>
