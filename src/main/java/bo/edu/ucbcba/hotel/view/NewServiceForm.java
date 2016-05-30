@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by Alejandra on 17/05/2016.
  */
-public class NewServiceForm extends JFrame {
+public class NewServiceForm extends JDialog {
     private JPanel NewServicePanel;
     private JButton cancelButton;
     private JButton saveButton;
@@ -24,8 +24,8 @@ public class NewServiceForm extends JFrame {
     private ServiceController serviceController;
 
 
-    public NewServiceForm() {
-        super("New service");
+    public NewServiceForm(JDialog parent) {
+        super(parent, "New service", true);
         setContentPane(NewServicePanel);
         setSize(600, 400);
         setBounds(400, 150, 600, 400);

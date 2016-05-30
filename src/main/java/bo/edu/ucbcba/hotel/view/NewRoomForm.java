@@ -39,7 +39,7 @@ public class NewRoomForm extends JDialog {
     private boolean availability = true;
 
     public NewRoomForm(JDialog parent) {
-        super(parent, "Users", true);
+        super(parent, "New Room", true);
         setContentPane(NewRoomForm);
         setSize(600, 400);
         setBounds(480, 150, 500, 400);
