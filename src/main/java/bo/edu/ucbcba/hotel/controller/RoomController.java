@@ -32,6 +32,27 @@ public class RoomController {
         entityManager.getTransaction().commit();
         entityManager.close();
     }
+    public void update(String type,String view, boolean availability, boolean phone,boolean living,
+                       boolean kitchenAccesories,boolean minibar,boolean desk,boolean ornaments,int roomNumber){
+
+
+
+        EntityManager entityManager = usersEntityManager.createEntityManager();
+        entityManager.getTransaction().begin();
+        Rooms room= (Rooms)entityManager.find(Rooms.class ,roomNumber);
+        room.setType(type);
+        room.setRoomView(view);
+        room.setPhone(phone);
+        room.setLiving(living);
+        room.setKitchenAccesories(kitchenAccesories);
+        room.setMinibar(minibar);
+        room.setDesk(desk);
+        room.setOrnaments(ornaments);
+        entityManager.getTransaction().commit();
+
+        entityManager.close();
+
+    }
     public static List<Rooms> searchRoom(String q) {
         int a=0;
         if(q.matches("[0-9]+")){
@@ -59,6 +80,15 @@ public class RoomController {
         }
         return null;
     }
+    public static List<Rooms> getRoom(int num){
+        EntityManager entityManager = usersEntityManager.createEntityManager();
+        TypedQuery<Rooms> query = entityManager.createQuery("select s from Rooms s where s.roomNumber= :a ", Rooms.class);
+        query.setParameter("a", num);
+        List<Rooms> response = query.getResultList();
+        entityManager.close();
+        return response;
+    }
+
     public void DeleteRoom(String q)
     {
         int a;
