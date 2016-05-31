@@ -16,6 +16,7 @@ public class HotelForm extends JFrame {
     private JButton registrarHabitacionButton;
     private JPanel Panel;
     private JButton empleadosButton;
+    private JButton exitButton;
 
     public HotelForm() {
         super("Hotel");
@@ -36,7 +37,12 @@ public class HotelForm extends JFrame {
                 newService();
             }
         });
-
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                exit();
+            }
+        });
         registrarHabitacionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -50,6 +56,10 @@ public class HotelForm extends JFrame {
             }
         });
 
+    }
+
+    private void exit() {
+        System.exit(0);
     }
 
     private void newEmployer() {
@@ -85,7 +95,7 @@ public class HotelForm extends JFrame {
      */
     private void $$$setupUI$$$() {
         Panel = new JPanel();
-        Panel.setLayout(new GridLayoutManager(5, 4, new Insets(10, 10, 10, 10), -1, -1));
+        Panel.setLayout(new GridLayoutManager(5, 5, new Insets(10, 10, 10, 10), -1, -1));
         registrarClienteButton = new JButton();
         registrarClienteButton.setText("Clients");
         Panel.add(registrarClienteButton, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -107,6 +117,9 @@ public class HotelForm extends JFrame {
         empleadosButton = new JButton();
         empleadosButton.setText("Employers");
         Panel.add(empleadosButton, new GridConstraints(4, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        exitButton = new JButton();
+        exitButton.setText("Exit");
+        Panel.add(exitButton, new GridConstraints(4, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**
