@@ -55,29 +55,36 @@ public class RoomController {
     }
     public static List<Rooms> searchRoom(String q) {
         int a=0;
-        if(q.matches("[0-9]+")){
-            if(q.isEmpty()) {
-                a=0;
-            } else {
-                a=Integer.parseInt(q);
-            }
-        }
+
+
+
         EntityManager entityManager = usersEntityManager.createEntityManager();
-        if(a!=0)
-        {
-            TypedQuery<Rooms> query = entityManager.createQuery("select s from Rooms s where s.roomNumber= :a ", Rooms.class);
-            query.setParameter("a", a);
-            List<Rooms> response = query.getResultList();
-            entityManager.close();
-            return response;
-        }
-        if (a == 0) {
+        if (q.isEmpty()) {
+            a = 0;
             TypedQuery<Rooms> query = entityManager.createQuery("select s from Rooms s ", Rooms.class);
             //query.setParameter("a", a);
             List<Rooms> response = query.getResultList();
             entityManager.close();
             return response;
         }
+        if(q.matches("[0-9]+"))
+        {
+            a=Integer.parseInt(q);
+            TypedQuery<Rooms> query = entityManager.createQuery("select s from Rooms s where s.roomNumber= :a ", Rooms.class);
+            query.setParameter("a", a);
+            List<Rooms> response = query.getResultList();
+            entityManager.close();
+            return response;
+        }
+        if(q.matches("[a-zA-Z]+"))
+        {
+            TypedQuery<Rooms> query = entityManager.createQuery("select s from Rooms s where s.type like :typo or s.roomView like :typo ", Rooms.class);
+            query.setParameter("typo", q);
+            List<Rooms> response = query.getResultList();
+            entityManager.close();
+            return response;
+        }
+
         return null;
     }
     public static List<Rooms> getRoom(int num){
