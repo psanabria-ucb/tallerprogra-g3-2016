@@ -55,11 +55,11 @@ public class ClientController {
             }
         }
         else{
-            EntityManager entityManager1 = usersEntityManager.createEntityManager();
-            TypedQuery<Clients> query = entityManager1.createQuery("select s from Clients s WHERE lower(s.firstName, s.lastName) like :firstName", Clients.class);
+            EntityManager entityManager = usersEntityManager.createEntityManager();
+            TypedQuery<Clients> query = entityManager.createQuery("select s from Clients s WHERE lower(s.firstName) like :firstName", Clients.class);
             query.setParameter("firstName", "%" + CI.toLowerCase() + "%");
             List<Clients> response = query.getResultList();
-            entityManager1.close();
+            entityManager.close();
             return response;
         }
 
