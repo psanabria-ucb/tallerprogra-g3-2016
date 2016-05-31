@@ -29,30 +29,42 @@ public class ClientController {
 
     public static List<Clients> searchClients(String CI) {
         int ci=0;
+
+
         if(CI.matches("[0-9]+")){
             if(CI.isEmpty()) {
                 ci=0;
             } else {
                 ci=Integer.parseInt(CI);
             }
+            EntityManager entityManager = usersEntityManager.createEntityManager();
+            if(ci!=0)
+            {
+                TypedQuery<Clients> query = entityManager.createQuery("select s from Clients s where s.clientCi= :ci ", Clients.class);
+                query.setParameter("ci", ci);
+                List<Clients> response = query.getResultList();
+                entityManager.close();
+                return response;
+            }
+            if (ci == 0) {
+                TypedQuery<Clients> query = entityManager.createQuery("select s from Clients s ", Clients.class);
+                //query.setParameter("a", a);
+                List<Clients> response = query.getResultList();
+                entityManager.close();
+                return response;
+            }
         }
-        EntityManager entityManager = usersEntityManager.createEntityManager();
-        if(ci!=0)
-        {
-            TypedQuery<Clients> query = entityManager.createQuery("select s from Clients s where s.ClientCi= :a ", Clients.class);
-            query.setParameter("a", ci);
+        else{
+            EntityManager entityManager1 = usersEntityManager.createEntityManager();
+            TypedQuery<Clients> query = entityManager1.createQuery("select s from Clients s WHERE lower(s.firstName, s.lastName) like :firstName", Clients.class);
+            query.setParameter("firstName", "%" + CI.toLowerCase() + "%");
             List<Clients> response = query.getResultList();
-            entityManager.close();
+            entityManager1.close();
             return response;
         }
-        if (ci == 0) {
-            TypedQuery<Clients> query = entityManager.createQuery("select s from Clients s ", Clients.class);
-            //query.setParameter("a", a);
-            List<Clients> response = query.getResultList();
-            entityManager.close();
-            return response;
-        }
-        return null;
+
+       return null;
+
     }
 
 
