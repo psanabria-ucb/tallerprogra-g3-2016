@@ -56,8 +56,6 @@ public class RoomController {
     public static List<Rooms> searchRoom(String q) {
         int a=0;
 
-
-
         EntityManager entityManager = usersEntityManager.createEntityManager();
         if (q.isEmpty()) {
             a = 0;

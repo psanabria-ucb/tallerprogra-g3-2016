@@ -84,19 +84,19 @@ public class ServiceForm extends JDialog {
         String name, description;
         DefaultTableModel tm = (DefaultTableModel) serviceTable.getModel();
 
-        if(serviceTable.getSelectedRow()!=-1) {
+        if (serviceTable.getSelectedRow() != -1) {
             number = (int) tm.getValueAt(serviceTable.getSelectedRow(), 0);
             cost = (int) tm.getValueAt(serviceTable.getSelectedRow(), 3);
             name = (String) tm.getValueAt(serviceTable.getSelectedRow(), 1);
             description = (String) tm.getValueAt(serviceTable.getSelectedRow(), 2);
 
             try {
-            EditServiceForm ser = new EditServiceForm(this, cost, name, description, number);
-            ser.setVisible(true);
-        } catch (ValidationException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
-        }}
-        else
+                EditServiceForm ser = new EditServiceForm(this, cost, name, description, number);
+                ser.setVisible(true);
+            } catch (ValidationException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else
             JOptionPane.showMessageDialog(this, "Please select one service to edit it", "Error", JOptionPane.INFORMATION_MESSAGE);
 
     }
@@ -106,7 +106,7 @@ public class ServiceForm extends JDialog {
         int n;
 
         DefaultTableModel tm = (DefaultTableModel) serviceTable.getModel();
-        if(serviceTable.getSelectedRow()!=-1) {
+        if (serviceTable.getSelectedRow() != -1) {
             n = (int) tm.getValueAt(serviceTable.getSelectedRow(), 0);
             try {
                 serviceController.delete(Integer.toString(n));
@@ -114,8 +114,7 @@ public class ServiceForm extends JDialog {
                 JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
             }
             JOptionPane.showMessageDialog(this, "Service deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else
+        } else
             JOptionPane.showMessageDialog(this, "Please select one service to delete it", "Error", JOptionPane.INFORMATION_MESSAGE);
 
     }
@@ -203,7 +202,7 @@ public class ServiceForm extends JDialog {
         ServiceForm = new JPanel();
         ServiceForm.setLayout(new GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel = new JPanel();
-        panel.setLayout(new GridLayoutManager(4, 10, new Insets(0, 0, 0, 0), -1, -1));
+        panel.setLayout(new GridLayoutManager(4, 10, new Insets(10, 10, 10, 10), -1, -1));
         ServiceForm.add(panel, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         searchField = new JTextField();
         panel.add(searchField, new GridConstraints(0, 2, 1, 5, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));

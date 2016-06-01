@@ -58,8 +58,8 @@ public class EditServiceForm extends JDialog {
 
     private void save(int num) {
         try {
-            if(serviceController.exemptions(SNtextField.getText(), SDtextField.getText(), SCtextField.getText()))
-                serviceController.update(SNtextField.getText(), SDtextField.getText(), SCtextField.getText(),num );
+            if (serviceController.exemptions(SNtextField.getText(), SDtextField.getText(), SCtextField.getText()))
+                serviceController.update(SNtextField.getText(), SDtextField.getText(), SCtextField.getText(), num);
 
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
@@ -85,7 +85,7 @@ public class EditServiceForm extends JDialog {
      */
     private void $$$setupUI$$$() {
         panel = new JPanel();
-        panel.setLayout(new GridLayoutManager(7, 5, new Insets(0, 0, 0, 0), -1, -1));
+        panel.setLayout(new GridLayoutManager(7, 5, new Insets(10, 10, 10, 10), -1, -1));
         saveButton = new JButton();
         saveButton.setText("Save");
         panel.add(saveButton, new GridConstraints(5, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
