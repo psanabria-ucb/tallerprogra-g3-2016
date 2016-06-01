@@ -124,10 +124,10 @@ public class SalonForm extends JDialog {
         model.addColumn("Capacity");
         model.addColumn("Availability");
         SalonTable.setModel(model);
-        if (searchField.getText().length() > 7 ) {
+        if ((searchField.getText()).toString().length() > 7) {
             JOptionPane.showMessageDialog(this, "Search argument number is to big,please insert a new one", "Error", JOptionPane.INFORMATION_MESSAGE);
             searchField.setText("");
-            populateTable();
+            populateTable1();
             return;
         }
         if (searchField.getText().length() > 20) {

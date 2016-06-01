@@ -18,6 +18,7 @@ public class HotelForm extends JFrame {
     private JButton empleadosButton;
     private JButton exitButton;
     private JButton salonsButton;
+    private JButton reservationButton;
 
     public HotelForm() {
         super("Hotel");
@@ -60,12 +61,20 @@ public class HotelForm extends JFrame {
                 newSalon();
             }
         });
+        reservationButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                newReservation();
+            }
+        });
     }
 
     private void exit() {
         System.exit(0);
     }
+    private void newReservation(){
 
+    }
     private void newSalon() {
         SalonForm salonForm = new SalonForm(this);
         salonForm.setVisible(true);
