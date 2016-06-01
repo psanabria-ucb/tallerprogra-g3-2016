@@ -55,14 +55,15 @@ public class NewEmployerForm extends JDialog {
 
     private void save() {
         try {
-            e.create(NametextField.getText(), LNametextField.getText(), (Integer.parseInt(ICtextField.getText())), Integer.parseInt(PhonetextField.getText()));
-
+            if (e.exeptions(NametextField.getText(), LNametextField.getText(), ICtextField.getText(), PhonetextField.getText())) {
+                e.create(NametextField.getText(), LNametextField.getText(), (Integer.parseInt(ICtextField.getText())), Integer.parseInt(PhonetextField.getText()));
+                JOptionPane.showMessageDialog(this, "Employer created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+                cancel();
+            }
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
         }
 
-        JOptionPane.showMessageDialog(this, "Service created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-        cancel();
     }
 
     {
@@ -81,7 +82,7 @@ public class NewEmployerForm extends JDialog {
      */
     private void $$$setupUI$$$() {
         EmployersPanel = new JPanel();
-        EmployersPanel.setLayout(new GridLayoutManager(8, 5, new Insets(10, 10, 10, 10), -1, -1));
+        EmployersPanel.setLayout(new GridLayoutManager(8, 5, new Insets(20, 20, 20, 20), -1, -1));
         saveButton = new JButton();
         saveButton.setText("Save");
         EmployersPanel.add(saveButton, new GridConstraints(6, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));

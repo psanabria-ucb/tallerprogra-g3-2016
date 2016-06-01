@@ -53,12 +53,12 @@ public class NewServiceForm extends JDialog {
             if (serviceController.exemptions(serviceNametextField.getText(), serviceDescriptiontextField.getText(), serviceCosttextField.getText())) {
                 serviceController.create(serviceNametextField.getText(), serviceDescriptiontextField.getText(), serviceCosttextField.getText());
                 JOptionPane.showMessageDialog(this, "Service created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+                cancel();
             }
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
         }
 
-        cancel();
     }
 
     private void cancel() {

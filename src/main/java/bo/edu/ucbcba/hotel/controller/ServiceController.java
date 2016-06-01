@@ -18,26 +18,20 @@ public class ServiceController {
 
     public boolean exemptions(String name, String description, String cost){
 
+        if(cost.isEmpty())
+            throw new ValidationException("Release cost cant be blank");
         if (!cost.matches("[0-9]+"))
             throw new ValidationException("Release cost is invalid");
-        if (cost.length()>8) {
+        if (cost.length()>8)
             throw new ValidationException("Release cost is invalid");
-        }
-        if (name.length()>32) {
+        if (name.length()>32)
             throw new ValidationException("Release name is invalid");
-        }
-        if (description.length()>32) {
+        if (description.length()>32)
             throw new ValidationException("Release description is invalid");
-        }
-        if (cost.length()==0) {
-            throw new ValidationException("Release cost cant be blank");
-        }
-        if (name.length()==0) {
+        if (name.length()==0)
             throw new ValidationException("Release name cant be blank");
-        }
-        if (description.length()==0) {
+        if (description.length()==0)
             throw new ValidationException("Release description cant be blank");
-        }
         return true;
     }
 

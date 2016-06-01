@@ -74,6 +74,8 @@ public class HotelForm extends JFrame {
     }
 
     private void newReservation() {
+        ReservationForm reservationForm = new ReservationForm(this);
+        reservationForm.setVisible(true);
 
     }
 

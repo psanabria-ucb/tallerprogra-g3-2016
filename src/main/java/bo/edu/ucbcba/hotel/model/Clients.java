@@ -61,6 +61,11 @@ public class Clients {
         this.clientCi = clientCi;
     }
 
+    @Override
+    public String toString(){
+        return String.format("%s %s", firstName, lastName);
+    }
+
 
 
 
