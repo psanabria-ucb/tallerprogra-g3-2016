@@ -27,8 +27,7 @@ public class HotelForm extends JFrame {
         registrarClienteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ClientsForm clientform = new ClientsForm();
-                clientform.setVisible(true);
+                newClient();
             }
         });
         serviciosButton.addActionListener(new ActionListener() {
@@ -86,6 +85,11 @@ public class HotelForm extends JFrame {
     private void newService() {
         ServiceForm serviceform = new ServiceForm(this);
         serviceform.setVisible(true);
+    }
+
+    private void newClient(){
+        ClientsForm clientsForm = new ClientsForm(this);
+        clientsForm.setVisible(true);
     }
 
 

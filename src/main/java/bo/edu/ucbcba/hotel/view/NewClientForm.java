@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by CésarIvan on 19/05/2016.
  */
-public class NewClientForm extends JFrame {
+public class NewClientForm extends JDialog {
     private JPanel NewClientPanel;
     private JTextField NewFirstNameText;
     private JTextField NewLastNameText;
@@ -23,8 +23,9 @@ public class NewClientForm extends JFrame {
     private JButton CancelButton;
     private ClientController clientController;
 
-    public NewClientForm() {
-        super("Nuevo Cliente");
+    public NewClientForm(JDialog parent) {
+        super(parent, "Nuevo Cliente", true);
+        pack();
         setContentPane(NewClientPanel);
         setSize(600, 400);
         setBounds(400, 150, 600, 400);
@@ -48,13 +49,16 @@ public class NewClientForm extends JFrame {
     private void saveClient() {
 
         try {
-            clientController.create(NewFirstNameText.getText(), NewLastNameText.getText(), (Integer.parseInt(NewCiText.getText())), Integer.parseInt(NewPhoneText.getText()));
+            if(clientController.exemptions(NewFirstNameText.getText(), NewLastNameText.getText(),NewCiText.getText(),NewPhoneText.getText()))
+            {
+                clientController.create(NewFirstNameText.getText(), NewLastNameText.getText(), (Integer.parseInt(NewCiText.getText())), Integer.parseInt(NewPhoneText.getText()));
+                JOptionPane.showMessageDialog(this, "Client created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+                cancel();
+            }
 
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
         }
-
-        JOptionPane.showMessageDialog(this, "Service created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
         cancel();
     }
 
