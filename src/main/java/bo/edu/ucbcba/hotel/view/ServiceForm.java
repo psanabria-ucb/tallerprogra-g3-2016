@@ -39,7 +39,7 @@ public class ServiceForm extends JDialog {
         setSize(600, 400);
         setBounds(400, 150, 600, 400);
         serviceController = new ServiceController();
-        populateTable();
+        populateTable1();
 
         salirButton1.addActionListener(new ActionListener() {
             @Override
@@ -120,6 +120,27 @@ public class ServiceForm extends JDialog {
         populateTable();
     }
 
+    private void populateTable1() {
+        List<Services> servicesList = serviceController.searchService(searchField.getText());
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("ID");
+        model.addColumn("Name");
+        model.addColumn("Description");
+        model.addColumn("Cost");
+
+        serviceTable.setModel(model);
+        for (Services t : servicesList) {
+            Object[] row = new Object[5];
+
+            row[0] = t.getRoomNumber();
+            row[1] = t.getName();
+            row[2] = t.getDescription();
+            row[3] = t.getCost();
+
+            model.addRow(row);
+        }
+    }
+
     private void populateTable() {
 
 
@@ -132,7 +153,17 @@ public class ServiceForm extends JDialog {
 
         serviceTable.setModel(model);
 
-
+        if (searchField.getText().length() > 20) {
+            JOptionPane.showMessageDialog(this, "Search argument is to big,please insert another one", "Error", JOptionPane.INFORMATION_MESSAGE);
+            searchField.setText("");
+            populateTable();
+            return;
+        }
+        if (servicesList.size() == 0) {
+            JOptionPane.showMessageDialog(this, "No matches with employee data base ", "Error", JOptionPane.INFORMATION_MESSAGE);
+            searchField.setText("");
+            populateTable1();
+        }
         for (Services s : servicesList) {
             Object[] row = new Object[5];
 

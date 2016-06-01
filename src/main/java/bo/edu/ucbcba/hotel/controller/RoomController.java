@@ -78,8 +78,8 @@ public class RoomController {
         }
         if(q.matches("[a-zA-Z]+"))
         {
-            TypedQuery<Rooms> query = entityManager.createQuery("select s from Rooms s where s.type like :typo or s.roomView like :typo ", Rooms.class);
-            query.setParameter("typo", q);
+            TypedQuery<Rooms> query = entityManager.createQuery("select s from Rooms s where lower(s.type) like :typo or lower(s.roomView) like :typo ", Rooms.class);
+            query.setParameter("typo", "%" + q.toLowerCase() + "%");
             List<Rooms> response = query.getResultList();
             entityManager.close();
             return response;
