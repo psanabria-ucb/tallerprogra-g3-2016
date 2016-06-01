@@ -99,6 +99,7 @@ public class EmployerForm extends JDialog {
 
 
     }
+
     private void populateTable1() {
         List<Employers> servicesList = e.searchEmployers(textField1.getText());
         DefaultTableModel model = new DefaultTableModel();
@@ -118,6 +119,7 @@ public class EmployerForm extends JDialog {
             model.addRow(row);
         }
     }
+
     private void populateTable() {
         List<Employers> servicesList = e.searchEmployers(textField1.getText());
         DefaultTableModel model = new DefaultTableModel();
@@ -196,7 +198,7 @@ public class EmployerForm extends JDialog {
      */
     private void $$$setupUI$$$() {
         EmployerPanel = new JPanel();
-        EmployerPanel.setLayout(new GridLayoutManager(5, 9, new Insets(0, 0, 0, 0), -1, -1));
+        EmployerPanel.setLayout(new GridLayoutManager(5, 9, new Insets(10, 10, 10, 10), -1, -1));
         searchButton = new JButton();
         searchButton.setText("Search");
         EmployerPanel.add(searchButton, new GridConstraints(1, 7, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));

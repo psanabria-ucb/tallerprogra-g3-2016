@@ -17,6 +17,8 @@ public class HotelForm extends JFrame {
     private JPanel Panel;
     private JButton empleadosButton;
     private JButton exitButton;
+    private JButton salonsButton;
+    private JButton reservationButton;
 
     public HotelForm() {
         super("Hotel");
@@ -26,11 +28,9 @@ public class HotelForm extends JFrame {
         registrarClienteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ClientsForm clientform = new ClientsForm();
-                clientform.setVisible(true);
+                newClient();
             }
         });
-
         serviciosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -55,11 +55,30 @@ public class HotelForm extends JFrame {
                 newEmployer();
             }
         });
-
+        salonsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                newSalon();
+            }
+        });
+/*       reservationButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                newReservation();
+            }
+        });*/
     }
 
     private void exit() {
         System.exit(0);
+    }
+    private void newReservation(){
+        ReservationForm reservationForm= new ReservationForm(this);
+        reservationForm.setVisible(true);
+    }
+    private void newSalon() {
+        SalonForm salonForm = new SalonForm(this);
+        salonForm.setVisible(true);
     }
 
     private void newEmployer() {
@@ -76,6 +95,11 @@ public class HotelForm extends JFrame {
     private void newService() {
         ServiceForm serviceform = new ServiceForm(this);
         serviceform.setVisible(true);
+    }
+
+    private void newClient() {
+        ClientsForm clientsForm = new ClientsForm(this);
+        clientsForm.setVisible(true);
     }
 
 
@@ -95,7 +119,7 @@ public class HotelForm extends JFrame {
      */
     private void $$$setupUI$$$() {
         Panel = new JPanel();
-        Panel.setLayout(new GridLayoutManager(5, 5, new Insets(10, 10, 10, 10), -1, -1));
+        Panel.setLayout(new GridLayoutManager(5, 6, new Insets(10, 10, 10, 10), -1, -1));
         registrarClienteButton = new JButton();
         registrarClienteButton.setText("Clients");
         Panel.add(registrarClienteButton, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -119,7 +143,10 @@ public class HotelForm extends JFrame {
         Panel.add(empleadosButton, new GridConstraints(4, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         exitButton = new JButton();
         exitButton.setText("Exit");
-        Panel.add(exitButton, new GridConstraints(4, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        Panel.add(exitButton, new GridConstraints(4, 5, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        salonsButton = new JButton();
+        salonsButton.setText("Salons");
+        Panel.add(salonsButton, new GridConstraints(4, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**
