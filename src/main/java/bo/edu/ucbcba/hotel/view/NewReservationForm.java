@@ -67,17 +67,17 @@ public class NewReservationForm extends JDialog {
         for (Clients c : clients) {
             clientComboBox.addItem(c);
         }
-        List<Rooms> roomses= roomController.getAllRooms();
-        for(Rooms r : roomses){
+        List<Rooms> roomses = roomController.getAllRooms();
+        for (Rooms r : roomses) {
             roomComboBox.addItem(r);
         }
-        for(int day=1;day<32;day=day+1){
+        for (int day = 1; day < 32; day = day + 1) {
             dayComboBox.addItem(day);
         }
-        for(int month=1;month<13;month=month+1){
+        for (int month = 1; month < 13; month = month + 1) {
             dayComboBox.addItem(month);
         }
-        for(int year=2016;year<2018;year=year+1){
+        for (int year = 2016; year < 2018; year = year + 1) {
             dayComboBox.addItem(year);
         }
 

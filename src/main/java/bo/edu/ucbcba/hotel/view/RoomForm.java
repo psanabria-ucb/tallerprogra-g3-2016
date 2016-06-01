@@ -164,7 +164,7 @@ public class RoomForm extends JDialog {
         if (SearchField.getText().length() > 15) {
             JOptionPane.showMessageDialog(this, "Search argument is to big,please insert another one", "Error", JOptionPane.INFORMATION_MESSAGE);
             SearchField.setText("");
-            populateTable();
+            //populateTable();
             return;
         }
         if (roomsList.size() == 0) {
