@@ -74,7 +74,7 @@ public class RoomForm extends JDialog {
                 editRoom();
             }
         });
-        populateTable();
+        
 
     }
 
