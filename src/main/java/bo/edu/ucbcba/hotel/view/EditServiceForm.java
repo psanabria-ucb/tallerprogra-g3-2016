@@ -24,7 +24,7 @@ public class EditServiceForm extends JDialog {
     private JTextField SCtextField;
     private ServiceController serviceController;
 
-    public EditServiceForm(JDialog parent, int cost, String name, String description) {
+    public EditServiceForm(JDialog parent, int cost, String name, String description, final int number) {
         super(parent, "Edit employer", true);
         pack();
         setContentPane(panel);
@@ -39,7 +39,7 @@ public class EditServiceForm extends JDialog {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                save();
+                save(number);
             }
         });
         cancelButton.addActionListener(new ActionListener() {
@@ -56,15 +56,16 @@ public class EditServiceForm extends JDialog {
         dispose();
     }
 
-    private void save() {
+    private void save(int num) {
         try {
-            serviceController.create(SNtextField.getText(), SDtextField.getText(), SCtextField.getText());
+            if(serviceController.exemptions(SNtextField.getText(), SDtextField.getText(), SCtextField.getText()))
+                serviceController.update(SNtextField.getText(), SDtextField.getText(), SCtextField.getText(),num );
 
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
         }
 
-        JOptionPane.showMessageDialog(this, "Service created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Service updated successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
         cancel();
     }
 

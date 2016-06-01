@@ -15,9 +15,9 @@ import java.util.List;
  * Created by Alejandra on 17/05/2016.
  */
 public class ServiceController {
-    public void create(String name, String description, String cost){
-        Services service = new Services();
-        int costo;
+
+    public boolean exemptions(String name, String description, String cost){
+
         if (!cost.matches("[0-9]+"))
             throw new ValidationException("Release cost is invalid");
         if (cost.length()>8) {
@@ -38,6 +38,13 @@ public class ServiceController {
         if (description.length()==0) {
             throw new ValidationException("Release description cant be blank");
         }
+        return true;
+    }
+
+    public void create(String name, String description, String cost){
+        Services service = new Services();
+        int costo;
+
         costo=(Integer.parseInt(cost));
 
         service.setCost(costo);
@@ -69,7 +76,21 @@ public class ServiceController {
 
     }
 
+    public void update(String name, String description, String cost,int servicenum){
 
+
+
+        EntityManager entityManager = usersEntityManager.createEntityManager();
+        entityManager.getTransaction().begin();
+        Services room= (Services)entityManager.find(Services.class ,servicenum);
+        room.setCost(Integer.parseInt(cost));
+        room.setDescription(description);
+        room.setName(name);
+        entityManager.getTransaction().commit();
+
+        entityManager.close();
+
+    }
 
     }
 

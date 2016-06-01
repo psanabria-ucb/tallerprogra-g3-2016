@@ -83,34 +83,40 @@ public class ServiceForm extends JDialog {
         int number, cost;
         String name, description;
         DefaultTableModel tm = (DefaultTableModel) serviceTable.getModel();
-        number = (int) tm.getValueAt(serviceTable.getSelectedRow(), 0);
-        cost = (int) tm.getValueAt(serviceTable.getSelectedRow(), 3);
-        name = (String) tm.getValueAt(serviceTable.getSelectedRow(), 1);
-        description = (String) tm.getValueAt(serviceTable.getSelectedRow(), 2);
 
+        if(serviceTable.getSelectedRow()!=-1) {
+            number = (int) tm.getValueAt(serviceTable.getSelectedRow(), 0);
+            cost = (int) tm.getValueAt(serviceTable.getSelectedRow(), 3);
+            name = (String) tm.getValueAt(serviceTable.getSelectedRow(), 1);
+            description = (String) tm.getValueAt(serviceTable.getSelectedRow(), 2);
 
-        try {
-            serviceController.delete(Integer.toString(number));
-            EditServiceForm ser = new EditServiceForm(this, cost, name, description);
+            try {
+            EditServiceForm ser = new EditServiceForm(this, cost, name, description, number);
             ser.setVisible(true);
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
-        }
-        JOptionPane.showMessageDialog(this, "Employer deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+        }}
+        else
+            JOptionPane.showMessageDialog(this, "Please select one service to edit it", "Error", JOptionPane.INFORMATION_MESSAGE);
 
     }
 
     private void deleteService() {
-        int n;
-        DefaultTableModel tm = (DefaultTableModel) serviceTable.getModel();
-        n = (int) tm.getValueAt(serviceTable.getSelectedRow(), 0);
 
-        try {
-            serviceController.delete(Integer.toString(n));
-        } catch (ValidationException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
+        int n;
+
+        DefaultTableModel tm = (DefaultTableModel) serviceTable.getModel();
+        if(serviceTable.getSelectedRow()!=-1) {
+            n = (int) tm.getValueAt(serviceTable.getSelectedRow(), 0);
+            try {
+                serviceController.delete(Integer.toString(n));
+            } catch (ValidationException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
+            }
+            JOptionPane.showMessageDialog(this, "Service deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
         }
-        JOptionPane.showMessageDialog(this, "Service deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+        else
+            JOptionPane.showMessageDialog(this, "Please select one service to delete it", "Error", JOptionPane.INFORMATION_MESSAGE);
 
     }
 
