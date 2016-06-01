@@ -55,14 +55,15 @@ public class NewEmployerForm extends JDialog {
 
     private void save() {
         try {
-            e.create(NametextField.getText(), LNametextField.getText(), (Integer.parseInt(ICtextField.getText())), Integer.parseInt(PhonetextField.getText()));
-
+            if(e.exeptions(NametextField.getText(), LNametextField.getText(), ICtextField.getText(),PhonetextField.getText())) {
+                e.create(NametextField.getText(), LNametextField.getText(), (Integer.parseInt(ICtextField.getText())), Integer.parseInt(PhonetextField.getText()));
+                JOptionPane.showMessageDialog(this, "Employer created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+                cancel();
+            }
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
         }
 
-        JOptionPane.showMessageDialog(this, "Service created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-        cancel();
     }
 
     {

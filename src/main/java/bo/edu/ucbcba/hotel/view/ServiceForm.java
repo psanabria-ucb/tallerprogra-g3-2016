@@ -160,13 +160,13 @@ public class ServiceForm extends JDialog {
         serviceTable.setModel(model);
 
         if (searchField.getText().length() > 20) {
-            JOptionPane.showMessageDialog(this, "Search argument is to big,please insert another one", "Error", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Search argument is too big, please insert another one", "Error", JOptionPane.INFORMATION_MESSAGE);
             searchField.setText("");
             populateTable();
             return;
         }
         if (servicesList.size() == 0) {
-            JOptionPane.showMessageDialog(this, "No matches with employee data base ", "Error", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No matches with services data base ", "Error", JOptionPane.INFORMATION_MESSAGE);
             searchField.setText("");
             populateTable1();
         }

@@ -79,20 +79,23 @@ public class EmployerForm extends JDialog {
         int n, p;
         String name, lname;
         DefaultTableModel tm = (DefaultTableModel) employertable.getModel();
-        n = (int) tm.getValueAt(employertable.getSelectedRow(), 0);
-        p = (int) tm.getValueAt(employertable.getSelectedRow(), 3);
-        name = (String) tm.getValueAt(employertable.getSelectedRow(), 1);
-        lname = (String) tm.getValueAt(employertable.getSelectedRow(), 2);
+        if(employertable.getSelectedRow()!=-1) {
+
+            n = (int) tm.getValueAt(employertable.getSelectedRow(), 0);
+            p = (int) tm.getValueAt(employertable.getSelectedRow(), 3);
+            name = (String) tm.getValueAt(employertable.getSelectedRow(), 1);
+            lname = (String) tm.getValueAt(employertable.getSelectedRow(), 2);
 
 
-        try {
-            e.delete(Integer.toString(n));
-            EditEmployerForm em = new EditEmployerForm(this, n, p, name, lname);
-            em.setVisible(true);
-        } catch (ValidationException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
+            try {
+                EditEmployerForm em = new EditEmployerForm(this, n, p, name, lname);
+                em.setVisible(true);
+            } catch (ValidationException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
+            }
         }
-        JOptionPane.showMessageDialog(this, "Employer deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+        else
+            JOptionPane.showMessageDialog(this, "Please select one employer to edit it", "Error", JOptionPane.INFORMATION_MESSAGE);
 
 
     }
@@ -125,13 +128,13 @@ public class EmployerForm extends JDialog {
 
         employertable.setModel(model);
         if (textField1.getText().length() > 20) {
-            JOptionPane.showMessageDialog(this, "Search argument is to big,please insert another one", "Error", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Search argument is too big,please insert another one", "Error", JOptionPane.INFORMATION_MESSAGE);
             textField1.setText("");
             populateTable();
             return;
         }
         if (servicesList.size() == 0) {
-            JOptionPane.showMessageDialog(this, "No matches with employee data base ", "Error", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No matches with employer data base ", "Error", JOptionPane.INFORMATION_MESSAGE);
             textField1.setText("");
             populateTable1();
         }
@@ -156,14 +159,19 @@ public class EmployerForm extends JDialog {
     private void deleteEmployer() {
         int n;
         DefaultTableModel tm = (DefaultTableModel) employertable.getModel();
-        n = (int) tm.getValueAt(employertable.getSelectedRow(), 0);
+        if(employertable.getSelectedRow()!=-1) {
 
-        try {
-            e.delete(Integer.toString(n));
-        } catch (ValidationException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
+            n = (int) tm.getValueAt(employertable.getSelectedRow(), 0);
+
+            try {
+                e.delete(Integer.toString(n));
+            } catch (ValidationException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
+            }
+            JOptionPane.showMessageDialog(this, "Employer deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
         }
-        JOptionPane.showMessageDialog(this, "EMployer deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+        else
+            JOptionPane.showMessageDialog(this, "Please select one employer to delete it", "Error", JOptionPane.INFORMATION_MESSAGE);
 
     }
 
