@@ -33,7 +33,7 @@ public class SalonController {
         if(q.matches("[0-9]+"))
         {
             a=Integer.parseInt(q);
-            TypedQuery<Salons> query = entityManager.createQuery("select s from Salons s where s.capacity= :a ", Salons.class);
+            TypedQuery<Salons> query = entityManager.createQuery("select s from Salons s where s.capacity= :a or s.id= :a", Salons.class);
             query.setParameter("a", a);
             List<Salons> response = query.getResultList();
             entityManager.close();
@@ -41,7 +41,7 @@ public class SalonController {
         }
         if(q.matches("[a-zA-Z]+"))
         {
-            TypedQuery<Salons> query = entityManager.createQuery("select s from Salons s where lower(s.name) like :typo or lower(s.availability) like :typo ", Salons.class);
+            TypedQuery<Salons> query = entityManager.createQuery("select s from Salons s where lower(s.name) like :typo ", Salons.class);
             query.setParameter("typo", "%" + q.toLowerCase() + "%");
             List<Salons> response = query.getResultList();
             entityManager.close();
@@ -50,6 +50,7 @@ public class SalonController {
 
         return null;
     }
+
     public void DeleteSalon(String q)
     {
         int a;

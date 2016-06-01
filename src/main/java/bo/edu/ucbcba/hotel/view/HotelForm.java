@@ -87,7 +87,7 @@ public class HotelForm extends JFrame {
         serviceform.setVisible(true);
     }
 
-    private void newClient(){
+    private void newClient() {
         ClientsForm clientsForm = new ClientsForm(this);
         clientsForm.setVisible(true);
     }

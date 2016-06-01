@@ -43,14 +43,18 @@ public class NewSalonForm extends JDialog {
     }
 
     private void create() {
-        if (SalonName.getText().length() > 20) {
-            JOptionPane.showMessageDialog(this, "Salon name is to big,please insert new one", "Format error", JOptionPane.INFORMATION_MESSAGE);
+        if (SalonCapacity.getText().length() == 0 || SalonName.getText().length() == 0) {
+            JOptionPane.showMessageDialog(this, "Fields can't be empty", "Format error", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        if (SalonName.getText().matches("[0-9]+")) {
+            JOptionPane.showMessageDialog(this, "Salon name can't be a number,please insert new name", "Format error", JOptionPane.INFORMATION_MESSAGE);
             SalonName.setText("");
             return;
         }
-        if (SalonCapacity.getText().length() > 5) {
-            JOptionPane.showMessageDialog(this, "Salon capacity is to big,please insert new one", "Format error", JOptionPane.INFORMATION_MESSAGE);
-            SalonCapacity.setText("");
+        if (SalonName.getText().length() > 20) {
+            JOptionPane.showMessageDialog(this, "Salon name is to big,please insert new one", "Format error", JOptionPane.INFORMATION_MESSAGE);
+            SalonName.setText("");
             return;
         }
         if (!SalonCapacity.getText().matches("[0-9]+")) {
@@ -58,6 +62,13 @@ public class NewSalonForm extends JDialog {
             SalonCapacity.setText("");
             return;
         }
+        if (SalonCapacity.getText().length() > 6) {
+            JOptionPane.showMessageDialog(this, "Salon capacity is to big,please insert new one (max capacity:99999)", "Format error", JOptionPane.INFORMATION_MESSAGE);
+            SalonCapacity.setText("");
+            return;
+        }
+
+
         try {
             salonController.create(SalonName.getText(), availibility, Integer.parseInt(SalonCapacity.getText()));
         } catch (ValidationException ex) {

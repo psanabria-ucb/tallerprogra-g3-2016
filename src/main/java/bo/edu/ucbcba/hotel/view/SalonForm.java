@@ -51,7 +51,13 @@ public class SalonForm extends JDialog {
                 deleteSalon();
             }
         });
-        populateTable();
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                populateTable();
+            }
+        });
+        populateTable1();
     }
 
     private void newSalon() {
@@ -83,7 +89,7 @@ public class SalonForm extends JDialog {
         populateTable();
     }
 
-    private void populateTable() {
+    private void populateTable1() {
 
         List<Salons> roomsList = SalonController.searchRoom(searchField.getText());
         DefaultTableModel model = new DefaultTableModel();
@@ -106,6 +112,49 @@ public class SalonForm extends JDialog {
 
 
             model.addRow(row);
+        }
+    }
+
+    private void populateTable() {
+
+        List<Salons> roomsList = SalonController.searchRoom(searchField.getText());
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Salon Id");
+        model.addColumn("Name");
+        model.addColumn("Capacity");
+        model.addColumn("Availability");
+        SalonTable.setModel(model);
+        if (searchField.getText().length() > 7 ) {
+            JOptionPane.showMessageDialog(this, "Search argument number is to big,please insert a new one", "Error", JOptionPane.INFORMATION_MESSAGE);
+            searchField.setText("");
+            populateTable();
+            return;
+        }
+        if (searchField.getText().length() > 20) {
+            JOptionPane.showMessageDialog(this, "Search argument is to big,please insert a new one", "Error", JOptionPane.INFORMATION_MESSAGE);
+            searchField.setText("");
+            populateTable();
+            return;
+        }
+        if (roomsList.size() == 0) {
+            JOptionPane.showMessageDialog(this, "No matches with salons data base", "Error", JOptionPane.INFORMATION_MESSAGE);
+            searchField.setText("");
+            populateTable1();
+        } else {
+            for (Salons s : roomsList) {
+                Object[] row = new Object[4];
+
+                row[0] = s.getId();
+                row[1] = s.getName();
+                row[2] = s.getCapacity();
+                if (s.isAvailability())
+                    row[3] = "Available";
+                else
+                    row[3] = "Not available";
+
+
+                model.addRow(row);
+            }
         }
     }
 
