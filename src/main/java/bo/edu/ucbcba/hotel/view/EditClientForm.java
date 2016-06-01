@@ -84,7 +84,7 @@ public class EditClientForm extends JDialog {
      */
     private void $$$setupUI$$$() {
         EditClientsPanel = new JPanel();
-        EditClientsPanel.setLayout(new GridLayoutManager(5, 8, new Insets(0, 0, 0, 0), -1, -1));
+        EditClientsPanel.setLayout(new GridLayoutManager(5, 8, new Insets(10, 10, 10, 10), -1, -1));
         final JLabel label1 = new JLabel();
         label1.setText("First name:");
         EditClientsPanel.add(label1, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));

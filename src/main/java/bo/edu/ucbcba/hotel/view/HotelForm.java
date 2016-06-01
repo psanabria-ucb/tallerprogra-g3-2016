@@ -24,7 +24,7 @@ public class HotelForm extends JFrame {
         super("Hotel");
         setContentPane(Panel);
         setSize(600, 400);
-        setBounds(400, 150, 600, 400);
+        setBounds(400, 150, 770, 400);
         registrarClienteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

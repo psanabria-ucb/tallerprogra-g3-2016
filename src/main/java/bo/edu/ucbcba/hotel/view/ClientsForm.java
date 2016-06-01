@@ -30,7 +30,7 @@ public class ClientsForm extends JDialog {
 
 
     public ClientsForm(JFrame parent) {
-        super(parent, "Clientes", true);
+        super(parent, "Clients", true);
         pack();
         setContentPane(ClientsPanel);
         setSize(1000, 600);
@@ -170,7 +170,7 @@ public class ClientsForm extends JDialog {
      */
     private void $$$setupUI$$$() {
         ClientsPanel = new JPanel();
-        ClientsPanel.setLayout(new GridLayoutManager(7, 6, new Insets(0, 0, 0, 0), -1, -1));
+        ClientsPanel.setLayout(new GridLayoutManager(7, 6, new Insets(10, 10, 10, 10), -1, -1));
         ClientsPanel.setBorder(BorderFactory.createTitledBorder(""));
         SearchTextField = new JTextField();
         ClientsPanel.add(SearchTextField, new GridConstraints(1, 1, 1, 3, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(204, 24), null, 0, false));

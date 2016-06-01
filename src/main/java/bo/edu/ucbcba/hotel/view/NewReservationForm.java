@@ -102,7 +102,7 @@ public class NewReservationForm extends JDialog {
      */
     private void $$$setupUI$$$() {
         NewReservationPanel = new JPanel();
-        NewReservationPanel.setLayout(new GridLayoutManager(8, 10, new Insets(0, 0, 0, 0), -1, -1));
+        NewReservationPanel.setLayout(new GridLayoutManager(8, 10, new Insets(10, 10, 10, 10), -1, -1));
         dayComboBox = new JComboBox();
         NewReservationPanel.add(dayComboBox, new GridConstraints(1, 2, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         monthComboBox = new JComboBox();

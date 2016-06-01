@@ -25,7 +25,7 @@ public class EditServiceForm extends JDialog {
     private ServiceController serviceController;
 
     public EditServiceForm(JDialog parent, int cost, String name, String description, final int number) {
-        super(parent, "Edit employer", true);
+        super(parent, "Edit service", true);
         pack();
         setContentPane(panel);
         setSize(600, 400);

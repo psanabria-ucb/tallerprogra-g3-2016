@@ -200,7 +200,7 @@ public class ServiceForm extends JDialog {
      */
     private void $$$setupUI$$$() {
         ServiceForm = new JPanel();
-        ServiceForm.setLayout(new GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
+        ServiceForm.setLayout(new GridLayoutManager(2, 1, new Insets(10, 10, 10, 10), -1, -1));
         panel = new JPanel();
         panel.setLayout(new GridLayoutManager(4, 10, new Insets(10, 10, 10, 10), -1, -1));
         ServiceForm.add(panel, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));

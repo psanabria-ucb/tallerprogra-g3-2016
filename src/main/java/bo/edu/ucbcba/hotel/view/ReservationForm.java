@@ -140,7 +140,7 @@ public class ReservationForm extends JDialog {
      */
     private void $$$setupUI$$$() {
         ReservationPanel = new JPanel();
-        ReservationPanel.setLayout(new GridLayoutManager(8, 7, new Insets(0, 0, 0, 0), -1, -1));
+        ReservationPanel.setLayout(new GridLayoutManager(8, 7, new Insets(10, 10, 10, 10), -1, -1));
         searchText = new JTextField();
         ReservationPanel.add(searchText, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(200, 24), null, 0, false));
         final JScrollPane scrollPane1 = new JScrollPane();

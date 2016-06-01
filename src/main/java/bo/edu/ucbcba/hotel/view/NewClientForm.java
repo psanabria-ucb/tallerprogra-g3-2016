@@ -25,7 +25,7 @@ public class NewClientForm extends JDialog {
     private ClientController clientController;
 
     public NewClientForm(JDialog parent) {
-        super(parent, "Nuevo Cliente", true);
+        super(parent, "New Client", true);
         pack();
         setContentPane(NewClientPanel);
         setSize(600, 400);
@@ -58,8 +58,8 @@ public class NewClientForm extends JDialog {
 
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
+
         }
-        cancel();
     }
 
     private void cancel() {
@@ -83,7 +83,7 @@ public class NewClientForm extends JDialog {
      */
     private void $$$setupUI$$$() {
         NewClientPanel = new JPanel();
-        NewClientPanel.setLayout(new GridLayoutManager(6, 5, new Insets(0, 0, 0, 0), -1, -1));
+        NewClientPanel.setLayout(new GridLayoutManager(6, 5, new Insets(10, 10, 10, 10), -1, -1));
         final JLabel label1 = new JLabel();
         label1.setText("First name:");
         NewClientPanel.add(label1, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
