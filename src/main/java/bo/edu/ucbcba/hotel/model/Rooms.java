@@ -120,5 +120,9 @@ public class Rooms {
         this.type = type;
     }
 
+    @Override
+    public String toString(){
+        return String.format("%d", roomNumber);
+    }
 
 }

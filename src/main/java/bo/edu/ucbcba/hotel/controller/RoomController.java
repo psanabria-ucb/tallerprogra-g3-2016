@@ -2,11 +2,8 @@ package bo.edu.ucbcba.hotel.controller;
 
 import bo.edu.ucbcba.hotel.dao.usersEntityManager;
 import bo.edu.ucbcba.hotel.model.Rooms;
-import bo.edu.ucbcba.hotel.exceptions.ValidationException;
-import bo.edu.ucbcba.hotel.model.Services;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -109,5 +106,13 @@ public class RoomController {
             entityManager.getTransaction().commit();
             entityManager.close();
         }
+    }
+
+    public List<Rooms> getAllRooms() {
+        EntityManager em = usersEntityManager.createEntityManager();
+        TypedQuery<Rooms> query = em.createQuery("select d from Rooms d order by d.roomNumber", Rooms.class);
+        List<Rooms> list = query.getResultList();
+        em.close();
+        return list;
     }
 }

@@ -4,9 +4,13 @@ import bo.edu.ucbcba.hotel.controller.ClientController;
 import bo.edu.ucbcba.hotel.controller.ReservationController;
 import bo.edu.ucbcba.hotel.controller.RoomController;
 import bo.edu.ucbcba.hotel.model.Clients;
+
+import bo.edu.ucbcba.hotel.model.Rooms;
+
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -63,6 +67,21 @@ public class NewReservationForm extends JDialog {
         for (Clients c : clients) {
             clientComboBox.addItem(c);
         }
+        List<Rooms> roomses= roomController.getAllRooms();
+        for(Rooms r : roomses){
+            roomComboBox.addItem(r);
+        }
+        for(int day=1;day<32;day=day+1){
+            dayComboBox.addItem(day);
+        }
+        for(int month=1;month<13;month=month+1){
+            dayComboBox.addItem(month);
+        }
+        for(int year=2016;year<2018;year=year+1){
+            dayComboBox.addItem(year);
+        }
+
+
     }
 
   /*  private void saveReservation() {
