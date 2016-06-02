@@ -117,8 +117,6 @@ public class ClientController {
        return null;
 
     }
-
-
     public void delete (String q) {
 
         int a;
