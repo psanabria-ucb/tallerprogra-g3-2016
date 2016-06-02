@@ -39,7 +39,7 @@ public class ServiceForm extends JDialog {
         setSize(600, 400);
         setBounds(400, 150, 600, 400);
         serviceController = new ServiceController();
-        populateTable();
+        populateTable1();
 
         salirButton1.addActionListener(new ActionListener() {
             @Override
@@ -83,34 +83,40 @@ public class ServiceForm extends JDialog {
         int number, cost;
         String name, description;
         DefaultTableModel tm = (DefaultTableModel) serviceTable.getModel();
-        number = (int) tm.getValueAt(serviceTable.getSelectedRow(), 0);
-        cost = (int) tm.getValueAt(serviceTable.getSelectedRow(), 3);
-        name = (String) tm.getValueAt(serviceTable.getSelectedRow(), 1);
-        description = (String) tm.getValueAt(serviceTable.getSelectedRow(), 2);
 
+        if(serviceTable.getSelectedRow()!=-1) {
+            number = (int) tm.getValueAt(serviceTable.getSelectedRow(), 0);
+            cost = (int) tm.getValueAt(serviceTable.getSelectedRow(), 3);
+            name = (String) tm.getValueAt(serviceTable.getSelectedRow(), 1);
+            description = (String) tm.getValueAt(serviceTable.getSelectedRow(), 2);
 
-        try {
-            serviceController.delete(Integer.toString(number));
-            EditServiceForm ser = new EditServiceForm(this, cost, name, description);
+            try {
+            EditServiceForm ser = new EditServiceForm(this, cost, name, description, number);
             ser.setVisible(true);
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
-        }
-        JOptionPane.showMessageDialog(this, "Employer deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+        }}
+        else
+            JOptionPane.showMessageDialog(this, "Please select one service to edit it", "Error", JOptionPane.INFORMATION_MESSAGE);
 
     }
 
     private void deleteService() {
-        int n;
-        DefaultTableModel tm = (DefaultTableModel) serviceTable.getModel();
-        n = (int) tm.getValueAt(serviceTable.getSelectedRow(), 0);
 
-        try {
-            serviceController.delete(Integer.toString(n));
-        } catch (ValidationException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
+        int n;
+
+        DefaultTableModel tm = (DefaultTableModel) serviceTable.getModel();
+        if(serviceTable.getSelectedRow()!=-1) {
+            n = (int) tm.getValueAt(serviceTable.getSelectedRow(), 0);
+            try {
+                serviceController.delete(Integer.toString(n));
+            } catch (ValidationException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
+            }
+            JOptionPane.showMessageDialog(this, "Service deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
         }
-        JOptionPane.showMessageDialog(this, "Service deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+        else
+            JOptionPane.showMessageDialog(this, "Please select one service to delete it", "Error", JOptionPane.INFORMATION_MESSAGE);
 
     }
 
@@ -118,6 +124,27 @@ public class ServiceForm extends JDialog {
         NewServiceForm newservice = new NewServiceForm(this);
         newservice.setVisible(true);
         populateTable();
+    }
+
+    private void populateTable1() {
+        List<Services> servicesList = serviceController.searchService(searchField.getText());
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("ID");
+        model.addColumn("Name");
+        model.addColumn("Description");
+        model.addColumn("Cost");
+
+        serviceTable.setModel(model);
+        for (Services t : servicesList) {
+            Object[] row = new Object[5];
+
+            row[0] = t.getRoomNumber();
+            row[1] = t.getName();
+            row[2] = t.getDescription();
+            row[3] = t.getCost();
+
+            model.addRow(row);
+        }
     }
 
     private void populateTable() {
@@ -132,7 +159,17 @@ public class ServiceForm extends JDialog {
 
         serviceTable.setModel(model);
 
-
+        if (searchField.getText().length() > 20) {
+            JOptionPane.showMessageDialog(this, "Search argument is to big,please insert another one", "Error", JOptionPane.INFORMATION_MESSAGE);
+            searchField.setText("");
+            populateTable();
+            return;
+        }
+        if (servicesList.size() == 0) {
+            JOptionPane.showMessageDialog(this, "No matches with employee data base ", "Error", JOptionPane.INFORMATION_MESSAGE);
+            searchField.setText("");
+            populateTable1();
+        }
         for (Services s : servicesList) {
             Object[] row = new Object[5];
 

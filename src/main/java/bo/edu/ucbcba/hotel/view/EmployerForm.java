@@ -36,7 +36,7 @@ public class EmployerForm extends JDialog {
         setSize(600, 400);
         setBounds(400, 150, 600, 400);
         e = new EmployerController();
-        populateTable();
+        populateTable1();
         salirButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -96,7 +96,25 @@ public class EmployerForm extends JDialog {
 
 
     }
+    private void populateTable1() {
+        List<Employers> servicesList = e.searchEmployers(textField1.getText());
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("IC");
+        model.addColumn("Name");
+        model.addColumn("Last Name");
+        model.addColumn("Phone");
+        employertable.setModel(model);
+        for (Employers s : servicesList) {
+            Object[] row = new Object[5];
 
+            row[0] = s.getCi();
+            row[1] = s.getName();
+            row[2] = s.getLastName();
+            row[3] = s.getPhone();
+
+            model.addRow(row);
+        }
+    }
     private void populateTable() {
         List<Employers> servicesList = e.searchEmployers(textField1.getText());
         DefaultTableModel model = new DefaultTableModel();
@@ -106,7 +124,17 @@ public class EmployerForm extends JDialog {
         model.addColumn("Phone");
 
         employertable.setModel(model);
-
+        if (textField1.getText().length() > 20) {
+            JOptionPane.showMessageDialog(this, "Search argument is to big,please insert another one", "Error", JOptionPane.INFORMATION_MESSAGE);
+            textField1.setText("");
+            populateTable();
+            return;
+        }
+        if (servicesList.size() == 0) {
+            JOptionPane.showMessageDialog(this, "No matches with employee data base ", "Error", JOptionPane.INFORMATION_MESSAGE);
+            textField1.setText("");
+            populateTable1();
+        }
         for (Employers s : servicesList) {
             Object[] row = new Object[5];
 

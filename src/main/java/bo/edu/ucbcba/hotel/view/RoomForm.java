@@ -36,7 +36,7 @@ public class RoomForm extends JDialog {
         setSize(650, 400);
         setBounds(400, 150, 650, 400);
         roomController = new RoomController();
-        populateTable();
+        populateTable1();
         eliminarHabitacionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -74,7 +74,7 @@ public class RoomForm extends JDialog {
                 editRoom();
             }
         });
-        populateTable();
+        
 
     }
 
@@ -126,8 +126,7 @@ public class RoomForm extends JDialog {
             inventoryForm.setVisible(true);
         }
     }
-
-    private void populateTable() {
+    private void populateTable1() {
 
         List<Rooms> roomsList = RoomController.searchRoom(SearchField.getText());
         DefaultTableModel model = new DefaultTableModel();
@@ -135,7 +134,6 @@ public class RoomForm extends JDialog {
         model.addColumn("Type");
         model.addColumn("Room View");
         model.addColumn("Availability");
-
         RoomsTable.setModel(model);
 
         for (Rooms s : roomsList) {
@@ -151,6 +149,43 @@ public class RoomForm extends JDialog {
 
 
             model.addRow(row);
+        }
+    }
+    private void populateTable() {
+
+        List<Rooms> roomsList = RoomController.searchRoom(SearchField.getText());
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Room Number");
+        model.addColumn("Type");
+        model.addColumn("Room View");
+        model.addColumn("Availability");
+
+        RoomsTable.setModel(model);
+        if (SearchField.getText().length() > 15) {
+            JOptionPane.showMessageDialog(this, "Search argument is to big,please insert another one", "Error", JOptionPane.INFORMATION_MESSAGE);
+            SearchField.setText("");
+            populateTable();
+            return;
+        }
+        if (roomsList.size() == 0) {
+            JOptionPane.showMessageDialog(this, "No matches with rooms data base", "Error", JOptionPane.INFORMATION_MESSAGE);
+            SearchField.setText("");
+            populateTable1();
+        } else {
+            for (Rooms s : roomsList) {
+                Object[] row = new Object[4];
+
+                row[0] = s.getRoomNumber();
+                row[1] = s.getType();
+                row[2] = s.getRoomView();
+                if (!s.isAvailability())
+                    row[3] = "Available";
+                else
+                    row[3] = "Not available";
+
+
+                model.addRow(row);
+            }
         }
     }
 

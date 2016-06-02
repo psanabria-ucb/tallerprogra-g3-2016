@@ -39,11 +39,20 @@ public class EmployerController {
         entityManager.close();
     }
 
-    public static List<Employers> searchEmployers(String name) {
-
+    public static List<Employers> searchEmployers(String q) {
+        int a;
         EntityManager entityManager = usersEntityManager.createEntityManager();
-        TypedQuery<Employers> query = entityManager.createQuery("select s from Employers s WHERE lower(s.Name) like :name", Employers.class);
-        query.setParameter("name", "%" + name.toLowerCase() + "%");
+
+        if(q.matches("[0-9]+")){
+            a=Integer.parseInt(q);
+            TypedQuery<Employers> query = entityManager.createQuery("select s from Employers s WHERE s.Ci= :a", Employers.class);
+            query.setParameter("a", a);
+            List<Employers> response = query.getResultList();
+            entityManager.close();
+            return response;
+        }
+        TypedQuery<Employers> query = entityManager.createQuery("select s from Employers s WHERE lower(s.Name) like :q or lower(s.lastName) like :q", Employers.class);
+        query.setParameter("q", "%" + q.toLowerCase() + "%");
         List<Employers> response = query.getResultList();
         entityManager.close();
         return response;
