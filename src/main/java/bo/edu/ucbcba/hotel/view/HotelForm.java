@@ -73,7 +73,8 @@ public class HotelForm extends JFrame {
         System.exit(0);
     }
     private void newReservation(){
-
+        ReservationForm reservationForm= new ReservationForm(this);
+        reservationForm.setVisible(true);
     }
     private void newSalon() {
         SalonForm salonForm = new SalonForm(this);

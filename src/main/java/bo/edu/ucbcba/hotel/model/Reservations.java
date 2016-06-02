@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 /**
  * Created by CésarIvan on 02/06/2016.
  */
-public class Reservas {
+public class Reservations {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int rerserveNumber; // Primary Key, and Auto Generated
@@ -22,7 +22,7 @@ public class Reservas {
     @ManyToOne
     private Rooms room;
 
-    public Reservas(){
+    public Reservations(){
         cantDays=0;
     }
 
