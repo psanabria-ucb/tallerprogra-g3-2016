@@ -1,14 +1,19 @@
 package bo.edu.ucbcba.hotel.view;
 
 import bo.edu.ucbcba.hotel.controller.ReservationController;
+import bo.edu.ucbcba.hotel.model.Reservations;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
 
 /**
  * Created by CésarIvan on 02/06/2016.
  */
 public class ReservationForm extends JDialog{
-    private JTextField SearchByClientText;
+    private JTextField searchText;
     private JButton searchButton;
     private JTable reservationTable;
     private JButton deleteButton;
@@ -29,7 +34,7 @@ public class ReservationForm extends JDialog{
         setSize(1000, 600);
         setBounds(400, 150, 600, 400);
         reservationController = new ReservationController();
-    /*    populateTable();
+       //populateTable();
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -39,21 +44,21 @@ public class ReservationForm extends JDialog{
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               // createReservation();
+               createReservation();
             }
         });
         editButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                // editReservation();
-                populateTable();
+              //  populateTable();
             }
         });
 
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                populateTable();
+               // populateTable();
             }
         });
 
@@ -61,17 +66,22 @@ public class ReservationForm extends JDialog{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //deleteReservation();
-                populateTable();
+              //  populateTable();
             }
         });
-        populateTable();*/
+     //   populateTable();
 
     }
 
-  /*  private void populateTable() {
+    private void createReservation() {
+        NewReservationForm newReservationForm = new NewReservationForm(this);
+        newReservationForm.setVisible(true);
+        populateTable();
+    }
 
-        //if(dayComboBox.equals(""))
-        List<Reservations> reservationList = reservationController.searchReservation(SearchByClientText.getText());
+    private void populateTable() {
+
+        List<Reservations> reservationList = reservationController.searchReservation(searchText.getText());
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Number");
         model.addColumn("Room");
@@ -80,17 +90,17 @@ public class ReservationForm extends JDialog{
         model.addColumn("Client");
 
         reservationTable.setModel(model);
-        if (SearchByClientText.getText().length() > 15) {
+       /* if (searchText.getText().length() > 15) {
             JOptionPane.showMessageDialog(this, "Search argument is to big,please insert another one", "Error", JOptionPane.INFORMATION_MESSAGE);
-            SearchByClientText.setText("");
+            searchText.setText("");
             populateTable();
             return;
         }
         if (reservationList.size() == 0) {
-            JOptionPane.showMessageDialog(this, "No matches with rooms data base", "Error", JOptionPane.INFORMATION_MESSAGE);
-            SearchByClientText.setText("");
+            JOptionPane.showMessageDialog(this, "No matches with Reservations data base", "Error", JOptionPane.INFORMATION_MESSAGE);
+            searchText.setText("");
             populateTable();
-        } else {
+        } else {*/
             for (Reservations s : reservationList ) {
                 Object[] row = new Object[4];
 
@@ -106,7 +116,7 @@ public class ReservationForm extends JDialog{
             }
 
 
-        }
+       // }
 
-    }*/
+    }
 }

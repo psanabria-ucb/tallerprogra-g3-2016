@@ -20,7 +20,10 @@ public class ReservationController {
         Reservations reserva = new Reservations();
 
         if (cantDays.matches("[0-9]+"))
-            reserva.setCantDays(Integer.parseInt(cantDays));
+            if(Integer.parseInt(cantDays)>10 || Integer.parseInt(cantDays)<1)
+                throw new ValidationException("You must choice 1-10 days");
+            else
+                reserva.setCantDays(Integer.parseInt(cantDays));
         else
             throw new ValidationException("Release year isn't a number");
 
@@ -50,15 +53,42 @@ public class ReservationController {
 
     }
 
-    public static List<Reservations> searchReservation(String name) {
+    public static List<Reservations> searchReservation(String number) {
 
-                 EntityManager entityManager = usersEntityManager.createEntityManager();
+        int num=0;
+        if(number.matches("[0-9]+")){
+            if(number.isEmpty()) {
+                num=0;
+            } else {
+                num=Integer.parseInt(number);
+            }
+            EntityManager entityManager = usersEntityManager.createEntityManager();
+            if(num!=0)
+            {
+                TypedQuery<Reservations> query = entityManager.createQuery("select s from Reservations s where s.rerserveNumber= :num ", Reservations.class);
+                query.setParameter("num", num);
+                List<Reservations> response = query.getResultList();
+                entityManager.close();
+                return response;
+            }
+            if (num == 0) {
+                TypedQuery<Reservations> query = entityManager.createQuery("select s from Reservations s ", Reservations.class);
+                //query.setParameter("a", a);
+                List<Reservations> response = query.getResultList();
+                entityManager.close();
+                return response;
+            }
+        }
+       /* else{
+            EntityManager entityManager = usersEntityManager.createEntityManager();
             TypedQuery<Reservations> query = entityManager.createQuery("select s from Reservations s WHERE lower(s.Clients.firstName) like :Name OR lower(s.Clients.lastName) like :Name", Reservations.class);
-            query.setParameter("Name", "%" + name.toLowerCase() + "%");
+            query.setParameter("Name", "%" + number.toLowerCase() + "%");
             List<Reservations> response = query.getResultList();
             entityManager.close();
             return response;
+        }*/
 
+        return null;
     }
 
     public void delete (String q) {

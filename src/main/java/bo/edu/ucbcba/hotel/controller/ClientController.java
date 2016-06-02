@@ -43,9 +43,28 @@ public class ClientController {
         if (lastName.length()==0) {
             throw new ValidationException("Release last name cant be blank");
         }
+        if(validarCliente(ci)){
+            throw new ValidationException("Client exists");
+        }
         return true;
     }
 
+    public boolean validarCliente(String CI){
+        int ci;
+        ci=Integer.parseInt(CI);
+        EntityManager entityManager = usersEntityManager.createEntityManager();
+        TypedQuery<Clients> query = entityManager.createQuery("select s from Clients s where s.clientCi= :ci ", Clients.class);
+        query.setParameter("ci", ci);
+        List<Clients> response = query.getResultList();
+        int a =response.size();
+        entityManager.close();
+        if(a!=0)
+            return true;
+        else
+            return false;
+
+
+    }
 
     public void create(String firstName,String lastName, int ci, int phone ){
 
@@ -131,6 +150,14 @@ public class ClientController {
             entityManager.close();
         }
 
+    }
+
+    public List<Clients> getAllClients() {
+        EntityManager em = usersEntityManager.createEntityManager();
+        TypedQuery<Clients> query = em.createQuery("select d from Clients d order by d.firstName", Clients.class);
+        List<Clients> list = query.getResultList();
+        em.close();
+        return list;
     }
 
 }

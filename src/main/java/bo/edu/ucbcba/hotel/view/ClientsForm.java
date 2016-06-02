@@ -132,7 +132,7 @@ public class ClientsForm extends JDialog {
             return;
         }
         if (clientsList.size() == 0) {
-            JOptionPane.showMessageDialog(this, "No matches with rooms data base", "Error", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No matches with clients data base", "Error", JOptionPane.INFORMATION_MESSAGE);
             SearchTextField.setText("");
             populateTable();
         } else {
