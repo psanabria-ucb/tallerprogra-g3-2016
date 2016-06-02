@@ -38,6 +38,7 @@ public class ReservationForm extends JDialog {
         setSize(1000, 600);
         setBounds(400, 150, 600, 400);
         reservationController = new ReservationController();
+        populateComboBox();
         //populateTable();
         exitButton.addActionListener(new ActionListener() {
             @Override
@@ -120,7 +121,24 @@ public class ReservationForm extends JDialog {
         }
 
 
+
+
+
+
         // }
+
+    }
+    private void populateComboBox(){
+        for (int day = 1; day < 32; day = day + 1) {
+            dayComboBox.addItem(day);
+        }
+        for (int month = 1; month < 13; month = month + 1) {
+            monthComboBox.addItem(month);
+        }
+        for (int year = 2016; year < 2018; year = year + 1) {
+            yearComboBox.addItem(year);
+        }
+
 
     }
 
