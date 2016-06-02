@@ -30,7 +30,7 @@ public class ClientsForm extends JDialog {
 
 
     public ClientsForm(JFrame parent) {
-        super(parent,"Clientes",true);
+        super(parent, "Clientes", true);
         pack();
         setContentPane(ClientsPanel);
         setSize(1000, 600);
@@ -76,16 +76,16 @@ public class ClientsForm extends JDialog {
     }
 
     private void editClient() {
-        int ci,phone;
+        int ci, phone;
         String firstName, lastName;
-         if (ClientsTable.getSelectedRow() == -1) {
+        if (ClientsTable.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(this, "Please select one client to edit", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
             DefaultTableModel tm = (DefaultTableModel) ClientsTable.getModel();
-             ci = (int) tm.getValueAt(ClientsTable.getSelectedRow(), 0);
-             firstName=(String) tm.getValueAt(ClientsTable.getSelectedRow(),1);
-             lastName=(String) tm.getValueAt(ClientsTable.getSelectedRow(),2);
-             phone=(int) tm.getValueAt(ClientsTable.getSelectedRow(),3);
+            ci = (int) tm.getValueAt(ClientsTable.getSelectedRow(), 0);
+            firstName = (String) tm.getValueAt(ClientsTable.getSelectedRow(), 1);
+            lastName = (String) tm.getValueAt(ClientsTable.getSelectedRow(), 2);
+            phone = (int) tm.getValueAt(ClientsTable.getSelectedRow(), 3);
             EditClientForm editClientForm = new EditClientForm(this, firstName, lastName, ci, phone);
             editClientForm.setVisible(true);
             populateTable();
@@ -110,7 +110,7 @@ public class ClientsForm extends JDialog {
 
     }
 
-    private void createClient(){
+    private void createClient() {
         NewClientForm newClient = new NewClientForm(this);
         newClient.setVisible(true);
         populateTable();
@@ -135,7 +135,7 @@ public class ClientsForm extends JDialog {
             JOptionPane.showMessageDialog(this, "No matches with rooms data base", "Error", JOptionPane.INFORMATION_MESSAGE);
             SearchTextField.setText("");
             populateTable();
-        }else{
+        } else {
             for (Clients s : clientsList) {
                 Object[] row = new Object[4];
 
@@ -147,12 +147,11 @@ public class ClientsForm extends JDialog {
 
                 model.addRow(row);
 
-        }
+            }
 
 
         }
     }
-
 
 
     {
@@ -171,29 +170,41 @@ public class ClientsForm extends JDialog {
      */
     private void $$$setupUI$$$() {
         ClientsPanel = new JPanel();
-        ClientsPanel.setLayout(new GridLayoutManager(3, 5, new Insets(0, 0, 0, 0), -1, -1));
+        ClientsPanel.setLayout(new GridLayoutManager(7, 6, new Insets(0, 0, 0, 0), -1, -1));
         ClientsPanel.setBorder(BorderFactory.createTitledBorder(""));
-        final Spacer spacer1 = new Spacer();
-        ClientsPanel.add(spacer1, new GridConstraints(1, 4, 2, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         SearchTextField = new JTextField();
-        ClientsPanel.add(SearchTextField, new GridConstraints(0, 0, 1, 3, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(204, 24), null, 0, false));
-        ClientsTable = new JTable();
-        ClientsPanel.add(ClientsTable, new GridConstraints(1, 0, 1, 4, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
+        ClientsPanel.add(SearchTextField, new GridConstraints(1, 1, 1, 3, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(204, 24), null, 0, false));
         agregarClienteButton = new JButton();
-        agregarClienteButton.setText("Agregar Cliente");
-        ClientsPanel.add(agregarClienteButton, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(204, 32), null, 0, false));
+        agregarClienteButton.setText("Add");
+        ClientsPanel.add(agregarClienteButton, new GridConstraints(5, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         editButton = new JButton();
-        editButton.setText("Actualizar");
-        ClientsPanel.add(editButton, new GridConstraints(2, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        editButton.setText("Edit");
+        ClientsPanel.add(editButton, new GridConstraints(5, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         eliminarClienteButton = new JButton();
-        eliminarClienteButton.setText("Eliminar Cliente");
-        ClientsPanel.add(eliminarClienteButton, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        eliminarClienteButton.setText("Delete");
+        ClientsPanel.add(eliminarClienteButton, new GridConstraints(5, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         salirButton = new JButton();
-        salirButton.setText("Salir");
-        ClientsPanel.add(salirButton, new GridConstraints(2, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        salirButton.setText("Exit");
+        ClientsPanel.add(salirButton, new GridConstraints(5, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         buscarClienteButton = new JButton();
-        buscarClienteButton.setText("Buscar Cliente");
-        ClientsPanel.add(buscarClienteButton, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        buscarClienteButton.setText("Search");
+        ClientsPanel.add(buscarClienteButton, new GridConstraints(1, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JScrollPane scrollPane1 = new JScrollPane();
+        ClientsPanel.add(scrollPane1, new GridConstraints(3, 1, 1, 4, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(453, 232), null, 0, false));
+        ClientsTable = new JTable();
+        scrollPane1.setViewportView(ClientsTable);
+        final Spacer spacer1 = new Spacer();
+        ClientsPanel.add(spacer1, new GridConstraints(2, 1, 1, 4, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, new Dimension(14, 11), null, 0, false));
+        final Spacer spacer2 = new Spacer();
+        ClientsPanel.add(spacer2, new GridConstraints(6, 1, 1, 4, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+        final Spacer spacer3 = new Spacer();
+        ClientsPanel.add(spacer3, new GridConstraints(0, 1, 1, 4, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+        final Spacer spacer4 = new Spacer();
+        ClientsPanel.add(spacer4, new GridConstraints(4, 1, 1, 4, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, new Dimension(14, 22), null, 0, false));
+        final Spacer spacer5 = new Spacer();
+        ClientsPanel.add(spacer5, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, new Dimension(48, 11), null, 0, false));
+        final Spacer spacer6 = new Spacer();
+        ClientsPanel.add(spacer6, new GridConstraints(3, 5, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
     }
 
     /**

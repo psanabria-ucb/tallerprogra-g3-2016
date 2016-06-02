@@ -50,7 +50,7 @@ public class NewServiceForm extends JDialog {
     private void saveService() {
 
         try {
-            if(serviceController.exemptions(serviceNametextField.getText(), serviceDescriptiontextField.getText(), serviceCosttextField.getText())) {
+            if (serviceController.exemptions(serviceNametextField.getText(), serviceDescriptiontextField.getText(), serviceCosttextField.getText())) {
                 serviceController.create(serviceNametextField.getText(), serviceDescriptiontextField.getText(), serviceCosttextField.getText());
                 JOptionPane.showMessageDialog(this, "Service created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
             }
@@ -82,7 +82,7 @@ public class NewServiceForm extends JDialog {
      */
     private void $$$setupUI$$$() {
         NewServicePanel = new JPanel();
-        NewServicePanel.setLayout(new GridLayoutManager(4, 5, new Insets(0, 0, 0, 0), -1, -1));
+        NewServicePanel.setLayout(new GridLayoutManager(4, 5, new Insets(10, 10, 10, 10), -1, -1));
         final Spacer spacer1 = new Spacer();
         NewServicePanel.add(spacer1, new GridConstraints(3, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         final Spacer spacer2 = new Spacer();

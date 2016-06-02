@@ -81,7 +81,7 @@ public class NewEmployerForm extends JDialog {
      */
     private void $$$setupUI$$$() {
         EmployersPanel = new JPanel();
-        EmployersPanel.setLayout(new GridLayoutManager(8, 5, new Insets(0, 0, 0, 0), -1, -1));
+        EmployersPanel.setLayout(new GridLayoutManager(8, 5, new Insets(10, 10, 10, 10), -1, -1));
         saveButton = new JButton();
         saveButton.setText("Save");
         EmployersPanel.add(saveButton, new GridConstraints(6, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
