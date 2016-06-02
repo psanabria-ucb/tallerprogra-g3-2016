@@ -27,6 +27,21 @@ public class ClientController {
         entityManager.close();
     }
 
+    public void update(String firstName,String lastName, int ci, int phone){
+
+        EntityManager entityManager = usersEntityManager.createEntityManager();
+        entityManager.getTransaction().begin();
+        Clients client= (Clients) entityManager.find(Clients.class ,ci);
+        client.setFirstName(firstName);
+        client.setLastName(lastName);
+        client.setPhone(phone);
+        //client.setClientCi(ci);
+        entityManager.getTransaction().commit();
+
+        entityManager.close();
+
+    }
+
     public static List<Clients> searchClients(String CI) {
         int ci=0;
 
@@ -56,8 +71,8 @@ public class ClientController {
         }
         else{
             EntityManager entityManager = usersEntityManager.createEntityManager();
-            TypedQuery<Clients> query = entityManager.createQuery("select s from Clients s WHERE lower(s.firstName) like :firstName", Clients.class);
-            query.setParameter("firstName", "%" + CI.toLowerCase() + "%");
+            TypedQuery<Clients> query = entityManager.createQuery("select s from Clients s WHERE lower(s.firstName) like :Name OR lower(s.lastName) like :Name", Clients.class);
+            query.setParameter("Name", "%" + CI.toLowerCase() + "%");
             List<Clients> response = query.getResultList();
             entityManager.close();
             return response;
@@ -68,13 +83,21 @@ public class ClientController {
     }
 
 
-    public void delete (int id) {
+    public void delete (String q) {
 
-        EntityManager entityManager = usersEntityManager.createEntityManager();
-        entityManager.getTransaction().begin();
-        entityManager.remove(entityManager.find(Clients.class,(id)));
-        entityManager.getTransaction().commit();
-        entityManager.close();
+        int a;
+        if(q.matches("[0-9]+")){
+            if(q.isEmpty()){
+                a=0;
+            }else{
+                a=Integer.parseInt(q);
+            }
+            EntityManager entityManager = usersEntityManager.createEntityManager();
+            entityManager.getTransaction().begin();
+            entityManager.remove(entityManager.find(Clients.class,a));
+            entityManager.getTransaction().commit();
+            entityManager.close();
+        }
 
     }
 
