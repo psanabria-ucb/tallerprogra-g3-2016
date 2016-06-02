@@ -63,13 +63,12 @@ public class EditEmployerForm extends JDialog {
 
     private void save() {
         try {
-            if(e.exeptions(NametextField.getText(), LNametextField.getText(), ICtextField.getText(), PhonetextField.getText())){
+            if (e.exeptions(NametextField.getText(), LNametextField.getText(), ICtextField.getText(), PhonetextField.getText())) {
                 e.create(NametextField.getText(), LNametextField.getText(), (Integer.parseInt(ICtextField.getText())), Integer.parseInt(PhonetextField.getText()));
                 JOptionPane.showMessageDialog(this, "Employer updated successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
                 cancel();
             }
-        }
-        catch (ValidationException ex) {
+        } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
         }
 
@@ -92,7 +91,7 @@ public class EditEmployerForm extends JDialog {
      */
     private void $$$setupUI$$$() {
         EmployerPanel = new JPanel();
-        EmployerPanel.setLayout(new GridLayoutManager(7, 5, new Insets(0, 0, 0, 0), -1, -1));
+        EmployerPanel.setLayout(new GridLayoutManager(7, 5, new Insets(10, 10, 10, 10), -1, -1));
         saveButton = new JButton();
         saveButton.setText("Save");
         EmployerPanel.add(saveButton, new GridConstraints(6, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));

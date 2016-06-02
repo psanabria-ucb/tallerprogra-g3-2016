@@ -79,7 +79,7 @@ public class EmployerForm extends JDialog {
         int n, p;
         String name, lname;
         DefaultTableModel tm = (DefaultTableModel) employertable.getModel();
-        if(employertable.getSelectedRow()!=-1) {
+        if (employertable.getSelectedRow() != -1) {
 
             n = (int) tm.getValueAt(employertable.getSelectedRow(), 0);
             p = (int) tm.getValueAt(employertable.getSelectedRow(), 3);
@@ -93,8 +93,7 @@ public class EmployerForm extends JDialog {
             } catch (ValidationException ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
             }
-        }
-        else
+        } else
             JOptionPane.showMessageDialog(this, "Please select one employer to edit it", "Error", JOptionPane.INFORMATION_MESSAGE);
 
 
@@ -161,7 +160,7 @@ public class EmployerForm extends JDialog {
     private void deleteEmployer() {
         int n;
         DefaultTableModel tm = (DefaultTableModel) employertable.getModel();
-        if(employertable.getSelectedRow()!=-1) {
+        if (employertable.getSelectedRow() != -1) {
 
             n = (int) tm.getValueAt(employertable.getSelectedRow(), 0);
 
@@ -171,8 +170,7 @@ public class EmployerForm extends JDialog {
                 JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
             }
             JOptionPane.showMessageDialog(this, "Employer deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else
+        } else
             JOptionPane.showMessageDialog(this, "Please select one employer to delete it", "Error", JOptionPane.INFORMATION_MESSAGE);
 
     }
