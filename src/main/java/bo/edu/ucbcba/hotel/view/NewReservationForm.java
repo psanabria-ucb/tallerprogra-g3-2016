@@ -75,10 +75,10 @@ public class NewReservationForm extends JDialog {
             dayComboBox.addItem(day);
         }
         for (int month = 1; month < 13; month = month + 1) {
-            dayComboBox.addItem(month);
+            monthComboBox.addItem(month);
         }
         for (int year = 2016; year < 2018; year = year + 1) {
-            dayComboBox.addItem(year);
+            yearComboBox.addItem(year);
         }
 
 
