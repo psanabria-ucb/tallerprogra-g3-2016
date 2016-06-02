@@ -28,6 +28,7 @@ public class NewReservationForm extends JDialog{
     private  final RoomController roomController;
 
     NewReservationForm(JDialog parent){
+        super(parent,"New reservation form",true);
         pack();
         setContentPane(NewReservationPanel);
         setSize(600, 400);

@@ -61,12 +61,12 @@ public class HotelForm extends JFrame {
                 newSalon();
             }
         });
-/*       reservationButton.addActionListener(new ActionListener() {
+       reservationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 newReservation();
             }
-        });*/
+        });
     }
 
     private void exit() {

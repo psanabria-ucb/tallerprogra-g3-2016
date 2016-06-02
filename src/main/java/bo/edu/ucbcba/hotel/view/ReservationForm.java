@@ -34,7 +34,7 @@ public class ReservationForm extends JDialog{
         setSize(1000, 600);
         setBounds(400, 150, 600, 400);
         reservationController = new ReservationController();
-       //populateTable();
+       populateTable();
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -102,7 +102,7 @@ public class ReservationForm extends JDialog{
             populateTable();
         } else {*/
             for (Reservations s : reservationList ) {
-                Object[] row = new Object[4];
+                Object[] row = new Object[5];
 
                 row[0] = s.getRerserveNumber();
                 row[1] = s.getRoom();
