@@ -6,27 +6,60 @@ import bo.edu.ucbcba.hotel.model.Employers;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import javax.swing.*;
+import java.awt.*;
 import java.util.List;
 
 /**
  * Created by Alejandra on 29/05/2016.
  */
-public class EmployerController {
-    public void create(String firstName,String lastName, int ci, int phone ){
+public class EmployerController extends Component {
 
-        Employers e=new Employers();
-        if (ci>999999999 && ci<0) {
-            throw new ValidationException("Release cost is invalid");
+    public boolean exeptions(String firstName,String lastName, String ci, String phone) {
+        int telf,id;
+        boolean resp=true;
+        if(ci.isEmpty()) {
+            throw new ValidationException("Release ic cant be blank");
         }
-        if (phone>99999999 && phone <0) {
-            throw new ValidationException("Release cost is invalid");
+        if(phone.isEmpty()) {
+            throw new ValidationException("Release phone cant be blank");
+        }
+        if(lastName.isEmpty()) {
+            throw new ValidationException("Release last name cant be blank");
+        }
+        if(firstName.isEmpty()) {
+            throw new ValidationException("Release name cant be blank");
+        }
+        if (!ci.matches("[0-9]+")) {
+            throw new ValidationException("Release ic is invalid");
+        }
+        if (!phone.matches("[0-9]+")) {
+            throw new ValidationException("Release phone is invalid");
+        }
+
+        telf= Integer.parseInt(phone);
+        id=Integer.parseInt(ci);
+
+        if (id>999999999 && id<0) {
+            throw new ValidationException("Release ic is invalid");
+        }
+        if (telf>99999999 && telf <0) {
+            throw new ValidationException("Release phone is invalid");
         }
         if (firstName.length()>32) {
             throw new ValidationException("Release name is invalid");
         }
         if (lastName.length()>32) {
-            throw new ValidationException("Release name is invalid");
+            throw new ValidationException("Release last name is invalid");
         }
+
+
+        return resp;
+    }
+        public void create(String firstName,String lastName, int ci, int phone ){
+
+        Employers e=new Employers();
+
         e.setCi(ci);
         e.setName(firstName);
         e.setLastName(lastName);

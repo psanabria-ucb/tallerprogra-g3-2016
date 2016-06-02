@@ -58,15 +58,18 @@ public class EditServiceForm extends JDialog {
 
     private void save(int num) {
         try {
-            if (serviceController.exemptions(SNtextField.getText(), SDtextField.getText(), SCtextField.getText()))
-                serviceController.update(SNtextField.getText(), SDtextField.getText(), SCtextField.getText(), num);
+            if(serviceController.exemptions(SNtextField.getText(), SDtextField.getText(), SCtextField.getText())){
+                serviceController.update(SNtextField.getText(), SDtextField.getText(), SCtextField.getText(),num );
+                JOptionPane.showMessageDialog(this, "Service updated successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+                cancel();
+            }
+
 
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
         }
 
-        JOptionPane.showMessageDialog(this, "Service updated successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-        cancel();
+
     }
 
     {
