@@ -19,7 +19,7 @@ public class EditClientForm extends JDialog{
     private JButton cancelButton;
     private JLabel CiField;
     ClientController clientController;
-    int ciSearch;
+
 
     public EditClientForm(JDialog parent, String firstName, String lastName, int Ci, int Phone){
         super(parent, "Edit Client", true);
@@ -36,7 +36,6 @@ public class EditClientForm extends JDialog{
         String phone;
         phone= Integer.toString(Phone);
         phoneText.setText(phone);
-        ciSearch=Ci;
 
         cancelButton.addActionListener(new ActionListener() {
             @Override

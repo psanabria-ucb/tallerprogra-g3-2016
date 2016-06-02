@@ -125,17 +125,31 @@ public class ClientsForm extends JDialog {
         model.addColumn("Phone");
 
         ClientsTable.setModel(model);
+        if (SearchTextField.getText().length() > 15) {
+            JOptionPane.showMessageDialog(this, "Search argument is to big,please insert another one", "Error", JOptionPane.INFORMATION_MESSAGE);
+            SearchTextField.setText("");
+            populateTable();
+            return;
+        }
+        if (clientsList.size() == 0) {
+            JOptionPane.showMessageDialog(this, "No matches with rooms data base", "Error", JOptionPane.INFORMATION_MESSAGE);
+            SearchTextField.setText("");
+            populateTable();
+        }else{
+            for (Clients s : clientsList) {
+                Object[] row = new Object[4];
 
-        for (Clients s : clientsList) {
-            Object[] row = new Object[4];
-
-            row[0] = s.getClientCi();
-            row[1] = s.getFirstName();
-            row[2] = s.getLastName();
-            row[3] = s.getPhone();
+                row[0] = s.getClientCi();
+                row[1] = s.getFirstName();
+                row[2] = s.getLastName();
+                row[3] = s.getPhone();
 
 
-            model.addRow(row);
+                model.addRow(row);
+
+        }
+
+
         }
     }
 

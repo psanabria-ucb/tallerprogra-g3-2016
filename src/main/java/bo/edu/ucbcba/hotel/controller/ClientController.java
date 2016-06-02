@@ -1,6 +1,7 @@
 package bo.edu.ucbcba.hotel.controller;
 
 import bo.edu.ucbcba.hotel.dao.usersEntityManager;
+import bo.edu.ucbcba.hotel.exceptions.ValidationException;
 import bo.edu.ucbcba.hotel.model.Clients;
 
 import javax.persistence.EntityManager;
@@ -11,6 +12,41 @@ import java.util.List;
  * Created by CésarIvan on 19/05/2016.
  */
 public class ClientController {
+
+    public boolean exemptions(String firstName, String lastName, String ci, String phone){
+
+        if (!ci.matches("[0-9]+"))
+            throw new ValidationException("Release CI is invalid");
+        if (ci.length()>8) {
+            throw new ValidationException("Release CI is invalid");
+        }
+        if (!phone.matches("[0-9]+"))
+            throw new ValidationException("Release phone is invalid");
+        if (phone.length()>8) {
+            throw new ValidationException("Release phone is invalid");
+        }
+        if (firstName.length()>15) {
+            throw new ValidationException("Release first name is invalid");
+        }
+        if (lastName.length()>15) {
+            throw new ValidationException("Release last name is invalid");
+        }
+        if (ci.length()==0) {
+            throw new ValidationException("Release CI cant be blank");
+        }
+        if (phone.length()==0) {
+            throw new ValidationException("Release phone cant be blank");
+        }
+        if (firstName.length()==0) {
+            throw new ValidationException("Release first name cant be blank");
+        }
+        if (lastName.length()==0) {
+            throw new ValidationException("Release last name cant be blank");
+        }
+        return true;
+    }
+
+
     public void create(String firstName,String lastName, int ci, int phone ){
 
         Clients client=new Clients();

@@ -49,13 +49,16 @@ public class NewClientForm extends JDialog {
     private void saveClient() {
 
         try {
-            clientController.create(NewFirstNameText.getText(), NewLastNameText.getText(), (Integer.parseInt(NewCiText.getText())), Integer.parseInt(NewPhoneText.getText()));
+            if(clientController.exemptions(NewFirstNameText.getText(), NewLastNameText.getText(),NewCiText.getText(),NewPhoneText.getText()))
+            {
+                clientController.create(NewFirstNameText.getText(), NewLastNameText.getText(), (Integer.parseInt(NewCiText.getText())), Integer.parseInt(NewPhoneText.getText()));
+                JOptionPane.showMessageDialog(this, "Client created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+                cancel();
+            }
 
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
         }
-
-        JOptionPane.showMessageDialog(this, "Client created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
         cancel();
     }
 
