@@ -38,7 +38,7 @@ public class ReservationForm extends JDialog {
         setSize(1000, 600);
         setBounds(400, 150, 600, 400);
         reservationController = new ReservationController();
-        //populateTable();
+        populateTable();
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
