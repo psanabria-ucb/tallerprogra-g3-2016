@@ -33,7 +33,7 @@ public class EditEmployerForm extends JDialog {
         e = new EmployerController();
         NametextField.setText(name);
         LNametextField.setText(lname);
-        String CI, Phone;
+        final String CI, Phone;
         CI = Integer.toString(ci);
         Phone = Integer.toString(phone);
         ICtextField.setText(CI);
@@ -43,6 +43,8 @@ public class EditEmployerForm extends JDialog {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                ICtextField.setText(CI);
                 save();
             }
         });
@@ -64,7 +66,7 @@ public class EditEmployerForm extends JDialog {
     private void save() {
         try {
             if (e.exeptions(NametextField.getText(), LNametextField.getText(), ICtextField.getText(), PhonetextField.getText())) {
-                e.create(NametextField.getText(), LNametextField.getText(), (Integer.parseInt(ICtextField.getText())), Integer.parseInt(PhonetextField.getText()));
+                e.update(NametextField.getText(), LNametextField.getText(), (Integer.parseInt(ICtextField.getText())), Integer.parseInt(PhonetextField.getText()));
                 JOptionPane.showMessageDialog(this, "Employer updated successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
                 cancel();
             }
