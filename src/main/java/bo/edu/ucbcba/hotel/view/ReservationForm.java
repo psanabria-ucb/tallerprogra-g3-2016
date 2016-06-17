@@ -39,7 +39,7 @@ public class ReservationForm extends JDialog {
         setBounds(400, 150, 600, 400);
         reservationController = new ReservationController();
         populateComboBox();
-        //populateTable();
+        populateTable1();
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -84,6 +84,29 @@ public class ReservationForm extends JDialog {
         populateTable();
     }
 
+    private void populateTable1() {
+
+        List<Reservations> reservationsList = ReservationController.searchReservation(searchText.getText());
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Room Number");
+        model.addColumn("Type");
+        model.addColumn("Room View");
+        model.addColumn("Availability");
+        reservationTable.setModel(model);
+
+        for (Reservations s : reservationsList) {
+            Object[] row = new Object[5];
+
+            row[0] = s.getRerserveNumber();
+            row[1] = s.getRoom();
+            row[2] = s.getCantDays();
+            row[3] = s.getFechaRes();
+            row[4] = s.getClient();
+
+            model.addRow(row);
+        }
+    }
+
     private void populateTable() {
 
         List<Reservations> reservationList = reservationController.searchReservation(searchText.getText());
@@ -119,12 +142,6 @@ public class ReservationForm extends JDialog {
             model.addRow(row);
 
         }
-
-
-
-
-
-
         // }
 
     }
