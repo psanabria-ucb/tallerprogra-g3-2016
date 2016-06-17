@@ -97,7 +97,7 @@ public class ClientController {
 
     }
 
-    public static List<Clients> searchClients(String CI) {
+    public List<Clients> searchClients(String CI) {
         int ci=0;
         if(CI.matches("[0-9]+")){
             if(CI.isEmpty()) {

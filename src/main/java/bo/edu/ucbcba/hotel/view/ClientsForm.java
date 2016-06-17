@@ -36,7 +36,7 @@ public class ClientsForm extends JDialog {
         setSize(1000, 600);
         setBounds(400, 150, 600, 400);
         clientController = new ClientController();
-        populateTable();
+        populateTable1();
         salirButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -71,7 +71,7 @@ public class ClientsForm extends JDialog {
                 populateTable();
             }
         });
-        populateTable();
+        //populateTable1();
 
     }
 
@@ -116,6 +116,29 @@ public class ClientsForm extends JDialog {
         populateTable();
     }
 
+    private void populateTable1() {
+
+        List<Clients> clientsList = clientController.searchClients(SearchTextField.getText());
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Ci");
+        model.addColumn("First Name");
+        model.addColumn("Last Name");
+        model.addColumn("Phone");
+        ClientsTable.setModel(model);
+
+        for (Clients s : clientsList) {
+            Object[] row = new Object[4];
+
+            row[0] = s.getClientCi();
+            row[1] = s.getFirstName();
+            row[2] = s.getLastName();
+            row[3] = s.getPhone();
+
+
+            model.addRow(row);
+        }
+    }
+
     private void populateTable() {
         List<Clients> clientsList = clientController.searchClients(SearchTextField.getText());
         DefaultTableModel model = new DefaultTableModel();
@@ -128,13 +151,13 @@ public class ClientsForm extends JDialog {
         if (SearchTextField.getText().length() > 15) {
             JOptionPane.showMessageDialog(this, "Search argument is to big,please insert another one", "Error", JOptionPane.INFORMATION_MESSAGE);
             SearchTextField.setText("");
-            populateTable();
+           // populateTable();
             return;
         }
         if (clientsList.size() == 0) {
             JOptionPane.showMessageDialog(this, "No matches with clients data base", "Error", JOptionPane.INFORMATION_MESSAGE);
             SearchTextField.setText("");
-            populateTable();
+            populateTable1();
         } else {
             for (Clients s : clientsList) {
                 Object[] row = new Object[4];
