@@ -28,7 +28,7 @@ public class ReservationController {
             throw new ValidationException("Release year isn't a number");
 
         reserva.setClient(client);
-        reserva.setFechaRes(fecha);
+        reserva.setDateRes(fecha);
         reserva.setRoom(room);
 
 
@@ -39,11 +39,11 @@ public class ReservationController {
         entityManager.close();
 
     }
-    public void update(int cantDays, Fecha fecha, Rooms room, Clients client,int reserveNumber){
+    public void update(int cantDays, Fecha fecha, Rooms room, Clients client,int reservationNumber){
 
         EntityManager entityManager = usersEntityManager.createEntityManager();
         entityManager.getTransaction().begin();
-        Reservations reserva= (Reservations) entityManager.find(Reservations.class ,reserveNumber);
+        Reservations reserva= (Reservations) entityManager.find(Reservations.class ,reservationNumber);
         reserva.setCantDays(cantDays);
         reserva.setRoom(room);
         reserva.setClient(client);

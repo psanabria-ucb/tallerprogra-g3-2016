@@ -97,10 +97,10 @@ public class ReservationForm extends JDialog {
         for (Reservations s : reservationsList) {
             Object[] row = new Object[5];
 
-            row[0] = s.getRerserveNumber();
+            row[0] = s.getRerservationNumber();
             row[1] = s.getRoom();
             row[2] = s.getCantDays();
-            row[3] = s.getFechaRes();
+            row[3] = s.getDateRes();
             row[4] = s.getClient();
 
             model.addRow(row);
@@ -121,21 +121,21 @@ public class ReservationForm extends JDialog {
        /* if (searchText.getText().length() > 15) {
             JOptionPane.showMessageDialog(this, "Search argument is to big,please insert another one", "Error", JOptionPane.INFORMATION_MESSAGE);
             searchText.setText("");
-            populateTable();
+           // populateTable();
             return;
         }
         if (reservationList.size() == 0) {
             JOptionPane.showMessageDialog(this, "No matches with Reservations data base", "Error", JOptionPane.INFORMATION_MESSAGE);
             searchText.setText("");
-            populateTable();
+            populateTable1();
         } else {*/
         for (Reservations s : reservationList) {
             Object[] row = new Object[5];
 
-            row[0] = s.getRerserveNumber();
+            row[0] = s.getRerservationNumber();
             row[1] = s.getRoom();
             row[2] = s.getCantDays();
-            row[3] = s.getFechaRes();
+            row[3] = s.getDateRes();
             row[4] = s.getClient();
 
 
