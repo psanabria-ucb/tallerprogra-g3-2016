@@ -24,6 +24,7 @@ public class SalonForm extends JDialog {
     private JButton newSalonButton;
     private JButton exitButton;
     private JButton deleteSalonButton;
+    private JButton editSalonButton;
     private SalonController salonController;
 
     SalonForm(JFrame parent) {
@@ -91,7 +92,7 @@ public class SalonForm extends JDialog {
 
     private void populateTable1() {
 
-        List<Salons> roomsList = SalonController.searchRoom(searchField.getText());
+        List<Salons> roomsList = SalonController.searchSalon(searchField.getText());
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Salon Id");
         model.addColumn("Name");
@@ -117,45 +118,48 @@ public class SalonForm extends JDialog {
 
     private void populateTable() {
 
-        List<Salons> roomsList = SalonController.searchRoom(searchField.getText());
+        List<Salons> roomsList = SalonController.searchSalon(searchField.getText());
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Salon Id");
         model.addColumn("Name");
         model.addColumn("Capacity");
         model.addColumn("Availability");
         SalonTable.setModel(model);
-        if ((Integer.parseInt(searchField.getText())) > 999) {
 
-            JOptionPane.showMessageDialog(this, "Search argument number is to big,please insert a new one", "Error", JOptionPane.INFORMATION_MESSAGE);
-            searchField.setText("");
-            populateTable1();
-            return;
+        if (searchField.getText().matches("[0-9]+")) {
+            if (searchField.getText().length() > 999) {
+                JOptionPane.showMessageDialog(this, "Search argument number is to big,please insert a new one", "Error", JOptionPane.INFORMATION_MESSAGE);
+                searchField.setText("");
+                populateTable1();
+                return;
+            }
+
         }
+
         if (searchField.getText().length() > 20) {
             JOptionPane.showMessageDialog(this, "Search argument is to big,please insert a new one", "Error", JOptionPane.INFORMATION_MESSAGE);
             searchField.setText("");
-            populateTable();
+            populateTable1();
             return;
         }
         if (roomsList.size() == 0) {
             JOptionPane.showMessageDialog(this, "No matches with salons data base", "Error", JOptionPane.INFORMATION_MESSAGE);
             searchField.setText("");
             populateTable1();
-        } else {
-            for (Salons s : roomsList) {
-                Object[] row = new Object[4];
+        }
+        for (Salons s : roomsList) {
+            Object[] row = new Object[4];
 
-                row[0] = s.getId();
-                row[1] = s.getName();
-                row[2] = s.getCapacity();
-                if (s.isAvailability())
-                    row[3] = "Available";
-                else
-                    row[3] = "Not available";
+            row[0] = s.getId();
+            row[1] = s.getName();
+            row[2] = s.getCapacity();
+            if (s.isAvailability())
+                row[3] = "Available";
+            else
+                row[3] = "Not available";
 
 
-                model.addRow(row);
-            }
+            model.addRow(row);
         }
     }
 
@@ -176,14 +180,14 @@ public class SalonForm extends JDialog {
      */
     private void $$$setupUI$$$() {
         salonPanel = new JPanel();
-        salonPanel.setLayout(new GridLayoutManager(3, 3, new Insets(20, 20, 20, 20), -1, -1));
+        salonPanel.setLayout(new GridLayoutManager(3, 4, new Insets(20, 20, 20, 20), -1, -1));
         searchField = new JTextField();
-        salonPanel.add(searchField, new GridConstraints(0, 0, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        salonPanel.add(searchField, new GridConstraints(0, 0, 1, 3, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         searchButton = new JButton();
         searchButton.setText("Search");
-        salonPanel.add(searchButton, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        salonPanel.add(searchButton, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JScrollPane scrollPane1 = new JScrollPane();
-        salonPanel.add(scrollPane1, new GridConstraints(1, 0, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        salonPanel.add(scrollPane1, new GridConstraints(1, 0, 1, 4, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         SalonTable = new JTable();
         scrollPane1.setViewportView(SalonTable);
         newSalonButton = new JButton();
@@ -191,10 +195,13 @@ public class SalonForm extends JDialog {
         salonPanel.add(newSalonButton, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         exitButton = new JButton();
         exitButton.setText("Exit");
-        salonPanel.add(exitButton, new GridConstraints(2, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        salonPanel.add(exitButton, new GridConstraints(2, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         deleteSalonButton = new JButton();
         deleteSalonButton.setText("Delete Salon");
-        salonPanel.add(deleteSalonButton, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        salonPanel.add(deleteSalonButton, new GridConstraints(2, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        editSalonButton = new JButton();
+        editSalonButton.setText("Edit Salon");
+        salonPanel.add(editSalonButton, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**

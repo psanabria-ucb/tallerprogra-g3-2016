@@ -38,7 +38,6 @@ public class ReservationForm extends JDialog {
         setSize(1000, 600);
         setBounds(400, 150, 600, 400);
         reservationController = new ReservationController();
-        populateTable();
         populateComboBox();
         //populateTable();
         exitButton.addActionListener(new ActionListener() {
@@ -122,14 +121,11 @@ public class ReservationForm extends JDialog {
         }
 
 
-
-
-
-
         // }
 
     }
-    private void populateComboBox(){
+
+    private void populateComboBox() {
         for (int day = 1; day < 32; day = day + 1) {
             dayComboBox.addItem(day);
         }

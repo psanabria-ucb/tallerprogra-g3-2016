@@ -18,12 +18,12 @@ public class SalonController {
         entityManager.getTransaction().commit();
         entityManager.close();
     }
-    public static List<Salons> searchRoom(String q) {
-        int a=0;
+    public static List<Salons> searchSalon(String q) {
+        int a;
 
         EntityManager entityManager = usersEntityManager.createEntityManager();
         if (q.isEmpty()) {
-            a = 0;
+
             TypedQuery<Salons> query = entityManager.createQuery("select s from Salons s ", Salons.class);
             //query.setParameter("a", a);
             List<Salons> response = query.getResultList();
