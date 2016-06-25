@@ -11,11 +11,11 @@ import javax.persistence.ManyToOne;
 public class Reservations {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int rerserveNumber; // Primary Key, and Auto Generated
+    private int rerservationNumber; // Primary Key, and Auto Generated
 
     private int cantDays;
 
-    private Fecha fechaRes;
+    private Fecha dateRes;
 
     @ManyToOne
     private Clients client;
@@ -34,12 +34,12 @@ public class Reservations {
         this.cantDays = cantDays;
     }
 
-    public int getRerserveNumber() {
-        return rerserveNumber;
+    public int getRerservationNumber() {
+        return rerservationNumber;
     }
 
-    public void setRerserveNumber(int rerserveNumber) {
-        this.rerserveNumber = rerserveNumber;
+    public void setRerservationNumber(int rerservationNumber) {
+        this.rerservationNumber = rerservationNumber;
     }
 
     public Clients getClient() {
@@ -58,11 +58,11 @@ public class Reservations {
         this.room = room;
     }
 
-    public Fecha getFechaRes() {
-        return fechaRes;
+    public Fecha getDateRes() {
+        return dateRes;
     }
 
-    public void setFechaRes(Fecha fechaRes) {
-        this.fechaRes = fechaRes;
+    public void setDateRes(Fecha dateRes) {
+        this.dateRes = dateRes;
     }
 }

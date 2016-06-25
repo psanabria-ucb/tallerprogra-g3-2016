@@ -101,4 +101,23 @@ public class EmployerController extends Component {
         entityManager.close();
 
     }
+
+    public void update(String firstName,String lastName, int ci, int phone){
+
+
+
+        EntityManager entityManager = usersEntityManager.createEntityManager();
+        entityManager.getTransaction().begin();
+        Employers e= (Employers)entityManager.find(Employers.class ,ci);
+
+        e.setCi(ci);
+        e.setName(firstName);
+        e.setLastName(lastName);
+        e.setPhone(phone);
+
+        entityManager.getTransaction().commit();
+
+        entityManager.close();
+
+    }
 }

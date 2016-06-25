@@ -39,7 +39,7 @@ public class ReservationForm extends JDialog {
         setBounds(400, 150, 600, 400);
         reservationController = new ReservationController();
         populateComboBox();
-        //populateTable();
+        populateTable1();
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -84,6 +84,29 @@ public class ReservationForm extends JDialog {
         populateTable();
     }
 
+    private void populateTable1() {
+
+        List<Reservations> reservationsList = ReservationController.searchReservation(searchText.getText());
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Room Number");
+        model.addColumn("Type");
+        model.addColumn("Room View");
+        model.addColumn("Availability");
+        reservationTable.setModel(model);
+
+        for (Reservations s : reservationsList) {
+            Object[] row = new Object[5];
+
+            row[0] = s.getRerservationNumber();
+            row[1] = s.getRoom();
+            row[2] = s.getCantDays();
+            row[3] = s.getDateRes();
+            row[4] = s.getClient();
+
+            model.addRow(row);
+        }
+    }
+
     private void populateTable() {
 
         List<Reservations> reservationList = reservationController.searchReservation(searchText.getText());
@@ -98,21 +121,21 @@ public class ReservationForm extends JDialog {
        /* if (searchText.getText().length() > 15) {
             JOptionPane.showMessageDialog(this, "Search argument is to big,please insert another one", "Error", JOptionPane.INFORMATION_MESSAGE);
             searchText.setText("");
-            populateTable();
+           // populateTable();
             return;
         }
         if (reservationList.size() == 0) {
             JOptionPane.showMessageDialog(this, "No matches with Reservations data base", "Error", JOptionPane.INFORMATION_MESSAGE);
             searchText.setText("");
-            populateTable();
+            populateTable1();
         } else {*/
         for (Reservations s : reservationList) {
             Object[] row = new Object[5];
 
-            row[0] = s.getRerserveNumber();
+            row[0] = s.getRerservationNumber();
             row[1] = s.getRoom();
             row[2] = s.getCantDays();
-            row[3] = s.getFechaRes();
+            row[3] = s.getDateRes();
             row[4] = s.getClient();
 
 
@@ -120,8 +143,6 @@ public class ReservationForm extends JDialog {
 
         }
 
-
-        // }
 
     }
 
