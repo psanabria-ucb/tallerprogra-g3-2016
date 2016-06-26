@@ -61,23 +61,23 @@ public class HotelForm extends JFrame {
                 newSalon();
             }
         });
-        reservationButton.addActionListener(new ActionListener() {
+     /*   reservationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 newReservation();
             }
-        });
+        });*/
     }
 
     private void exit() {
         System.exit(0);
     }
 
-    private void newReservation() {
+   /* private void newReservation() {
         ReservationForm reservationForm = new ReservationForm(this);
         reservationForm.setVisible(true);
 
-    }
+    }*/
 
     private void newSalon() {
         SalonForm salonForm = new SalonForm(this);
