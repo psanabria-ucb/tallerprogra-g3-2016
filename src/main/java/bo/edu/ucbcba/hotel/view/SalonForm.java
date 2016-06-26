@@ -58,6 +58,12 @@ public class SalonForm extends JDialog {
                 populateTable();
             }
         });
+        editSalonButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                editSalon();
+            }
+        });
         populateTable1();
     }
 
@@ -113,6 +119,19 @@ public class SalonForm extends JDialog {
 
 
             model.addRow(row);
+        }
+    }
+
+    private void editSalon() {
+        int n;
+        if (SalonTable.getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(this, "Please select one salon to edit", "Error", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            DefaultTableModel tm = (DefaultTableModel) SalonTable.getModel();
+            n = (int) tm.getValueAt(SalonTable.getSelectedRow(), 0);
+            EditSalonForm editSalonForm = new EditSalonForm(this, n);
+            editSalonForm.setVisible(true);
+            populateTable();
         }
     }
 

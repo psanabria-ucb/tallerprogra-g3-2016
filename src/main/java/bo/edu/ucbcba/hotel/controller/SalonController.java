@@ -67,4 +67,24 @@ public class SalonController {
             entityManager.close();
         }
     }
+    public static List<Salons> getSalon(int num){
+        EntityManager entityManager = usersEntityManager.createEntityManager();
+        TypedQuery<Salons> query = entityManager.createQuery("select s from Salons s where s.id= :a ", Salons.class);
+        query.setParameter("a", num);
+        List<Salons> response = query.getResultList();
+        entityManager.close();
+        return response;
+    }
+    public void update(String name,int capacity,int roomNumber,boolean availability){
+        EntityManager entityManager = usersEntityManager.createEntityManager();
+        entityManager.getTransaction().begin();
+        Salons salons= (Salons)entityManager.find(Salons.class ,roomNumber);
+        salons.setName(name);
+        salons.setCapacity(capacity);
+        salons.setAvailability(availability);
+        entityManager.getTransaction().commit();
+
+        entityManager.close();
+
+    }
 }
