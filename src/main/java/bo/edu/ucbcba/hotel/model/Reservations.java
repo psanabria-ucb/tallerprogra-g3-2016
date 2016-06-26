@@ -1,13 +1,14 @@
 package bo.edu.ucbcba.hotel.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 /**
  * Created by CésarIvan on 02/06/2016.
  */
+
 public class Reservations {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
