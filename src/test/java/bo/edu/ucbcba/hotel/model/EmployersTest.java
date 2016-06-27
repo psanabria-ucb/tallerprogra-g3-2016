@@ -25,24 +25,5 @@ public class EmployersTest {
         assertEquals("Good name", employer.getName());
     }
 
-    @Test
-    public void testSetNoName() {
-        exception.expect(ValidationException.class);
-        exception.expectMessage("Name's employer can't be empty");
-        employer.setName("");
-    }
-
-    @Test
-    public void testSetNullName() {
-        exception.expect(ValidationException.class);
-        exception.expectMessage("Null Name");
-        employer.setName(null);
-    }
-
-    @Test
-    public void testSetLongName() {
-        exception.expect(ValidationException.class);
-        exception.expectMessage("Name's employer is too long");
-        employer.setName(new String(new char[256]).replace('\0', 'a'));
-    }
+    
 }
