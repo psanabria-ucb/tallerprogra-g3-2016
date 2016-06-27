@@ -84,7 +84,7 @@ public class RoomForm extends JDialog {
             JOptionPane.showMessageDialog(this, "Please select one room to edit", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
             DefaultTableModel tm = (DefaultTableModel) RoomsTable.getModel();
-            n = (int) tm.getValueAt(RoomsTable.getSelectedRow(), 0);
+            n = Integer.parseInt((String) tm.getValueAt(RoomsTable.getSelectedRow(), 0));
             EditRoomForm editRoomForm = new EditRoomForm(this, n);
             editRoomForm.setVisible(true);
             populateTable();
@@ -97,7 +97,7 @@ public class RoomForm extends JDialog {
             JOptionPane.showMessageDialog(this, "Please select one room to delete", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
             DefaultTableModel tm = (DefaultTableModel) RoomsTable.getModel();
-            n = (int) tm.getValueAt(RoomsTable.getSelectedRow(), 0);
+            n = Integer.parseInt((String) tm.getValueAt(RoomsTable.getSelectedRow(), 0));
 
             try {
                 roomController.DeleteRoom(Integer.toString(n));
@@ -121,7 +121,7 @@ public class RoomForm extends JDialog {
             JOptionPane.showMessageDialog(this, "Please select one room to view inventory", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
             DefaultTableModel tm = (DefaultTableModel) RoomsTable.getModel();
-            n = (int) tm.getValueAt(RoomsTable.getSelectedRow(), 0);
+            n = Integer.parseInt((String) tm.getValueAt(RoomsTable.getSelectedRow(), 0));
             InventoryForm inventoryForm = new InventoryForm(this, n);
             inventoryForm.setVisible(true);
         }

@@ -2,28 +2,59 @@ package bo.edu.ucbcba.hotel.model;
 
 import bo.edu.ucbcba.hotel.exceptions.ValidationException;
 
-/**
- * Created by CésarIvan on 26/06/2016.
- */
+import javax.persistence.*;
 
-public class Dates {
+/**
+ * Created by CésarIvan on 27/06/2016.
+ */
+@Entity
+public class Reports {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int reportId; // Primary Key, and Auto Generated
+
+    @Column(length = 500)
+    private String text;
+    @Column(length = 100)
+    private String type;
+
+    private String date;
+
     private int day;
     private int month;
     private int year;
 
-    String date;
-
-    public Dates(){
-        //initial
-        this.day=01;
-        this.month=01;
-        this.year=1988;
-        this.date= this.formatDate();
+    public Reports(){
+        text="";
+        type="";
+        day=01;
+        month=01;
+        year=1988;
+        date=formatDate();
     }
 
-    public Dates(int day, int month, int year)
-    {
-        this.setDate(day,month,year);
+    public int getReportId() {
+        return reportId;
+    }
+
+    public void setReportId(int reportId) {
+        this.reportId = reportId;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public int getDay()
@@ -102,6 +133,7 @@ public class Dates {
         }
     }
 
-
-
+    public String getDate() {
+        return date;
+    }
 }

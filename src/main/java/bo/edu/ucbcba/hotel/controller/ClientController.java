@@ -16,20 +16,20 @@ public class ClientController {
     public boolean exemptions(String firstName, String lastName, String ci, String phone){
 
         if (!ci.matches("[0-9]+"))
-            throw new ValidationException("Release CI is invalid");
+            throw new ValidationException("Release CI is invalid, only numbers");
         if (ci.length()>8) {
-            throw new ValidationException("Release CI is invalid");
+            throw new ValidationException("Release CI is so long");
         }
         if (!phone.matches("[0-9]+"))
-            throw new ValidationException("Release phone is invalid");
+            throw new ValidationException("Release phone is invalid, only numbers");
         if (phone.length()>8) {
-            throw new ValidationException("Release phone is invalid");
+            throw new ValidationException("Release phone is so long");
         }
         if (firstName.length()>15) {
-            throw new ValidationException("Release first name is invalid");
+            throw new ValidationException("Release first name is invalid, so long");
         }
         if (lastName.length()>15) {
-            throw new ValidationException("Release last name is invalid");
+            throw new ValidationException("Release last name is invalid, so long");
         }
         if (ci.length()==0) {
             throw new ValidationException("Release CI cant be blank");
