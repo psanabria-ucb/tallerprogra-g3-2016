@@ -84,7 +84,7 @@ public class SalonForm extends JDialog {
             JOptionPane.showMessageDialog(this, "Please select one salon to delete", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
             DefaultTableModel tm = (DefaultTableModel) SalonTable.getModel();
-            n = Integer.parseInt((String) tm.getValueAt(SalonTable.getSelectedRow(), 0));
+            n = ((int) tm.getValueAt(SalonTable.getSelectedRow(), 0));
 
             try {
                 salonController.DeleteSalon(Integer.toString(n));
@@ -128,7 +128,7 @@ public class SalonForm extends JDialog {
             JOptionPane.showMessageDialog(this, "Please select one salon to edit", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
             DefaultTableModel tm = (DefaultTableModel) SalonTable.getModel();
-            n = Integer.parseInt((String) tm.getValueAt(SalonTable.getSelectedRow(), 0));
+            n = ((int) tm.getValueAt(SalonTable.getSelectedRow(), 0));
             EditSalonForm editSalonForm = new EditSalonForm(this, n);
             editSalonForm.setVisible(true);
             populateTable();

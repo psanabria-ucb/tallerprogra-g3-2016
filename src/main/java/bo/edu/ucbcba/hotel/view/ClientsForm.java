@@ -82,10 +82,10 @@ public class ClientsForm extends JDialog {
             JOptionPane.showMessageDialog(this, "Please select one client to edit", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
             DefaultTableModel tm = (DefaultTableModel) ClientsTable.getModel();
-            ci = Integer.parseInt((String) tm.getValueAt(ClientsTable.getSelectedRow(), 0));
+            ci = ((int) tm.getValueAt(ClientsTable.getSelectedRow(), 0));
             firstName = (String) tm.getValueAt(ClientsTable.getSelectedRow(), 1);
             lastName = (String) tm.getValueAt(ClientsTable.getSelectedRow(), 2);
-            phone = Integer.parseInt((String) tm.getValueAt(ClientsTable.getSelectedRow(), 3));
+            phone = ((int) tm.getValueAt(ClientsTable.getSelectedRow(), 3));
             EditClientForm editClientForm = new EditClientForm(this, firstName, lastName, ci, phone);
             editClientForm.setVisible(true);
             populateTable();
@@ -98,7 +98,7 @@ public class ClientsForm extends JDialog {
             JOptionPane.showMessageDialog(this, "Please select one Client to delete", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
             DefaultTableModel tm = (DefaultTableModel) ClientsTable.getModel();
-            n =Integer.parseInt( (String) tm.getValueAt(ClientsTable.getSelectedRow(), 0));
+            n =(int)tm.getValueAt(ClientsTable.getSelectedRow(), 0);
 
             try {
                 clientController.delete(Integer.toString(n));

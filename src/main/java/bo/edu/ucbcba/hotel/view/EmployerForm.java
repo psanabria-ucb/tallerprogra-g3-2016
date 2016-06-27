@@ -81,8 +81,8 @@ public class EmployerForm extends JDialog {
         DefaultTableModel tm = (DefaultTableModel) employertable.getModel();
         if (employertable.getSelectedRow() != -1) {
 
-            n = Integer.parseInt((String) tm.getValueAt(employertable.getSelectedRow(), 0));
-            p = Integer.parseInt((String) tm.getValueAt(employertable.getSelectedRow(), 3));
+            n =(int) tm.getValueAt(employertable.getSelectedRow(), 0);
+            p = ((int) tm.getValueAt(employertable.getSelectedRow(), 3));
             name = (String) tm.getValueAt(employertable.getSelectedRow(), 1);
             lname = (String) tm.getValueAt(employertable.getSelectedRow(), 2);
 
@@ -162,7 +162,7 @@ public class EmployerForm extends JDialog {
         DefaultTableModel tm = (DefaultTableModel) employertable.getModel();
         if (employertable.getSelectedRow() != -1) {
 
-            n = Integer.parseInt((String) tm.getValueAt(employertable.getSelectedRow(), 0));
+            n = ((int) tm.getValueAt(employertable.getSelectedRow(), 0));
 
             try {
                 e.delete(Integer.toString(n));
