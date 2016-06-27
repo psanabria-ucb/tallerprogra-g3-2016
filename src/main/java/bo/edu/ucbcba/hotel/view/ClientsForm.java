@@ -236,4 +236,8 @@ public class ClientsForm extends JDialog {
     public JComponent $$$getRootComponent$$$() {
         return ClientsPanel;
     }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }

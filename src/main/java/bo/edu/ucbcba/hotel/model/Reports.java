@@ -29,7 +29,7 @@ public class Reports {
         type="";
         day=01;
         month=01;
-        year=1988;
+        year=1980;
         date=formatDate();
     }
 
