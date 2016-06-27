@@ -122,7 +122,7 @@ public class RoomForm extends JDialog {
             JOptionPane.showMessageDialog(this, "Please select one room to view inventory", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
             DefaultTableModel tm = (DefaultTableModel) RoomsTable.getModel();
-            n = Integer.parseInt((String) tm.getValueAt(RoomsTable.getSelectedRow(), 0));
+            n = ((int) tm.getValueAt(RoomsTable.getSelectedRow(), 0));
             InventoryForm inventoryForm = new InventoryForm(this, n);
             inventoryForm.setVisible(true);
         }
@@ -220,7 +220,7 @@ public class RoomForm extends JDialog {
         agregarHabitacionButton.setText("Add New Room");
         roomForm.add(agregarHabitacionButton, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         verInventarioButton = new JButton();
-        verInventarioButton.setBackground(new Color(-13221589));
+        verInventarioButton.setBackground(new Color(-12959462));
         verInventarioButton.setText("View Inventory");
         roomForm.add(verInventarioButton, new GridConstraints(2, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         eliminarHabitacionButton = new JButton();

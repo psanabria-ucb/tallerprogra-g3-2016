@@ -1,7 +1,9 @@
 package bo.edu.ucbcba.hotel.view;
 
+import bo.edu.ucbcba.hotel.controller.SalonController;
 import bo.edu.ucbcba.hotel.controller.SalonReservationController;
 import bo.edu.ucbcba.hotel.exceptions.ValidationException;
+import bo.edu.ucbcba.hotel.model.Salons;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 
@@ -9,6 +11,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.*;
+import java.util.List;
 
 /**
  * Created by Gabo on 27-Jun-16.
@@ -87,7 +91,7 @@ public class NewSalonReservationForm extends JDialog {
             return;
         }
         try {
-            salonReservationController.create(textField1.getText(), Integer.parseInt(CiClientField.getText()), Integer.parseInt(DaysComboBox.getSelectedItem().toString()), MonthsComboBox.getSelectedItem().toString(), Integer.parseInt(YearComboBox.getSelectedItem().toString()), Integer.parseInt(CantPersonasField.getText()), "hola");
+            salonReservationController.create(textField1.getText(), Integer.parseInt(CiClientField.getText()), Integer.parseInt(DaysComboBox.getSelectedItem().toString()), MonthsComboBox.getSelectedItem().toString(), Integer.parseInt(YearComboBox.getSelectedItem().toString()), Integer.parseInt(CantPersonasField.getText()), SalonComboBox.getSelectedItem().toString());
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
         }
@@ -115,8 +119,10 @@ public class NewSalonReservationForm extends JDialog {
         MonthsComboBox.addItem("October");
         MonthsComboBox.addItem("November");
         MonthsComboBox.addItem("December");
-
-
+        List<Salons> roomsList = SalonController.getAllRooms();
+        for (Salons s : roomsList) {
+            SalonComboBox.addItem(s.getName());
+        }
     }
 
     {

@@ -58,19 +58,19 @@ public class NewReportForm extends JDialog {
 
         try {
 
-                Object type=typeComboBox.getSelectedItem();
-                String t = String.valueOf(type);
-                Object day= dayComboBox.getSelectedItem();
-                String da= String.valueOf(day);
-                int d=Integer.parseInt(da);
-            Object month= monthComboBox.getSelectedItem();
-            String mon= String.valueOf(month);
-            int m=Integer.parseInt(mon);
-            Object year= yearComboBox.getSelectedItem();
-            String yea= String.valueOf(year);
-            int y=Integer.parseInt(yea);
+            Object type = typeComboBox.getSelectedItem();
+            String t = String.valueOf(type);
+            Object day = dayComboBox.getSelectedItem();
+            String da = String.valueOf(day);
+            int d = Integer.parseInt(da);
+            Object month = monthComboBox.getSelectedItem();
+            String mon = String.valueOf(month);
+            int m = Integer.parseInt(mon);
+            Object year = yearComboBox.getSelectedItem();
+            String yea = String.valueOf(year);
+            int y = Integer.parseInt(yea);
             if (reportsController.exemptions(textArea.getText(), t)) {
-                reportsController.create(textArea.getText(), d, m, y,t);
+                reportsController.create(textArea.getText(), d, m, y, t);
 
                 JOptionPane.showMessageDialog(this, "Report created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
                 cancel();
@@ -119,6 +119,7 @@ public class NewReportForm extends JDialog {
     private void $$$setupUI$$$() {
         newReportPanel = new JPanel();
         newReportPanel.setLayout(new GridLayoutManager(9, 8, new Insets(0, 0, 0, 0), -1, -1));
+        newReportPanel.setBackground(new Color(-14034741));
         final JLabel label1 = new JLabel();
         label1.setText("New");
         newReportPanel.add(label1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -158,6 +159,8 @@ public class NewReportForm extends JDialog {
         final Spacer spacer3 = new Spacer();
         newReportPanel.add(spacer3, new GridConstraints(5, 0, 2, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         textArea = new JTextArea();
+        textArea.setBackground(new Color(-260));
+        textArea.setText("");
         newReportPanel.add(textArea, new GridConstraints(6, 2, 1, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
         final JLabel label7 = new JLabel();
         label7.setText("Comment:");
@@ -169,9 +172,11 @@ public class NewReportForm extends JDialog {
         final Spacer spacer6 = new Spacer();
         newReportPanel.add(spacer6, new GridConstraints(7, 0, 1, 7, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         saveButton = new JButton();
+        saveButton.setBackground(new Color(-15945937));
         saveButton.setText("Save");
         newReportPanel.add(saveButton, new GridConstraints(8, 1, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         cancelButton = new JButton();
+        cancelButton.setBackground(new Color(-4450033));
         cancelButton.setText("Cancel");
         newReportPanel.add(cancelButton, new GridConstraints(8, 4, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }

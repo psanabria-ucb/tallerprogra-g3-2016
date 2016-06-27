@@ -46,6 +46,7 @@ public class EditRoomForm extends JDialog {
         setContentPane(EditRoomPanel);
         roomControllerl = new RoomController();
         setBounds(400, 150, 510, 250);
+        setResizable(false);
         roomNumber = n;
         RoomType.addItem("Simple");
         RoomType.addItem("Double");
