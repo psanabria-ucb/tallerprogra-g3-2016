@@ -135,8 +135,8 @@ public class ReportForm extends JDialog {
                 month=s.getMonth();
                 year=s.getYear();
 
-                EditReportForm editReportForm = new EditReportForm(this, reportId, text,type, date,day,month,year);
-                editClientForm.setVisible(true);
+                //EditReportForm editReportForm = new EditReportForm(this, reportId, text,type, date,day,month,year);
+               // editClientForm.setVisible(true);
             }
 
 

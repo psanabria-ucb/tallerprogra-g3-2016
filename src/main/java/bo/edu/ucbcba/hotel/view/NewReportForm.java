@@ -21,7 +21,7 @@ public class NewReportForm extends JDialog{
     private JPanel newReportPanel;
     private ReportsController reportsController;
 
-    public NewReportForm(){
+    public NewReportForm(JDialog parent){
         super(parent, "New Report", true);
         pack();
         setContentPane(newReportPanel);
