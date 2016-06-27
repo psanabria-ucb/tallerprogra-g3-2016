@@ -22,7 +22,7 @@ public class EmployersTest {
     @Test
     public void testSetName() {
         employer.setName("Good name");
-        assertEquals("Good name", employer.getName();
+        assertEquals("Good name", employer.getName());
     }
 
     @Test

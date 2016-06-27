@@ -24,7 +24,7 @@ public class ServicesTest {
     @Test
     public void testSetName() {
         service.setName("Good name");
-        assertEquals("Good name", service.getName();
+        assertEquals("Good name", service.getName());
     }
 
     @Test
