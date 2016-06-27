@@ -1,7 +1,7 @@
 package bo.edu.ucbcba.hotel.controller;
 
-import bo.edu.ucbcba.hotel.dao.usersEntityManager;
 import bo.edu.ucbcba.hotel.model.Rooms;
+import bo.edu.ucbcba.hotel.dao.usersEntityManager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -31,8 +31,6 @@ public class RoomController {
     }
     public void update(String type,String view, boolean availability, boolean phone,boolean living,
                        boolean kitchenAccesories,boolean minibar,boolean desk,boolean ornaments,int roomNumber){
-
-
 
         EntityManager entityManager = usersEntityManager.createEntityManager();
         entityManager.getTransaction().begin();
