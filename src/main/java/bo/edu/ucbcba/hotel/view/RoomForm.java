@@ -220,7 +220,7 @@ public class RoomForm extends JDialog {
         agregarHabitacionButton.setText("Add New Room");
         roomForm.add(agregarHabitacionButton, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         verInventarioButton = new JButton();
-        verInventarioButton.setBackground(new Color(-13221589));
+        verInventarioButton.setBackground(new Color(-12959462));
         verInventarioButton.setText("View Inventory");
         roomForm.add(verInventarioButton, new GridConstraints(2, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         eliminarHabitacionButton = new JButton();

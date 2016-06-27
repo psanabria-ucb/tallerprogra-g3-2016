@@ -87,9 +87,9 @@ public class SalonController {
         entityManager.close();
 
     }
-    public List<Salons> getAllRooms() {
+    public static List<Salons> getAllRooms() {
         EntityManager em = usersEntityManager.createEntityManager();
-        TypedQuery<Salons> query = em.createQuery("select d from Rooms d order by d.salonName", Salons.class);
+        TypedQuery<Salons> query = em.createQuery("select s from Salons s", Salons.class);
         List<Salons> list = query.getResultList();
         em.close();
         return list;
