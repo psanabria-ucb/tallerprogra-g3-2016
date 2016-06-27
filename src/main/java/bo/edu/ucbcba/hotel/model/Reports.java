@@ -13,6 +13,10 @@ public class Reports {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int reportId; // Primary Key, and Auto Generated
 
+    private int day;
+    private int month;
+    private int anio;
+
     @Column(length = 500)
     private String text;
     @Column(length = 100)
@@ -20,16 +24,14 @@ public class Reports {
 
     private String date;
 
-    private int day;
-    private int month;
-    private int year;
+
 
     public Reports(){
         text="";
         type="";
         day=01;
         month=01;
-        year=1980;
+        anio=1980;
         date=formatDate();
     }
 
@@ -69,12 +71,12 @@ public class Reports {
 
     public int getYear()
     {
-        return this.year;
+        return this.anio;
     }
 
     public void setDate(int day,int month,int year)
     {
-        this.year=year;
+        this.anio=year;
         if(month >12 && month <1)
         {
             throw new ValidationException("Error format Month");
@@ -105,6 +107,7 @@ public class Reports {
                     {
                         this.day = day;
                         this.month = month;
+                        this.date=formatDate();
                     }
                 }
             }

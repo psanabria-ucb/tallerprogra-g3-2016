@@ -32,6 +32,7 @@ public class NewReportForm extends JDialog {
         setSize(600, 400);
         setBounds(400, 150, 600, 400);
         reportsController = new ReportsController();
+        populateComboBox();
 
         cancelButton.addActionListener(new ActionListener() {
             @Override
@@ -56,8 +57,21 @@ public class NewReportForm extends JDialog {
     private void saveReport() {
 
         try {
-            if (reportsController.exemptions(textArea.getText(), typeComboBox.getActionCommand())) {
-                reportsController.create(textArea.getText(), dayComboBox.getSelectedIndex(), monthComboBox.getSelectedIndex(), yearComboBox.getSelectedIndex(), typeComboBox.getActionCommand());
+
+                Object type=typeComboBox.getSelectedItem();
+                String t = String.valueOf(type);
+                Object day= dayComboBox.getSelectedItem();
+                String da= String.valueOf(day);
+                int d=Integer.parseInt(da);
+            Object month= monthComboBox.getSelectedItem();
+            String mon= String.valueOf(month);
+            int m=Integer.parseInt(mon);
+            Object year= yearComboBox.getSelectedItem();
+            String yea= String.valueOf(year);
+            int y=Integer.parseInt(yea);
+            if (reportsController.exemptions(textArea.getText(), t)) {
+                reportsController.create(textArea.getText(), d, m, y,t);
+
                 JOptionPane.showMessageDialog(this, "Report created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
                 cancel();
             }
