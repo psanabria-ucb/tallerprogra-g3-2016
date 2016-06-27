@@ -25,5 +25,5 @@ public class EmployersTest {
         assertEquals("Good name", employer.getName());
     }
 
-    
+
 }
