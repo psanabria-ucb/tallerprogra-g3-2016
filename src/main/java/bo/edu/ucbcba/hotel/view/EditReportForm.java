@@ -20,6 +20,7 @@ public class EditReportForm extends JDialog {
     private JButton saveButton;
     private JButton cancelButton;
     private ReportsController reportsController;
+    private int id;
 
     public EditReportForm(JDialog parent,int reportId, String text,String type,String date,int day,int month,int year){
         super(parent, "Edit Report", true);
@@ -35,6 +36,7 @@ public class EditReportForm extends JDialog {
         typeComboBox.setSelectedItem(type);
         textArea.setText(text);
         populateComboBox();
+       id= reportId;
 
         cancelButton.addActionListener(new ActionListener() {
             @Override
@@ -46,7 +48,7 @@ public class EditReportForm extends JDialog {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                saveReport();
+                saveReport(id);
             }
         });
     }
@@ -56,7 +58,7 @@ public class EditReportForm extends JDialog {
         dispose();
     }
 
-    private void saveReport() {
+    private void saveReport(int reportId) {
 
         try {
             Object type=typeComboBox.getSelectedItem();
@@ -71,7 +73,7 @@ public class EditReportForm extends JDialog {
             String yea= String.valueOf(year);
             int y=Integer.parseInt(yea);
             if (reportsController.exemptions(textArea.getText(), t)) {
-                reportsController.create(textArea.getText(), d, m, y,t);
+                reportsController.update(textArea.getText(), d, m, y,t,reportId);
                 JOptionPane.showMessageDialog(this, "Report created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
                 cancel();
             }
