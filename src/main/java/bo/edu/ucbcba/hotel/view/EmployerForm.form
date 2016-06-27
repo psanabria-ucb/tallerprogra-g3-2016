@@ -59,6 +59,7 @@
         </constraints>
         <properties>
           <background color="-11206656"/>
+          <foreground color="-2631721"/>
           <text value="Close"/>
         </properties>
       </component>

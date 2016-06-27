@@ -25,5 +25,22 @@ public class EmployersTest {
         assertEquals("Good name", employer.getName());
     }
 
+    @Test
+    public void testSetLastName() {
+        employer.setLastName("GoodLastName");
+        assertEquals("GoodLastName", employer.getLastName());
+    }
+    @Test
+    public void testSetPhone() {
+        int num=123123123;
+        employer.setPhone(num);
+        assertEquals(num, employer.getPhone());
+    }
+    @Test
+    public void testSetCI() {
+        int num=123123123;
+        employer.setCi(num);
+        assertEquals(num, employer.getCi());
+    }
 
 }

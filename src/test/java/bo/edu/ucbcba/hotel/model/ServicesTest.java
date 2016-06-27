@@ -27,5 +27,16 @@ public class ServicesTest {
         assertEquals("Good name", service.getName());
     }
 
+    @Test
+    public void testSetDescription() {
+        service.setDescription("Good description");
+        assertEquals("Good description", service.getDescription());
+    }
+    @Test
+    public void testSetCost() {
+        int num=123123123;
+        service.setCost(num);
+        assertEquals(num, service.getCost());
+    }
 
 }

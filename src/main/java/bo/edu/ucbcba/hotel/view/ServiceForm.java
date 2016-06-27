@@ -85,8 +85,8 @@ public class ServiceForm extends JDialog {
         DefaultTableModel tm = (DefaultTableModel) serviceTable.getModel();
 
         if (serviceTable.getSelectedRow() != -1) {
-            number = (int) tm.getValueAt(serviceTable.getSelectedRow(), 0);
-            cost = (int) tm.getValueAt(serviceTable.getSelectedRow(), 3);
+            number = Integer.parseInt((String) tm.getValueAt(serviceTable.getSelectedRow(), 0));
+            cost = Integer.parseInt((String) tm.getValueAt(serviceTable.getSelectedRow(), 3));
             name = (String) tm.getValueAt(serviceTable.getSelectedRow(), 1);
             description = (String) tm.getValueAt(serviceTable.getSelectedRow(), 2);
 
@@ -107,7 +107,7 @@ public class ServiceForm extends JDialog {
 
         DefaultTableModel tm = (DefaultTableModel) serviceTable.getModel();
         if (serviceTable.getSelectedRow() != -1) {
-            n = (int) tm.getValueAt(serviceTable.getSelectedRow(), 0);
+            n = Integer.parseInt((String) tm.getValueAt(serviceTable.getSelectedRow(), 0));
             try {
                 serviceController.delete(Integer.toString(n));
             } catch (ValidationException ex) {
