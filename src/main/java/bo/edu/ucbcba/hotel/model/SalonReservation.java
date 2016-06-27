@@ -14,8 +14,19 @@ public class SalonReservation {
     private int clientCi;
     private int day;
     private String month;
-    private int year;
+    private int anio;
     private int  cantPersonas;
+    private String salonName;
+    public int getAnio() {
+        return anio;
+    }
+
+    public void setAnio(int anio) {
+        this.anio = anio;
+    }
+
+
+
 
     public int getId() {
         return id;
@@ -25,7 +36,6 @@ public class SalonReservation {
         this.id = id;
     }
 
-    private String salonName;
 
     public String getClientName() {
         return clientName;
@@ -59,13 +69,7 @@ public class SalonReservation {
         this.month = month;
     }
 
-    public int getYear() {
-        return year;
-    }
 
-    public void setYear(int year) {
-        this.year = year;
-    }
 
     public int getCantPersonas() {
         return cantPersonas;

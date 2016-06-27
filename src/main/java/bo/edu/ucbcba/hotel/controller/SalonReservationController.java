@@ -14,7 +14,7 @@ public class SalonReservationController {
         salonReservation.setClientCi(clientCi);
         salonReservation.setDay(day);
         salonReservation.setMonth(month);
-        salonReservation.setYear(year);
+        salonReservation.setAnio(year);
         salonReservation.setCantPersonas(cantPersonas);
         salonReservation.setSalonName(salonName);
 
@@ -35,7 +35,7 @@ public class SalonReservationController {
         salonReservation.setClientCi(clientCi);
         salonReservation.setDay(day);
         salonReservation.setMonth(month);
-        salonReservation.setYear(year);
+        salonReservation.setAnio(year);
         salonReservation.setCantPersonas(cantPersonas);
         salonReservation.setSalonName(salonName);
         entityManager.getTransaction().commit();
@@ -43,13 +43,13 @@ public class SalonReservationController {
         entityManager.close();
 
     }
-    public static List<SalonReservation> searchRoom(String q) {
+    public static List<SalonReservation> searchSalon(String q) {
         int a=0;
 
         EntityManager entityManager = usersEntityManager.createEntityManager();
         if (q.isEmpty()) {
             a = 0;
-            TypedQuery<SalonReservation> query = entityManager.createQuery("select s from Rooms s ", SalonReservation.class);
+            TypedQuery<SalonReservation> query = entityManager.createQuery("select s from SalonReservation s ", SalonReservation.class);
             //query.setParameter("a", a);
             List<SalonReservation> response = query.getResultList();
             entityManager.close();
@@ -58,7 +58,7 @@ public class SalonReservationController {
         if(q.matches("[0-9]+"))
         {
             a=Integer.parseInt(q);
-            TypedQuery<SalonReservation> query = entityManager.createQuery("select s from Rooms s where s.id= :a or s.clientCi= :a or s.cantPersonas= :a", SalonReservation.class);
+            TypedQuery<SalonReservation> query = entityManager.createQuery("select s from SalonReservation s where s.id= :a or s.clientCi= :a or s.cantPersonas= :a", SalonReservation.class);
             query.setParameter("a", a);
             List<SalonReservation> response = query.getResultList();
             entityManager.close();
@@ -66,7 +66,7 @@ public class SalonReservationController {
         }
         if(q.matches("[a-zA-Z]+"))
         {
-            TypedQuery<SalonReservation> query = entityManager.createQuery("select s from Rooms s where lower(s.clientName) like :typo or lower(s.salonName) like :typo ", SalonReservation.class);
+            TypedQuery<SalonReservation> query = entityManager.createQuery("select s from SalonReservation s where lower(s.clientName) like :typo or lower(s.salonName) like :typo ", SalonReservation.class);
             query.setParameter("typo", "%" + q.toLowerCase() + "%");
             List<SalonReservation> response = query.getResultList();
             entityManager.close();
@@ -77,7 +77,7 @@ public class SalonReservationController {
     }
     public static List<SalonReservation> getRoom(int id){
         EntityManager entityManager = usersEntityManager.createEntityManager();
-        TypedQuery<SalonReservation> query = entityManager.createQuery("select s from Rooms s where s.id= :a ", SalonReservation.class);
+        TypedQuery<SalonReservation> query = entityManager.createQuery("select s from SalonReservation s where s.id= :a ", SalonReservation.class);
         query.setParameter("a", id);
         List<SalonReservation> response = query.getResultList();
         entityManager.close();

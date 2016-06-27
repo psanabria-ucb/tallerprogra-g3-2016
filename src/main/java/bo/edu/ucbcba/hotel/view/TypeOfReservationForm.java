@@ -1,5 +1,6 @@
 package bo.edu.ucbcba.hotel.view;
-
+import bo.edu.ucbcba.hotel.controller.SalonReservationController;
+import bo.edu.ucbcba.hotel.model.SalonReservation;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
@@ -22,7 +23,18 @@ public class TypeOfReservationForm extends JDialog {
         pack();
         setContentPane(TypeReservationPanel);
         setBounds(500, 250, 550, 180);
+        salonReservationButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                salonreservatio();
+            }
+        });
 
+    }
+
+    private void salonreservatio() {
+        SalonReservationForm salonReservationForm = new SalonReservationForm(this);
+        salonReservationForm.setVisible(true);
     }
 
     {

@@ -26,6 +26,7 @@ public class HotelForm extends JFrame {
         setContentPane(Panel);
         setSize(600, 400);
         setBounds(400, 150, 800, 350);
+        setResizable(false);
         registrarClienteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -135,6 +136,9 @@ public class HotelForm extends JFrame {
     private void $$$setupUI$$$() {
         Panel = new JPanel();
         Panel.setLayout(new GridLayoutManager(5, 8, new Insets(10, 10, 10, 10), -1, -1));
+        Panel.setInheritsPopupMenu(false);
+        Panel.setMaximumSize(new Dimension(850, 350));
+        Panel.setMinimumSize(new Dimension(800, 350));
         registrarClienteButton = new JButton();
         registrarClienteButton.setText("Clients");
         Panel.add(registrarClienteButton, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));

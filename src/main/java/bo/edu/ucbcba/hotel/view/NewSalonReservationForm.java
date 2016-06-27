@@ -25,14 +25,17 @@ public class NewSalonReservationForm extends JDialog {
     private JButton exitButton;
     private JLabel ClientNameField;
     private JComboBox YearComboBox;
+    private JTextField textField1;
     private SalonReservationController salonReservationController;
 
     public NewSalonReservationForm(JDialog parent) {
         super(parent, "New Reservation", true);
         setContentPane(newSalonreservationPanel);
         setSize(600, 400);
-        setBounds(480, 150, 500, 400);
+        setBounds(480, 150, 690, 400);
+        setResizable(false);
         addComboBox();
+        salonReservationController = new SalonReservationController();
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -48,18 +51,18 @@ public class NewSalonReservationForm extends JDialog {
     }
 
     private void save() {
-        if (ClienteNameField.getText().length() == 0 || CiClientField.getText().length() == 0 || CantPersonasField.getText().length() == 0) {
+        if (textField1.getText().length() == 0 || CiClientField.getText().length() == 0 || CantPersonasField.getText().length() == 0) {
             JOptionPane.showMessageDialog(this, "Fields can't be empty", "Format error", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
-        if (ClienteNameField.getText().matches("[0-9]+")) {
+        if (textField1.getText().matches("[0-9]+")) {
             JOptionPane.showMessageDialog(this, "Client name can't be a number,please insert new name", "Format error", JOptionPane.INFORMATION_MESSAGE);
-            ClienteNameField.setText("");
+            textField1.setText("");
             return;
         }
-        if (ClienteNameField.getText().length() > 30) {
+        if (textField1.getText().length() > 30) {
             JOptionPane.showMessageDialog(this, "Client name is to big,please insert new one", "Format error", JOptionPane.INFORMATION_MESSAGE);
-            ClienteNameField.setText("");
+            textField1.setText("");
             return;
         }
 
@@ -84,7 +87,7 @@ public class NewSalonReservationForm extends JDialog {
             return;
         }
         try {
-            salonReservationController.create(ClientNameField.getText(), Integer.parseInt(CiClientField.getText()), Integer.parseInt(DaysComboBox.getSelectedItem().toString()), MonthsComboBox.getSelectedItem().toString(), Integer.parseInt(YearComboBox.getSelectedItem().toString()), Integer.parseInt(CantPersonasField.getText()), SalonComboBox.getSelectedItem().toString());
+            salonReservationController.create(textField1.getText(), Integer.parseInt(CiClientField.getText()), Integer.parseInt(DaysComboBox.getSelectedItem().toString()), MonthsComboBox.getSelectedItem().toString(), Integer.parseInt(YearComboBox.getSelectedItem().toString()), Integer.parseInt(CantPersonasField.getText()), "hola");
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
         }
@@ -136,8 +139,6 @@ public class NewSalonReservationForm extends JDialog {
         final JLabel label1 = new JLabel();
         label1.setText("Nombre Cleinte");
         newSalonreservationPanel.add(label1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        ClienteNameField = new JTextField();
-        newSalonreservationPanel.add(ClienteNameField, new GridConstraints(0, 1, 1, 4, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         CantPersonasField = new JTextField();
         newSalonreservationPanel.add(CantPersonasField, new GridConstraints(3, 1, 1, 6, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         final JLabel label2 = new JLabel();
@@ -177,6 +178,8 @@ public class NewSalonReservationForm extends JDialog {
         exitButton = new JButton();
         exitButton.setText("Exit");
         newSalonreservationPanel.add(exitButton, new GridConstraints(4, 8, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        textField1 = new JTextField();
+        newSalonreservationPanel.add(textField1, new GridConstraints(0, 1, 1, 4, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
     }
 
     /**

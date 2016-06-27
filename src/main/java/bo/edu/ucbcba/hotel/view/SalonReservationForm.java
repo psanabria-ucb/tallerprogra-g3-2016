@@ -2,6 +2,7 @@ package bo.edu.ucbcba.hotel.view;
 
 import bo.edu.ucbcba.hotel.controller.SalonController;
 import bo.edu.ucbcba.hotel.controller.SalonReservationController;
+import bo.edu.ucbcba.hotel.exceptions.ValidationException;
 import bo.edu.ucbcba.hotel.model.SalonReservation;
 import bo.edu.ucbcba.hotel.model.Salons;
 import com.intellij.uiDesigner.core.GridConstraints;
@@ -46,12 +47,14 @@ public class SalonReservationForm extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 editReservatio();
+                populateTable();
             }
         });
         deleteReservationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 deleteReservation();
+                populateTable();
             }
         });
         exitButton.addActionListener(new ActionListener() {
@@ -60,11 +63,19 @@ public class SalonReservationForm extends JDialog {
                 exit();
             }
         });
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                populateTable();
+            }
+        });
         populateTable1();
     }
 
     private void newReservation() {
-
+        NewSalonReservationForm newSalonReservationForm = new NewSalonReservationForm(this);
+        newSalonReservationForm.setVisible(true);
+        populateTable1();
     }
 
     private void editReservatio() {
@@ -72,7 +83,20 @@ public class SalonReservationForm extends JDialog {
     }
 
     private void deleteReservation() {
+        int n;
+        if (SalonsTable.getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(this, "Please select one room to delete", "Error", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            DefaultTableModel tm = (DefaultTableModel) SalonsTable.getModel();
+            n = ((int) tm.getValueAt(SalonsTable.getSelectedRow(), 0));
 
+            try {
+                salonReservationController.DeleteRoom(Integer.toString(n));
+            } catch (ValidationException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
+            }
+            JOptionPane.showMessageDialog(this, "Room deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
     private void exit() {
@@ -81,7 +105,7 @@ public class SalonReservationForm extends JDialog {
 
     private void populateTable1() {
 
-        List<SalonReservation> salonList = SalonReservationController.searchRoom(SearchField.getText());
+        List<SalonReservation> salonList = SalonReservationController.searchSalon(SearchField.getText());
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Salon id");
         model.addColumn("Client name");
@@ -99,7 +123,7 @@ public class SalonReservationForm extends JDialog {
             row[0] = s.getId();
             row[1] = s.getClientName();
             row[2] = s.getClientCi();
-            row[3] = s.getDay() + "-" + s.getMonth() + "-" + s.getYear();
+            row[3] = s.getDay() + "-" + s.getMonth() + "-" + s.getAnio();
             row[4] = s.getSalonName();
             row[5] = s.getCantPersonas();
 
@@ -110,7 +134,7 @@ public class SalonReservationForm extends JDialog {
 
     private void populateTable() {
 
-        List<SalonReservation> salonList = SalonReservationController.searchRoom(SearchField.getText());
+        List<SalonReservation> salonList = SalonReservationController.searchSalon(SearchField.getText());
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Salon id");
         model.addColumn("Client name");
@@ -127,7 +151,7 @@ public class SalonReservationForm extends JDialog {
             return;
         }
         if (salonList.size() == 0) {
-            JOptionPane.showMessageDialog(this, "No matches with rooms data base", "Error", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No matches with salons reservation data base", "Error", JOptionPane.INFORMATION_MESSAGE);
             SearchField.setText("");
             populateTable1();
         } else {
@@ -137,7 +161,7 @@ public class SalonReservationForm extends JDialog {
                 row[0] = s.getId();
                 row[1] = s.getClientName();
                 row[2] = s.getClientCi();
-                row[3] = s.getDay() + "-" + s.getMonth() + "-" + s.getYear();
+                row[3] = s.getDay() + "-" + s.getMonth() + "-" + s.getAnio();
                 row[4] = s.getSalonName();
                 row[5] = s.getCantPersonas();
 
