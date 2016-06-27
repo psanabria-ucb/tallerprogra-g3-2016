@@ -96,7 +96,6 @@ public class EmployerForm extends JDialog {
         } else
             JOptionPane.showMessageDialog(this, "Please select one employer to edit it", "Error", JOptionPane.INFORMATION_MESSAGE);
 
-
     }
 
     private void populateTable1() {
