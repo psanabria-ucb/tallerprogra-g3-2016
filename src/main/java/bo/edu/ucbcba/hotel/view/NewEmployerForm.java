@@ -84,7 +84,9 @@ public class NewEmployerForm extends JDialog {
         EmployersPanel = new JPanel();
         EmployersPanel.setLayout(new GridLayoutManager(8, 5, new Insets(20, 20, 20, 20), -1, -1));
         saveButton = new JButton();
-        saveButton.setBackground(new Color(-5621447));
+        saveButton.setBackground(new Color(-13793741));
+        saveButton.setForeground(new Color(-2631721));
+        saveButton.setIcon(new ImageIcon(getClass().getResource("/com/sun/deploy/resources/image/installapp24-d.png")));
         saveButton.setText("Save");
         EmployersPanel.add(saveButton, new GridConstraints(6, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
@@ -92,7 +94,9 @@ public class NewEmployerForm extends JDialog {
         final Spacer spacer2 = new Spacer();
         EmployersPanel.add(spacer2, new GridConstraints(5, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         closeButton = new JButton();
-        closeButton.setBackground(new Color(-13793741));
+        closeButton.setBackground(new Color(-5621447));
+        closeButton.setForeground(new Color(-2631721));
+        closeButton.setIcon(new ImageIcon(getClass().getResource("/com/sun/deploy/resources/image/delete24-d.png")));
         closeButton.setText("Close");
         EmployersPanel.add(closeButton, new GridConstraints(6, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label1 = new JLabel();

@@ -81,8 +81,8 @@ public class EmployerForm extends JDialog {
         DefaultTableModel tm = (DefaultTableModel) employertable.getModel();
         if (employertable.getSelectedRow() != -1) {
 
-            n = Integer.parseInt((String) tm.getValueAt(employertable.getSelectedRow(), 0));
-            p = Integer.parseInt((String) tm.getValueAt(employertable.getSelectedRow(), 3));
+            n = (int) tm.getValueAt(employertable.getSelectedRow(), 0);
+            p = ((int) tm.getValueAt(employertable.getSelectedRow(), 3));
             name = (String) tm.getValueAt(employertable.getSelectedRow(), 1);
             lname = (String) tm.getValueAt(employertable.getSelectedRow(), 2);
 
@@ -95,7 +95,6 @@ public class EmployerForm extends JDialog {
             }
         } else
             JOptionPane.showMessageDialog(this, "Please select one employer to edit it", "Error", JOptionPane.INFORMATION_MESSAGE);
-
 
     }
 
@@ -162,7 +161,7 @@ public class EmployerForm extends JDialog {
         DefaultTableModel tm = (DefaultTableModel) employertable.getModel();
         if (employertable.getSelectedRow() != -1) {
 
-            n = Integer.parseInt((String) tm.getValueAt(employertable.getSelectedRow(), 0));
+            n = ((int) tm.getValueAt(employertable.getSelectedRow(), 0));
 
             try {
                 e.delete(Integer.toString(n));
@@ -199,16 +198,20 @@ public class EmployerForm extends JDialog {
         EmployerPanel.setLayout(new GridLayoutManager(5, 9, new Insets(10, 10, 10, 10), -1, -1));
         searchButton = new JButton();
         searchButton.setBackground(new Color(-11509872));
+        searchButton.setForeground(new Color(-2631721));
         searchButton.setText("Search");
         EmployerPanel.add(searchButton, new GridConstraints(1, 7, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         textField1 = new JTextField();
         EmployerPanel.add(textField1, new GridConstraints(1, 1, 1, 6, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         newEmployerButton = new JButton();
         newEmployerButton.setBackground(new Color(-13793741));
+        newEmployerButton.setForeground(new Color(-2631721));
+        newEmployerButton.setIcon(new ImageIcon(getClass().getResource("/com/sun/deploy/resources/image/addshortcut24-d.png")));
         newEmployerButton.setText("New employer");
         EmployerPanel.add(newEmployerButton, new GridConstraints(3, 1, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         deleteEmployerButton = new JButton();
         deleteEmployerButton.setBackground(new Color(-5621447));
+        deleteEmployerButton.setForeground(new Color(-2631721));
         deleteEmployerButton.setText("Delete employer");
         EmployerPanel.add(deleteEmployerButton, new GridConstraints(3, 4, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
@@ -218,6 +221,7 @@ public class EmployerForm extends JDialog {
         salirButton = new JButton();
         salirButton.setBackground(new Color(-11206656));
         salirButton.setForeground(new Color(-2631721));
+        salirButton.setIcon(new ImageIcon(getClass().getResource("/com/sun/deploy/resources/image/delete24-d.png")));
         salirButton.setText("Close");
         EmployerPanel.add(salirButton, new GridConstraints(3, 7, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer3 = new Spacer();
@@ -226,6 +230,8 @@ public class EmployerForm extends JDialog {
         EmployerPanel.add(spacer4, new GridConstraints(0, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         editEmployerButton = new JButton();
         editEmployerButton.setBackground(new Color(-2838166));
+        editEmployerButton.setForeground(new Color(-2631721));
+        editEmployerButton.setIcon(new ImageIcon(getClass().getResource("/com/sun/deploy/resources/image/gear_24.png")));
         editEmployerButton.setText("Edit Employer");
         EmployerPanel.add(editEmployerButton, new GridConstraints(3, 6, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JScrollPane scrollPane1 = new JScrollPane();

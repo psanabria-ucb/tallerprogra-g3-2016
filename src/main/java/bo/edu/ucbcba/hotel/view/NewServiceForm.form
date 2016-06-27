@@ -24,6 +24,8 @@
         </constraints>
         <properties>
           <background color="-13793741"/>
+          <foreground color="-2631721"/>
+          <icon value="com/sun/deploy/resources/image/installapp24-d.png"/>
           <text value="Save"/>
         </properties>
       </component>
@@ -33,6 +35,8 @@
         </constraints>
         <properties>
           <background color="-5621447"/>
+          <foreground color="-2631721"/>
+          <icon value="com/sun/deploy/resources/image/delete24-d.png"/>
           <text value="Cancel"/>
         </properties>
       </component>

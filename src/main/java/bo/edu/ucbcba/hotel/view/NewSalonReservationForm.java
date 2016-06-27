@@ -48,7 +48,7 @@ public class NewSalonReservationForm extends JDialog {
     }
 
     private void save() {
-        if (ClienteNameField.getText().length() == 0 || CiClientField.getText().length() == 0 || CantPersonasField.getText().length()==0) {
+        if (ClienteNameField.getText().length() == 0 || CiClientField.getText().length() == 0 || CantPersonasField.getText().length() == 0) {
             JOptionPane.showMessageDialog(this, "Fields can't be empty", "Format error", JOptionPane.INFORMATION_MESSAGE);
             return;
         }

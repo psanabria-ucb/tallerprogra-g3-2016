@@ -13,7 +13,9 @@
           <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-5621447"/>
+          <background color="-13793741"/>
+          <foreground color="-2631721"/>
+          <icon value="com/sun/deploy/resources/image/installapp24-d.png"/>
           <text value="Save"/>
         </properties>
       </component>
@@ -32,7 +34,9 @@
           <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-13793741"/>
+          <background color="-5621447"/>
+          <foreground color="-2631721"/>
+          <icon value="com/sun/deploy/resources/image/delete24-d.png"/>
           <text value="Close"/>
         </properties>
       </component>
