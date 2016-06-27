@@ -50,12 +50,36 @@ public class ServiceController {
         entityManager.close();
     }
     public List<Services> searchService(String q) {
+        int a=0;
+
         EntityManager entityManager = usersEntityManager.createEntityManager();
-        TypedQuery<Services> query = entityManager.createQuery("select s from Services s WHERE lower(s.name) like :name", Services.class);
-        query.setParameter("name", "%" + q.toLowerCase() + "%");
-        List<Services> response = query.getResultList();
-        entityManager.close();
-        return response;
+        if (q.isEmpty()) {
+            a = 0;
+            TypedQuery<Services> query = entityManager.createQuery("select s from Services s ", Services.class);
+            //query.setParameter("a", a);
+            List<Services> response = query.getResultList();
+            entityManager.close();
+            return response;
+        }
+        if(q.matches("[0-9]+"))
+        {
+            a=Integer.parseInt(q);
+            TypedQuery<Services> query = entityManager.createQuery("select s from Services s where s.roomNumber= :a or s.cost= :a", Services.class);
+            query.setParameter("a", a);
+            List<Services> response = query.getResultList();
+            entityManager.close();
+            return response;
+        }
+        if(q.matches("[a-zA-Z]+"))
+        {
+            TypedQuery<Services> query = entityManager.createQuery("select s from Services s where lower(s.name) like :typo or lower(s.description) like :typo ", Services.class);
+            query.setParameter("typo", "%" + q.toLowerCase() + "%");
+            List<Services> response = query.getResultList();
+            entityManager.close();
+            return response;
+        }
+
+        return null;
     }
 
     public void delete (String id) {
