@@ -29,6 +29,7 @@
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-16048831"/>
           <text value="Add New Room"/>
         </properties>
       </component>
@@ -37,6 +38,7 @@
           <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-13221589"/>
           <text value="View Inventory"/>
         </properties>
       </component>
@@ -45,6 +47,7 @@
           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-12513006"/>
           <text value="Delete Room"/>
         </properties>
       </component>
@@ -53,6 +56,7 @@
           <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-12515840"/>
           <text value="Exit"/>
         </properties>
       </component>
@@ -61,6 +65,7 @@
           <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-12566241"/>
           <text value="Edit"/>
         </properties>
       </component>
@@ -68,7 +73,9 @@
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="5" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <font style="1"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="98edd" class="javax.swing.JTable" binding="RoomsTable">

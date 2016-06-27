@@ -88,9 +88,15 @@ public class NewServiceForm extends JDialog {
         final Spacer spacer2 = new Spacer();
         NewServicePanel.add(spacer2, new GridConstraints(0, 2, 3, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         saveButton = new JButton();
+        saveButton.setBackground(new Color(-13793741));
+        saveButton.setForeground(new Color(-2631721));
+        saveButton.setIcon(new ImageIcon(getClass().getResource("/com/sun/deploy/resources/image/installapp24-d.png")));
         saveButton.setText("Save");
         NewServicePanel.add(saveButton, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         cancelButton = new JButton();
+        cancelButton.setBackground(new Color(-5621447));
+        cancelButton.setForeground(new Color(-2631721));
+        cancelButton.setIcon(new ImageIcon(getClass().getResource("/com/sun/deploy/resources/image/delete24-d.png")));
         cancelButton.setText("Cancel");
         NewServicePanel.add(cancelButton, new GridConstraints(3, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer3 = new Spacer();

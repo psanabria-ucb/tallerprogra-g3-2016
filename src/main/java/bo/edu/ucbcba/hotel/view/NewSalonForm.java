@@ -26,7 +26,7 @@ public class NewSalonForm extends JDialog {
         pack();
         setContentPane(NewSalonPanel);
         setBounds(560, 200, 350, 150);
-
+        setResizable(false);
         salonController = new SalonController();
         saveButton.addActionListener(new ActionListener() {
             @Override

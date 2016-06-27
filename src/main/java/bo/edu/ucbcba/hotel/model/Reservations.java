@@ -25,7 +25,7 @@ public class Reservations {
         cantDays=0;
         active=false;
         client=null;
-        rooms=new LinkedList<>();
+        rooms=new LinkedList();
     }
 
 

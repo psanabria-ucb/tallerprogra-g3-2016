@@ -35,6 +35,7 @@ public class RoomForm extends JDialog {
         setContentPane(roomForm);
         setSize(650, 400);
         setBounds(400, 150, 650, 400);
+        setResizable(false);
         roomController = new RoomController();
         populateTable1();
         eliminarHabitacionButton.addActionListener(new ActionListener() {
@@ -84,7 +85,7 @@ public class RoomForm extends JDialog {
             JOptionPane.showMessageDialog(this, "Please select one room to edit", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
             DefaultTableModel tm = (DefaultTableModel) RoomsTable.getModel();
-            n = Integer.parseInt((String) tm.getValueAt(RoomsTable.getSelectedRow(), 0));
+            n = ((int) tm.getValueAt(RoomsTable.getSelectedRow(), 0));
             EditRoomForm editRoomForm = new EditRoomForm(this, n);
             editRoomForm.setVisible(true);
             populateTable();
@@ -97,7 +98,7 @@ public class RoomForm extends JDialog {
             JOptionPane.showMessageDialog(this, "Please select one room to delete", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
             DefaultTableModel tm = (DefaultTableModel) RoomsTable.getModel();
-            n = Integer.parseInt((String) tm.getValueAt(RoomsTable.getSelectedRow(), 0));
+            n = ((int) tm.getValueAt(RoomsTable.getSelectedRow(), 0));
 
             try {
                 roomController.DeleteRoom(Integer.toString(n));
@@ -126,6 +127,7 @@ public class RoomForm extends JDialog {
             inventoryForm.setVisible(true);
         }
     }
+
     private void populateTable1() {
 
         List<Rooms> roomsList = RoomController.searchRoom(SearchField.getText());
@@ -151,6 +153,7 @@ public class RoomForm extends JDialog {
             model.addRow(row);
         }
     }
+
     private void populateTable() {
 
         List<Rooms> roomsList = RoomController.searchRoom(SearchField.getText());
@@ -213,21 +216,27 @@ public class RoomForm extends JDialog {
         SearchButton.setText("Search");
         roomForm.add(SearchButton, new GridConstraints(0, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 1, false));
         agregarHabitacionButton = new JButton();
+        agregarHabitacionButton.setBackground(new Color(-16048831));
         agregarHabitacionButton.setText("Add New Room");
         roomForm.add(agregarHabitacionButton, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         verInventarioButton = new JButton();
+        verInventarioButton.setBackground(new Color(-13221589));
         verInventarioButton.setText("View Inventory");
         roomForm.add(verInventarioButton, new GridConstraints(2, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         eliminarHabitacionButton = new JButton();
+        eliminarHabitacionButton.setBackground(new Color(-12513006));
         eliminarHabitacionButton.setText("Delete Room");
         roomForm.add(eliminarHabitacionButton, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         salirButton = new JButton();
+        salirButton.setBackground(new Color(-12515840));
         salirButton.setText("Exit");
         roomForm.add(salirButton, new GridConstraints(2, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         editButton = new JButton();
+        editButton.setBackground(new Color(-12566241));
         editButton.setText("Edit");
         roomForm.add(editButton, new GridConstraints(2, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JScrollPane scrollPane1 = new JScrollPane();
+        scrollPane1.setFont(new Font(scrollPane1.getFont().getName(), Font.BOLD, scrollPane1.getFont().getSize()));
         roomForm.add(scrollPane1, new GridConstraints(1, 0, 1, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         RoomsTable = new JTable();
         scrollPane1.setViewportView(RoomsTable);
