@@ -176,9 +176,13 @@ public class EditRoomForm extends JDialog {
         LivingcheckBox.setText("");
         NewRoomForm.add(LivingcheckBox, new GridConstraints(4, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         saveButton = new JButton();
+        saveButton.setBackground(new Color(-15122149));
+        saveButton.setForeground(new Color(-16777216));
         saveButton.setText("Save");
         NewRoomForm.add(saveButton, new GridConstraints(6, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         exitButton = new JButton();
+        exitButton.setBackground(new Color(-12514541));
+        exitButton.setForeground(new Color(-16777216));
         exitButton.setText("Exit");
         NewRoomForm.add(exitButton, new GridConstraints(6, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         TelfcheckBox = new JCheckBox();

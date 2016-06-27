@@ -30,6 +30,7 @@ public class EditSalonForm extends JDialog {
     EditSalonForm(JDialog parent, int n) {
         super(parent, "Edit salon", true);
         setContentPane(EditSalonPanel);
+        setResizable(false);
         salonController = new SalonController();
         setBounds(400, 150, 510, 250);
         salonNumber = n;

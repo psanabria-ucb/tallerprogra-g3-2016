@@ -33,6 +33,7 @@ public class SalonForm extends JDialog {
         pack();
         setContentPane(salonPanel);
         setBounds(400, 150, 650, 400);
+        setResizable(false);
         salonController = new SalonController();
         newSalonButton.addActionListener(new ActionListener() {
             @Override
