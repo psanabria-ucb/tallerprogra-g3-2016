@@ -98,7 +98,7 @@ public class ClientsForm extends JDialog {
             JOptionPane.showMessageDialog(this, "Please select one Client to delete", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
             DefaultTableModel tm = (DefaultTableModel) ClientsTable.getModel();
-            n =Integer.parseInt( (String) tm.getValueAt(ClientsTable.getSelectedRow(), 0));
+            n = Integer.parseInt((String) tm.getValueAt(ClientsTable.getSelectedRow(), 0));
 
             try {
                 clientController.delete(Integer.toString(n));
@@ -151,7 +151,7 @@ public class ClientsForm extends JDialog {
         if (SearchTextField.getText().length() > 15) {
             JOptionPane.showMessageDialog(this, "Search argument is to big,please insert another one", "Error", JOptionPane.INFORMATION_MESSAGE);
             SearchTextField.setText("");
-           // populateTable();
+            // populateTable();
             return;
         }
         if (clientsList.size() == 0) {

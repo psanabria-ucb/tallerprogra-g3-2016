@@ -62,7 +62,7 @@ public class HotelForm extends JFrame {
                 newSalon();
             }
         });
-         reservationButton.addActionListener(new ActionListener() {
+        reservationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 newReservation();
@@ -112,7 +112,7 @@ public class HotelForm extends JFrame {
         clientsForm.setVisible(true);
     }
 
-    private void newReport(){
+    private void newReport() {
         ReportForm reportForm = new ReportForm(this);
         reportForm.setVisible(true);
     }

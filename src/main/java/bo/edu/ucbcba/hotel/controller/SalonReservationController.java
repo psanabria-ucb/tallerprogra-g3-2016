@@ -8,7 +8,7 @@ import bo.edu.ucbcba.hotel.model.SalonReservation;
 
 public class SalonReservationController {
 
-    public void create(String clientName,int clientCi,int day,String month,int year,int cantPersonas,String salonName){
+    public void create(String clientName, int clientCi, int day, String month, int year, int cantPersonas, String salonName){
         SalonReservation salonReservation = new SalonReservation();
         salonReservation.setClientName(clientName);
         salonReservation.setClientCi(clientCi);

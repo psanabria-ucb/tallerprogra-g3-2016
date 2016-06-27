@@ -207,9 +207,11 @@ public class ServiceForm extends JDialog {
         searchField = new JTextField();
         panel.add(searchField, new GridConstraints(0, 2, 1, 5, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         searchButton = new JButton();
+        searchButton.setBackground(new Color(-11509872));
         searchButton.setText("Search");
         panel.add(searchButton, new GridConstraints(0, 7, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         AGregarServicioButton = new JButton();
+        AGregarServicioButton.setBackground(new Color(-13793741));
         AGregarServicioButton.setText("New service");
         panel.add(AGregarServicioButton, new GridConstraints(3, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
@@ -221,9 +223,11 @@ public class ServiceForm extends JDialog {
         final Spacer spacer4 = new Spacer();
         panel.add(spacer4, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         eliminarServicioButton = new JButton();
+        eliminarServicioButton.setBackground(new Color(-5621447));
         eliminarServicioButton.setText("Delete service");
         panel.add(eliminarServicioButton, new GridConstraints(3, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         editServiceButton = new JButton();
+        editServiceButton.setBackground(new Color(-2838166));
         editServiceButton.setText("Edit service");
         panel.add(editServiceButton, new GridConstraints(3, 5, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JScrollPane scrollPane1 = new JScrollPane();
@@ -231,6 +235,7 @@ public class ServiceForm extends JDialog {
         serviceTable = new JTable();
         scrollPane1.setViewportView(serviceTable);
         salirButton1 = new JButton();
+        salirButton1.setBackground(new Color(-11206656));
         salirButton1.setText("Close");
         panel.add(salirButton1, new GridConstraints(3, 7, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer5 = new Spacer();
