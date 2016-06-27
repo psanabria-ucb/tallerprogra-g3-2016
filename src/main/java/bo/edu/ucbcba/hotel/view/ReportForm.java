@@ -48,6 +48,7 @@ public class ReportForm extends JDialog {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                setVisible(false);
                 createReport();
             }
         });
@@ -82,6 +83,7 @@ public class ReportForm extends JDialog {
             row[0] = s.getReportId();
             row[1] = s.getType();
             row[2] = s.getDate();
+            row[3] = s.getText();
             model.addRow(row);
         }
     }
@@ -102,7 +104,7 @@ public class ReportForm extends JDialog {
             return;
         }
         if (reportsList.size() == 0) {
-            JOptionPane.showMessageDialog(this, "No matches with rooms data base", "Error", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No matches with reports data base", "Error", JOptionPane.INFORMATION_MESSAGE);
             searchField.setText("");
             populateTable1();
         } else {
@@ -121,7 +123,7 @@ public class ReportForm extends JDialog {
         int reportId,day,month,year;
         String text,type,date;
         if (reportsTable.getSelectedRow() == -1) {
-            JOptionPane.showMessageDialog(this, "Please select one client to edit", "Error", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please select one report to edit", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
             DefaultTableModel tm = (DefaultTableModel) reportsTable.getModel();
             reportId = (int) tm.getValueAt(reportsTable.getSelectedRow(), 0);
@@ -135,8 +137,8 @@ public class ReportForm extends JDialog {
                 month=s.getMonth();
                 year=s.getYear();
 
-                //EditReportForm editReportForm = new EditReportForm(this, reportId, text,type, date,day,month,year);
-               // editClientForm.setVisible(true);
+                EditReportForm editReportForm = new EditReportForm(this, reportId, text,type, date,day,month,year);
+                editReportForm.setVisible(true);
             }
 
 
@@ -147,7 +149,7 @@ public class ReportForm extends JDialog {
     private void deleteReport() {
         int n;
         if (reportsTable.getSelectedRow() == -1) {
-            JOptionPane.showMessageDialog(this, "Please select one Client to delete", "Error", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please select one Report to delete", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
             DefaultTableModel tm = (DefaultTableModel) reportsTable.getModel();
             n = (int) tm.getValueAt(reportsTable.getSelectedRow(), 0);

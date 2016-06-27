@@ -10,7 +10,8 @@ import java.awt.event.ActionListener;
 /**
  * Created by CésarIvan on 27/06/2016.
  */
-public class NewReportForm extends JDialog{
+public class EditReportForm extends JDialog {
+    private JPanel EditFormPanel;
     private JComboBox dayComboBox;
     private JComboBox monthComboBox;
     private JComboBox yearComboBox;
@@ -18,22 +19,27 @@ public class NewReportForm extends JDialog{
     private JTextArea textArea;
     private JButton saveButton;
     private JButton cancelButton;
-    private JPanel newReportPanel;
     private ReportsController reportsController;
 
-    public NewReportForm(JDialog parent){
-        super(parent, "New Report", true);
+    public EditReportForm(JDialog parent,int reportId, String text,String type,String date,int day,int month,int year){
+        super(parent, "Edit Report", true);
         pack();
-        setContentPane(newReportPanel);
+        setContentPane(EditFormPanel);
         setSize(600, 400);
         setBounds(400, 150, 600, 400);
+
         reportsController = new ReportsController();
+        dayComboBox.setSelectedItem(day);
+        monthComboBox.setSelectedItem(month);
+        yearComboBox.setSelectedItem(year);
+        typeComboBox.setSelectedItem(type);
+        textArea.setText(text);
         populateComboBox();
 
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cancel();
+                dispose();
             }
         });
 
@@ -53,11 +59,11 @@ public class NewReportForm extends JDialog{
     private void saveReport() {
 
         try {
-                Object type=typeComboBox.getSelectedItem();
-                String t = String.valueOf(type);
-                Object day= dayComboBox.getSelectedItem();
-                String da= String.valueOf(day);
-                int d=Integer.parseInt(da);
+            Object type=typeComboBox.getSelectedItem();
+            String t = String.valueOf(type);
+            Object day= dayComboBox.getSelectedItem();
+            String da= String.valueOf(day);
+            int d=Integer.parseInt(da);
             Object month= monthComboBox.getSelectedItem();
             String mon= String.valueOf(month);
             int m=Integer.parseInt(mon);
