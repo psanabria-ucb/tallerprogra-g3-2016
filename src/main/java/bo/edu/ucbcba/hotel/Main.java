@@ -10,5 +10,6 @@ public class Main {
         HotelForm form = new HotelForm();
         form.setVisible(true);
         form.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        form.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

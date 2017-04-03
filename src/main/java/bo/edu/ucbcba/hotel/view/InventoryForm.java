@@ -10,7 +10,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.*;
 import java.util.List;
 
 /**
@@ -25,7 +24,7 @@ public class InventoryForm extends JDialog {
     private JCheckBox MiniBarcheckBox;
     private JCheckBox DeskcheckBox;
     private JButton salirButton;
-    private JLabel Title;
+    private JLabel dialogTitle;
     private RoomController roomController;
 
     InventoryForm(JDialog parent, int n) {
@@ -33,7 +32,7 @@ public class InventoryForm extends JDialog {
         setContentPane(InventoryPanel);
         roomController = new RoomController();
         setBounds(500, 200, 360, 300);
-        Title.setText("Room " + n + " inventory");
+        dialogTitle.setText("Room " + n + " inventory");
         salirButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -85,9 +84,9 @@ public class InventoryForm extends JDialog {
     private void $$$setupUI$$$() {
         InventoryPanel = new JPanel();
         InventoryPanel.setLayout(new GridLayoutManager(8, 3, new Insets(20, 10, 10, 20), -1, -1));
-        Title = new JLabel();
-        Title.setText("Room Number:");
-        InventoryPanel.add(Title, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        dialogTitle = new JLabel();
+        dialogTitle.setText("Room Number:");
+        InventoryPanel.add(dialogTitle, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
         InventoryPanel.add(spacer1, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         final JLabel label1 = new JLabel();

@@ -78,7 +78,7 @@ public class HotelForm extends JFrame {
     }
 
     private void exit() {
-        System.exit(0);
+        dispose();
     }
 
     private void newReservation() {
