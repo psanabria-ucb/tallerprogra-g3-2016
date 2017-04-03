@@ -55,7 +55,6 @@ public class ReportsController {
 
     public static List<Reports> searchReport(String q) {
         int a=0;
-
         EntityManager entityManager = usersEntityManager.createEntityManager();
         TypedQuery<Reports> query;
         List<Reports> response;
