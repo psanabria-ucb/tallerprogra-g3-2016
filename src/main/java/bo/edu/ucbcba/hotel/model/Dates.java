@@ -44,41 +44,60 @@ public class Dates {
     public void setDate(int day,int month,int year)
     {
         this.year=year;
-        if(month >12 && month <1)
+        if(isAvalidDate(day, month)){
+        	this.day = day;
+            this.month = month;
+        }
+    }
+
+	private boolean isAvalidDate(int day, int month) {
+		boolean h=false;
+		if(isAvalidMonth(month))
         {
             throw new ValidationException("Error format Month");
         }
         else
         {
-            if(day > 31 && day<1)
-            {
-                throw new ValidationException("Error format Day");
-            }
-            else
-            {
-                if((month == 4 || month == 6 || month == 9 || month == 11)&&(day > 30))
-                {
-                    throw new ValidationException("Error This month have 30 days");
-                }
-                else
-                {
-                    if(month == 2 && bisiest() && day > 29)
-                    {
-                        throw new ValidationException("Error This month have 29 days");
-                    }
-                    else if (month == 2 && !bisiest() && day > 28)
-                    {
-                        throw new ValidationException("Error This month have 28 days");
-                    }
-                    else
-                    {
-                        this.day = day;
-                        this.month = month;
-                    }
-                }
-            }
+            h = isAvalidDay(day, month);
         }
-    }
+		return h;
+	}
+
+	private boolean isAvalidDay(int day, int month) {
+		boolean h=false;
+		if(day > 31 && day<1)
+		{
+		    throw new ValidationException("Error format Day");
+		}
+		else
+		{
+		    if((month == 4 || month == 6 || month == 9 || month == 11)&&(day > 30))
+		    {
+		        throw new ValidationException("Error This month have 30 days");
+		    }
+		    else
+		    {
+		        if(month == 2 && bisiest() && day > 29)
+		        {
+		            throw new ValidationException("Error This month have 29 days");
+		        }
+		        else if (month == 2 && !bisiest() && day > 28)
+		        {
+		            throw new ValidationException("Error This month have 28 days");
+		        }
+		        else
+		        {
+		        	h=true;
+		            
+		        }
+		    }
+		}
+		return h;
+	}
+
+	private boolean isAvalidMonth(int month) {
+		return month >12 && month <1;
+	}
 
     public String formatDate()
     {
