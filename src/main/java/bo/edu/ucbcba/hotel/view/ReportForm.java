@@ -107,7 +107,7 @@ public class ReportForm extends JDialog {
             populateTable1();
             return;
         }
-        if (reportsList.size() == 0) {
+        if (reportsList.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No matches with reports data base", "Error", JOptionPane.INFORMATION_MESSAGE);
             searchField.setText("");
             populateTable1();

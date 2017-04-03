@@ -172,7 +172,7 @@ public class SalonReservationForm extends JDialog {
     }
 
 	private boolean isEmpty(List<SalonReservation> salonList) {
-		return salonList.size() == 0;
+		return salonList.isEmpty();
 	}
 
     {
