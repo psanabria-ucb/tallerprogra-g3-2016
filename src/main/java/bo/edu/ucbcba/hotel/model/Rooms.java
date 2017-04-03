@@ -48,7 +48,7 @@ public class Rooms {
         return type;
     }
 
-    public void setType(String type) {
+    public void setTypeOfRoom(String type) {
         this.type = type;
     }
 
@@ -116,9 +116,7 @@ public class Rooms {
     public void setOrnaments(boolean ornaments) {
         this.ornaments = ornaments;
     }
-    public void settype(String type) {
-        this.type = type;
-    }
+
 
     @Override
     public String toString(){

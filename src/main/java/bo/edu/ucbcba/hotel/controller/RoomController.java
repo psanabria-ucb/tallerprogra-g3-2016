@@ -14,7 +14,7 @@ public class RoomController {
         Rooms room = new Rooms();
 
 
-        room.setType(type);
+        room.setTypeOfRoom(type);
         room.setRoomView(view);
         room.setPhone(phone);
         room.setLiving(living);
@@ -35,7 +35,7 @@ public class RoomController {
         EntityManager entityManager = usersEntityManager.createEntityManager();
         entityManager.getTransaction().begin();
         Rooms room= (Rooms)entityManager.find(Rooms.class ,roomNumber);
-        room.setType(type);
+        room.setTypeOfRoom(type);
         room.setRoomView(view);
         room.setPhone(phone);
         room.setLiving(living);
