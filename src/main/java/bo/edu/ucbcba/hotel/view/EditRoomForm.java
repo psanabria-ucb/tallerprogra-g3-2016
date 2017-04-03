@@ -100,21 +100,21 @@ public class EditRoomForm extends JDialog {
                 AdornoscheckBox.setSelected(true);
             if (s.isMinibar())
                 MiniBarcheckBox.setSelected(true);
-            if (s.getType().equals("Simple"))
+            if ("Simple".equals(s.getType()))
                 RoomType.setSelectedIndex(0);
-            if (s.getType().equals("Double"))
+            if ("Double".equals(s.getType()))
                 RoomType.setSelectedIndex(1);
-            if (s.getType().equals("Presidential"))
+            if ("Presidential".equals(s.getType()))
                 RoomType.setSelectedIndex(2);
-            if (s.getType().equals("Deluxe"))
+            if ("Deluxe".equals(s.getType()))
                 RoomType.setSelectedIndex(3);
-            if (s.getRoomView().equals("Beach"))
+            if ("Beach".equals(s.getRoomView()))
                 RoomView.setSelectedIndex(0);
-            if (s.getRoomView().equals("City"))
+            if ("City".equals(s.getRoomView()))
                 RoomView.setSelectedIndex(1);
-            if (s.getRoomView().equals("Gardens"))
+            if ("Gardens".equals(s.getRoomView()))
                 RoomView.setSelectedIndex(2);
-            if (s.getRoomView().equals("Fields"))
+            if ("Fields".equals(s.getRoomView()))
                 RoomView.setSelectedIndex(3);
         }
     }
