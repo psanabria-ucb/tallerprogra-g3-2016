@@ -170,7 +170,7 @@ public class RoomForm extends JDialog {
             populateTable1();
             return;
         }
-        if (roomsList.size() == 0) {
+        if (roomsList.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No matches with rooms data base", "Error", JOptionPane.INFORMATION_MESSAGE);
             SearchField.setText("");
             populateTable1();

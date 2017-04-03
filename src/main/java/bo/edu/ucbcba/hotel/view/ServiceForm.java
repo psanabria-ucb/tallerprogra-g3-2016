@@ -164,7 +164,7 @@ public class ServiceForm extends JDialog {
             populateTable();
             return;
         }
-        if (servicesList.size() == 0) {
+        if (servicesList.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No matches with services data base ", "Error", JOptionPane.INFORMATION_MESSAGE);
             searchField.setText("");
             populateTable1();
