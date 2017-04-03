@@ -88,7 +88,7 @@ public class SalonReservationForm extends JDialog {
             JOptionPane.showMessageDialog(this, "Please select one room to delete", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
             DefaultTableModel tm = (DefaultTableModel) SalonsTable.getModel();
-            n = ((int) tm.getValueAt(SalonsTable.getSelectedRow(), 0));
+            n = (int) tm.getValueAt(SalonsTable.getSelectedRow(), 0);
 
             try {
                 salonReservationController.DeleteRoom(Integer.toString(n));
