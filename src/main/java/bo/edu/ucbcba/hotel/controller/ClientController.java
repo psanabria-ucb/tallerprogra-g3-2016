@@ -104,7 +104,7 @@ public class ClientController {
         if (CI.isEmpty()) {
             TypedQuery<Clients> query = entityManager.createQuery("select s from Clients s ", Clients.class);
             //query.setParameter("a", a);
-            List<Clients> response = query.getResultList();
+            response = query.getResultList();
             entityManager.close();
             return response;
         }
@@ -113,9 +113,9 @@ public class ClientController {
             ci=Integer.parseInt(CI);
             TypedQuery<Clients> query = entityManager.createQuery("select s from Clients s where s.clientCi = :a ", Clients.class);
             query.setParameter("a", ci);
-            List<Clients> response = query.getResultList();
+            response = query.getResultList();
             entityManager.close();
-            return response;
+            
         }
         if(CI.matches("[a-zA-Z]+")){
             TypedQuery<Clients> query = entityManager.createQuery("select s from Clients s WHERE lower(s.firstName) like :Name OR lower(s.lastName) like :Name", Clients.class);
@@ -125,7 +125,7 @@ public class ClientController {
             
         }
 
-    return null;
+    return response;
 
     }
     public void delete (String q) {
