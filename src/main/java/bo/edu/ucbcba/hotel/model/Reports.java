@@ -77,42 +77,57 @@ public class Reports {
     public void setDate(int day,int month,int year)
     {
         this.anio=year;
-        if(isAvalidMonth(month))
+        if(isValidDate(day, month)){
+        	this.day = day;
+            this.month = month;
+            this.date=formatDate();
+        }
+    }
+
+	private boolean isValidDate(int day, int month) {
+		boolean h=false;
+		if(isAvalidMonth(month))
         {
             throw new ValidationException("Error format Month");
         }
         else
         {
-            if(isAvalidDay(day))
-            {
-                throw new ValidationException("Error format Day");
-            }
-            else
-            {
-                if(areTheDaysAccordingToTheMonth(day, month))
-                {
-                    throw new ValidationException("Error This month have 30 days");
-                }
-                else
-                {
-                    if(isTheDaysAccordingToTheMonthInBisiestYear(day, month))
-                    {
-                        throw new ValidationException("Error This month have 29 days");
-                    }
-                    else if (isTheDaysAccordingToTheMonthInNormalYear(day, month))
-                    {
-                        throw new ValidationException("Error This month have 28 days");
-                    }
-                    else
-                    {
-                        this.day = day;
-                        this.month = month;
-                        this.date=formatDate();
-                    }
-                }
-            }
+            h = isValidTheDay(day, month);
         }
-    }
+		return h;
+	}
+
+	private boolean isValidTheDay(int day, int month) {
+		boolean h=false;
+		if(isAvalidDay(day))
+		{
+		    throw new ValidationException("Error format Day");
+		}
+		else
+		{
+		    if(areTheDaysAccordingToTheMonth(day, month))
+		    {
+		        throw new ValidationException("Error This month have 30 days");
+		    }
+		    else
+		    {
+		        if(isTheDaysAccordingToTheMonthInBisiestYear(day, month))
+		        {
+		            throw new ValidationException("Error This month have 29 days");
+		        }
+		        else if (isTheDaysAccordingToTheMonthInNormalYear(day, month))
+		        {
+		            throw new ValidationException("Error This month have 28 days");
+		        }
+		        else
+		        {
+		        	h=true;
+		            
+		        }
+		    }
+		}
+		return h;
+	}
 
 	private boolean isTheDaysAccordingToTheMonthInNormalYear(int day, int month) {
 		return month == 2 && !bisiest() && day > 28;
