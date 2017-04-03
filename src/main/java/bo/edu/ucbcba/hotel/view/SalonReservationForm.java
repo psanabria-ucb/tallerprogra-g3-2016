@@ -132,6 +132,9 @@ public class SalonReservationForm extends JDialog {
         }
     }
 
+    private void isEmpty(int cantidad) {
+
+    }
     private void populateTable() {
 
         List<SalonReservation> salonList = SalonReservationController.searchSalon(SearchField.getText());
