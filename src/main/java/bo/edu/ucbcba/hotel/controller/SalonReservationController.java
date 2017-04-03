@@ -44,11 +44,9 @@ public class SalonReservationController {
 
     }
     public static List<SalonReservation> searchSalon(String q) {
-        int a=0;
-
+        int a;
         EntityManager entityManager = usersEntityManager.createEntityManager();
         if (q.isEmpty()) {
-            a = 0;
             TypedQuery<SalonReservation> query = entityManager.createQuery("select s from SalonReservation s ", SalonReservation.class);
             //query.setParameter("a", a);
             List<SalonReservation> response = query.getResultList();

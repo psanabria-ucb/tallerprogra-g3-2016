@@ -49,11 +49,10 @@ public class RoomController {
 
     }
     public static List<Rooms> searchRoom(String q) {
-        int a=0;
+        int a;
 
         EntityManager entityManager = usersEntityManager.createEntityManager();
         if (q.isEmpty()) {
-            a = 0;
             TypedQuery<Rooms> query = entityManager.createQuery("select s from Rooms s ", Rooms.class);
             //query.setParameter("a", a);
             List<Rooms> response = query.getResultList();

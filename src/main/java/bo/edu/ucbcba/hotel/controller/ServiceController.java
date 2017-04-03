@@ -50,11 +50,10 @@ public class ServiceController {
         entityManager.close();
     }
     public List<Services> searchService(String q) {
-        int a=0;
+        int a;
 
         EntityManager entityManager = usersEntityManager.createEntityManager();
         if (q.isEmpty()) {
-            a = 0;
             TypedQuery<Services> query = entityManager.createQuery("select s from Services s ", Services.class);
             //query.setParameter("a", a);
             List<Services> response = query.getResultList();
