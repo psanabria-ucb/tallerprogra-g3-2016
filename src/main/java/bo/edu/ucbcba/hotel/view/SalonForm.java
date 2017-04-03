@@ -162,7 +162,7 @@ public class SalonForm extends JDialog {
             populateTable1();
             return;
         }
-        if (roomsList.size() == 0) {
+        if (roomsList.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No matches with salons data base", "Error", JOptionPane.INFORMATION_MESSAGE);
             searchField.setText("");
             populateTable1();

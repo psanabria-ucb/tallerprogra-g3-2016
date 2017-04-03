@@ -156,7 +156,7 @@ public class ClientsForm extends JDialog {
             // populateTable();
             return;
         }
-        if (clientsList.size() == 0) {
+        if (clientsList.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No matches with clients data base", "Error", JOptionPane.INFORMATION_MESSAGE);
             SearchTextField.setText("");
             populateTable1();

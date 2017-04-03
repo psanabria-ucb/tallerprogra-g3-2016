@@ -133,7 +133,7 @@ public class EmployerForm extends JDialog {
             populateTable();
             return;
         }
-        if (servicesList.size() == 0) {
+        if (servicesList.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No matches with employer data base ", "Error", JOptionPane.INFORMATION_MESSAGE);
             textField1.setText("");
             populateTable1();
