@@ -50,7 +50,6 @@ public class RoomController {
     }
     public static List<Rooms> searchRoom(String q) {
         int a;
-
         EntityManager entityManager = usersEntityManager.createEntityManager();
         if (q.isEmpty()) {
             TypedQuery<Rooms> query = entityManager.createQuery("select s from Rooms s ", Rooms.class);
