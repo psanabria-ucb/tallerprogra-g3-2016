@@ -100,31 +100,24 @@ public class ClientController {
     public List<Clients> searchClients(String CI) {
         int ci;
         List<Clients> response=null;
-        if(CI.matches("[0-9]+")){
-            if(CI.isEmpty()) {
-                ci=0;
-            } else {
-                ci=Integer.parseInt(CI);
-            }
-            EntityManager entityManager = usersEntityManager.createEntityManager();
-            if(ci!=0)
-            {
-                TypedQuery<Clients> query = entityManager.createQuery("select s from Clients s where s.clientCi= :ci ", Clients.class);
-                query.setParameter("ci", ci);
-                response = query.getResultList();
-                entityManager.close();
-                
-            }
-            if (ci == 0) {
-                TypedQuery<Clients> query = entityManager.createQuery("select s from Clients s ", Clients.class);
-                //query.setParameter("a", a);
-                response = query.getResultList();
-                entityManager.close();
-                
-            }
+        EntityManager entityManager = usersEntityManager.createEntityManager();
+        if (CI.isEmpty()) {
+            TypedQuery<Clients> query = entityManager.createQuery("select s from Clients s ", Clients.class);
+            //query.setParameter("a", a);
+            List<Clients> response = query.getResultList();
+            entityManager.close();
+            return response;
         }
-        else{
-            EntityManager entityManager = usersEntityManager.createEntityManager();
+
+        if (CI.matches("[0-9]+")){
+            ci=Integer.parseInt(CI);
+            TypedQuery<Clients> query = entityManager.createQuery("select s from Clients s where s.clientCi = :a ", Clients.class);
+            query.setParameter("a", ci);
+            List<Clients> response = query.getResultList();
+            entityManager.close();
+            return response;
+        }
+        if(CI.matches("[a-zA-Z]+")){
             TypedQuery<Clients> query = entityManager.createQuery("select s from Clients s WHERE lower(s.firstName) like :Name OR lower(s.lastName) like :Name", Clients.class);
             query.setParameter("Name", "%" + CI.toLowerCase() + "%");
             response = query.getResultList();
@@ -132,7 +125,7 @@ public class ClientController {
             
         }
 
-       return response;
+    return null;
 
     }
     public void delete (String q) {
