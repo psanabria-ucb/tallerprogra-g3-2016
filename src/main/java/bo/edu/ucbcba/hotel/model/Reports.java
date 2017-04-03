@@ -77,29 +77,29 @@ public class Reports {
     public void setDate(int day,int month,int year)
     {
         this.anio=year;
-        if(month >12 && month <1)
+        if(isAvalidMonth(month))
         {
             throw new ValidationException("Error format Month");
         }
         else
         {
-            if(day > 31 && day<1)
+            if(isAvalidDay(day))
             {
                 throw new ValidationException("Error format Day");
             }
             else
             {
-                if((month == 4 || month == 6 || month == 9 || month == 11)&&(day > 30))
+                if(areTheDaysAccordingToTheMonth(day, month))
                 {
                     throw new ValidationException("Error This month have 30 days");
                 }
                 else
                 {
-                    if(month == 2 && bisiest() && day > 29)
+                    if(isTheDaysAccordingToTheMonthInBisiestYear(day, month))
                     {
                         throw new ValidationException("Error This month have 29 days");
                     }
-                    else if (month == 2 && !bisiest() && day > 28)
+                    else if (isTheDaysAccordingToTheMonthInNormalYear(day, month))
                     {
                         throw new ValidationException("Error This month have 28 days");
                     }
@@ -113,6 +113,26 @@ public class Reports {
             }
         }
     }
+
+	private boolean isTheDaysAccordingToTheMonthInNormalYear(int day, int month) {
+		return month == 2 && !bisiest() && day > 28;
+	}
+
+	private boolean isTheDaysAccordingToTheMonthInBisiestYear(int day, int month) {
+		return month == 2 && bisiest() && day > 29;
+	}
+
+	private boolean areTheDaysAccordingToTheMonth(int day, int month) {
+		return (month == 4 || month == 6 || month == 9 || month == 11)&&(day > 30);
+	}
+
+	private boolean isAvalidDay(int day) {
+		return day > 31 && day<1;
+	}
+
+	private boolean isAvalidMonth(int month) {
+		return month >12 && month <1;
+	}
 
     public String formatDate()
     {
