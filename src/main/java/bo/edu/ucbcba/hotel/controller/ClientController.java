@@ -99,6 +99,7 @@ public class ClientController {
 
     public List<Clients> searchClients(String CI) {
         int ci;
+        List<Clients> response=null;
         if(CI.matches("[0-9]+")){
             if(CI.isEmpty()) {
                 ci=0;
@@ -110,28 +111,28 @@ public class ClientController {
             {
                 TypedQuery<Clients> query = entityManager.createQuery("select s from Clients s where s.clientCi= :ci ", Clients.class);
                 query.setParameter("ci", ci);
-                List<Clients> response = query.getResultList();
+                response = query.getResultList();
                 entityManager.close();
-                return response;
+                
             }
             if (ci == 0) {
                 TypedQuery<Clients> query = entityManager.createQuery("select s from Clients s ", Clients.class);
                 //query.setParameter("a", a);
-                List<Clients> response = query.getResultList();
+                response = query.getResultList();
                 entityManager.close();
-                return response;
+                
             }
         }
         else{
             EntityManager entityManager = usersEntityManager.createEntityManager();
             TypedQuery<Clients> query = entityManager.createQuery("select s from Clients s WHERE lower(s.firstName) like :Name OR lower(s.lastName) like :Name", Clients.class);
             query.setParameter("Name", "%" + CI.toLowerCase() + "%");
-            List<Clients> response = query.getResultList();
+            response = query.getResultList();
             entityManager.close();
-            return response;
+            
         }
 
-       return null;
+       return response;
 
     }
     public void delete (String q) {

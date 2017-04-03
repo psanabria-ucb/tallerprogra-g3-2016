@@ -50,34 +50,34 @@ public class RoomController {
     }
     public static List<Rooms> searchRoom(String q) {
         int a;
-
+        List<Rooms> response = null;
         EntityManager entityManager = usersEntityManager.createEntityManager();
         if (q.isEmpty()) {
             TypedQuery<Rooms> query = entityManager.createQuery("select s from Rooms s ", Rooms.class);
             //query.setParameter("a", a);
-            List<Rooms> response = query.getResultList();
+            response = query.getResultList();
             entityManager.close();
-            return response;
+            
         }
         if(q.matches("[0-9]+"))
         {
             a=Integer.parseInt(q);
             TypedQuery<Rooms> query = entityManager.createQuery("select s from Rooms s where s.roomNumber= :a ", Rooms.class);
             query.setParameter("a", a);
-            List<Rooms> response = query.getResultList();
+            response = query.getResultList();
             entityManager.close();
-            return response;
+            
         }
         if(q.matches("[a-zA-Z]+"))
         {
             TypedQuery<Rooms> query = entityManager.createQuery("select s from Rooms s where lower(s.type) like :typo or lower(s.roomView) like :typo ", Rooms.class);
             query.setParameter("typo", "%" + q.toLowerCase() + "%");
-            List<Rooms> response = query.getResultList();
+            response = query.getResultList();
             entityManager.close();
-            return response;
+            
         }
 
-        return null;
+        return response;
     }
     public static List<Rooms> getRoom(int num){
         EntityManager entityManager = usersEntityManager.createEntityManager();

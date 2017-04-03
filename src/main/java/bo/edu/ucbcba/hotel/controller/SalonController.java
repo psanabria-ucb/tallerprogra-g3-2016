@@ -20,35 +20,34 @@ public class SalonController {
     }
     public static List<Salons> searchSalon(String q) {
         int a;
-
+        List<Salons> response = null;
         EntityManager entityManager = usersEntityManager.createEntityManager();
         if (q.isEmpty()) {
 
             TypedQuery<Salons> query = entityManager.createQuery("select s from Salons s ", Salons.class);
             //query.setParameter("a", a);
-            List<Salons> response = query.getResultList();
+            response = query.getResultList();
             entityManager.close();
-            return response;
         }
         if(q.matches("[0-9]+"))
         {
             a=Integer.parseInt(q);
             TypedQuery<Salons> query = entityManager.createQuery("select s from Salons s where s.capacity= :a or s.id= :a", Salons.class);
             query.setParameter("a", a);
-            List<Salons> response = query.getResultList();
+            response = query.getResultList();
             entityManager.close();
-            return response;
+            
         }
         if(q.matches("[a-zA-Z]+"))
         {
             TypedQuery<Salons> query = entityManager.createQuery("select s from Salons s where lower(s.name) like :typo ", Salons.class);
             query.setParameter("typo", "%" + q.toLowerCase() + "%");
-            List<Salons> response = query.getResultList();
+            response = query.getResultList();
             entityManager.close();
-            return response;
+           
         }
 
-        return null;
+        return response;
     }
 
     public void DeleteSalon(String q)

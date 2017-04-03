@@ -57,12 +57,11 @@ public class ReportsController {
         int a;
         EntityManager entityManager = usersEntityManager.createEntityManager();
         TypedQuery<Reports> query;
-        List<Reports> response;
+        List<Reports> response = null;
         if (q.isEmpty()) {
            query = entityManager.createQuery("select s from Reports s", Reports.class);
            response = query.getResultList();
             entityManager.close();
-            return response;
         }
         if(q.matches("[0-9]+"))
         {
@@ -71,7 +70,7 @@ public class ReportsController {
             query.setParameter("a", a);
             response = query.getResultList();
             entityManager.close();
-            return response;
+            
         }
         if(q.matches("[a-zA-Z]+"))
         {
@@ -79,10 +78,10 @@ public class ReportsController {
             query.setParameter("type", "%" + q.toLowerCase() + "%");
              response = query.getResultList();
             entityManager.close();
-            return response;
+            
         }
 
-        return null;
+        return response;
     }
 
     public static List<Reports> getReport(int num){
